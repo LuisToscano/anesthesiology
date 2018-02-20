@@ -1,0 +1,8 @@
+:host ::ng-deep a {
+    color: #b88609;
+    text-decoration: none;
+    &:hover{
+        color: #799A86;
+        text-decoration: underline;
+    }
+}

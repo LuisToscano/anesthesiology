@@ -3,6 +3,21 @@
     .container{
         width: 48%;
         margin: 0 auto;
-        background: red;
+        display: flex;
+        flex-direction: row;
+        .iconset{
+            flex: 1;
+            flex-direction: row;
+            align-items: center;
+            display: flex;
+        }
+        .text{
+            flex: 5;
+            font-size: 11.5px;
+            color: #999;
+            font-family: sans-serif;
+            text-align: center;
+            font-weight: bold;
+        }
     }
-}
+} 
