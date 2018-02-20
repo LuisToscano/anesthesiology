@@ -1,0 +1,1 @@
+<course-column *ngFor='let col of cols; trackBy: index;' [component]="col.component" [ngStyle]="{'flex': col.flex}"></course-column>

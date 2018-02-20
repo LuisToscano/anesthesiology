@@ -1,0 +1,41 @@
+:host{
+    flex-direction: column;
+    flex: 1;
+    background: #D9EDE0;
+    .layout-demo{
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        flex: 1;
+
+        course-breadcrumb-a{
+            display: flex;
+            margin-top: 20px;
+            flex: 1;
+        }
+
+        menu-bar-a{
+            display: flex;
+            margin-top: 15px;
+            flex: 1;
+        }
+
+        course-container-a{
+            display: flex;
+            margin-top: 20px;
+            flex: 20;
+        }
+
+        menu-bar-b{
+            display: flex;
+            margin-top: 13px;
+            flex: 1.3;
+        }
+
+        copyright-bar-a{
+            display: flex;
+            margin: 5px 0 10px 0;
+            flex: 2;
+        }
+    }
+}

@@ -1,0 +1,8 @@
+<div class="container">
+    <div class="menu-element" [ngClass]="element.isActive ? 'is-active' : ''"  *ngFor="let element of elements">
+        <div class="menu-element-content">
+            <span>{{element.text}}</span>
+        </div>
+    </div>
+</div>
+

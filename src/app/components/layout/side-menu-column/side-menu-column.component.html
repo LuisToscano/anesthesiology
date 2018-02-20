@@ -1,0 +1,4 @@
+<div [ngClass]="{'active': sideMenu.getVisible()}">
+  <div class="side-menu-column"></div>
+  <div class="side-menu-shadow" (click)="sideMenu.toggleVisible()"></div>
+<div>
