@@ -24,6 +24,7 @@ import { MenuBarAComponent } from './components/layout/menu-bar-a/menu-bar-a.com
 import { MenuBarBComponent } from './components/layout/menu-bar-b/menu-bar-b.component';
 import { CourseContainerAComponent } from './components/layout/course-container-a/course-container-a.component';
 import { CopyrightBarAComponent } from './components/layout/copyright-bar-a/copyright-bar-a.component';
+import { NavBarAComponent } from './components/layout/nav-bar-a/nav-bar-a.component';
 
 //services
 import { CourseContentService } from './core/services/course-content.service';
@@ -45,12 +46,16 @@ import { SideMenuService } from './core/services/side-menu.service';
     MenuBarAComponent,
     MenuBarBComponent,
     CourseContainerAComponent,
-    CopyrightBarAComponent
+    CopyrightBarAComponent,
+    NavBarAComponent
   ],
   imports: [
     BrowserModule
   ],
-  providers: [CourseContentService, SideMenuService],
+  providers: [
+    CourseContentService,
+    SideMenuService
+  ],
   bootstrap: [AppComponent],
   entryComponents: [
     ParagraphComponent
