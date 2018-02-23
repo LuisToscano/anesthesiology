@@ -2,41 +2,49 @@
     display: flex;
     flex: 1;
     flex-direction: column;
-    padding: 20px;
+    padding: 10px;
     max-height: 100px;
     .where{
         flex-direction: row;
         flex: 1;
         background-color: #d8ecdf;
+        color: #666;
         align-items: center;
         border-radius: 5px;
         font-size: 12px;
         font-family: sans-serif;
+        max-height: 25px;
         .prefix{
             font-weight: bold;
             margin-left: 10px;
         }
-        margin-bottom: 5px;
+        margin-bottom: 10px;
     }
     .navigation{
         flex-direction: row;
         flex: 3;
         font-family: sans-serif;
+        border-bottom: 1px dotted #6b8375;
+        max-height: 35px;
+        padding-bottom: 10px;
         .title{
             flex: 1;
             font-size: 24px;
+            color: #6b8375;
+            flex-direction: row;
+            align-items: center;
         }
         .nav{
             flex: 1;
             flex-direction: column;
             align-items: flex-end;
-            max-height: 35px;
             .nav-container{
                 flex-direction: row;
                 flex: 1;
                 .before, .after{
                     align-items: center;
                     color: #f0b31c;
+                    font-size: 13px;
                     span{
                         color: #6b8275;
                     }
@@ -78,6 +86,7 @@
                     margin: 0 8px;
                     max-width: 70px;
                     .inner{
+                        font-size: 13px;
                         background: #EFEFEF;
                         border-radius: 5px;
                         color: #0b4373;

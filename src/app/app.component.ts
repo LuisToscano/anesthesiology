@@ -3,7 +3,7 @@ import { CourseRow } from './core/classes/course-row.class';
 import { CourseColumn } from './core/classes/course-column.class';
 import { Layout } from './core/classes/layout.class';
 import { ParagraphComponent } from './components/basic/paragraph/paragraph.component';
-import { CourseContentService } from './core/services/course-content.service';
+import { CourseContentProvider } from './core/providers/course-content.provider';
 
 @Component({
   selector: 'app-root',
@@ -13,7 +13,7 @@ import { CourseContentService } from './core/services/course-content.service';
 export class AppComponent implements OnInit{
   title = 'app';
 
-  constructor(private courseContent : CourseContentService) { }
+  constructor(private courseContent : CourseContentProvider) { }
 
   ngOnInit(){
     let layout = new Layout();

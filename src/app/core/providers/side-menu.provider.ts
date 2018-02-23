@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core';
 
 @Injectable()
-export class SideMenuService {
+export class SideMenuProvider {
   private isVisible : any;
 
   public toggleVisible() {

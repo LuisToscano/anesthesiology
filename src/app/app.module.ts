@@ -27,8 +27,8 @@ import { CopyrightBarAComponent } from './components/layout/copyright-bar-a/copy
 import { NavBarAComponent } from './components/layout/nav-bar-a/nav-bar-a.component';
 
 //services
-import { CourseContentService } from './core/services/course-content.service';
-import { SideMenuService } from './core/services/side-menu.service';
+import { CourseContentProvider } from './core/providers/course-content.provider';
+import { SideMenuProvider } from './core/providers/side-menu.provider';
 
 @NgModule({
   declarations: [
@@ -53,8 +53,8 @@ import { SideMenuService } from './core/services/side-menu.service';
     BrowserModule
   ],
   providers: [
-    CourseContentService,
-    SideMenuService
+    CourseContentProvider,
+    SideMenuProvider
   ],
   bootstrap: [AppComponent],
   entryComponents: [
