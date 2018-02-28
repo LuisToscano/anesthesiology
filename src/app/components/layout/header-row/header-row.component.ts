@@ -1,5 +1,5 @@
 import { Component, OnInit,   Input } from '@angular/core';
-import { SideMenuService } from '../../../core/services/side-menu.service';
+import { SideMenuProvider } from '../../../core/providers/side-menu.provider';
 
 @Component({
   selector: 'header-row',
@@ -8,7 +8,7 @@ import { SideMenuService } from '../../../core/services/side-menu.service';
 })
 export class HeaderRowComponent implements OnInit {
   @Input() title: string;
-  constructor(private sideMenu : SideMenuService) {}
+  constructor(private sideMenu : SideMenuProvider) {}
 
   ngOnInit() {
   }

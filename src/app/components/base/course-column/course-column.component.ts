@@ -9,7 +9,7 @@ import { ColumnContent } from '../../../core/interfaces/column-content.interface
 })
 export class CourseColumnComponent implements AfterViewInit {
   
-  @Input() component: any;
+  @Input() componentInner: any;
   @ViewChild(ColumnContentComponent) columnContent: ColumnContentComponent;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
@@ -19,11 +19,11 @@ export class CourseColumnComponent implements AfterViewInit {
   }
 
   loadComponent() {
-    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.component);
+    let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.componentInner.component);
     let viewContainerRef = this.columnContent.viewContainerRef;
     viewContainerRef.clear();
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<ColumnContent>componentRef.instance).data = {};
+    (<ColumnContent>componentRef.instance).data = this.componentInner.data;
   }
 }

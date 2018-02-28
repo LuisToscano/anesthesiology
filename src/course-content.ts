@@ -8,10 +8,10 @@ export const courseContent : Array<Sections> = [{
         rows: [{
             cols: [{
                 component: ParagraphComponent,
-                data: {
-                    text: '',
+                data: [{
+                    text: 'Este es un pequeño texto de prueba',
                     args: {}
-                }
+                }]
             }]
         }]
     }]

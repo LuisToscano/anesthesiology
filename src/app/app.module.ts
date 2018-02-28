@@ -29,6 +29,7 @@ import { NavBarAComponent } from './components/layout/nav-bar-a/nav-bar-a.compon
 //services
 import { CourseContentProvider } from './core/providers/course-content.provider';
 import { SideMenuProvider } from './core/providers/side-menu.provider';
+import { NavigationProvider } from './core/providers/navigation.provider';
 
 @NgModule({
   declarations: [
@@ -54,7 +55,8 @@ import { SideMenuProvider } from './core/providers/side-menu.provider';
   ],
   providers: [
     CourseContentProvider,
-    SideMenuProvider
+    SideMenuProvider,
+    NavigationProvider
   ],
   bootstrap: [AppComponent],
   entryComponents: [

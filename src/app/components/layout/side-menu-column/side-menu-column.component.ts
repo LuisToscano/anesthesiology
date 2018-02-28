@@ -1,5 +1,5 @@
 import { Component, OnInit} from '@angular/core';
-import { SideMenuService } from '../../../core/services/side-menu.service'
+import { SideMenuProvider } from '../../../core/providers/side-menu.provider';
 
 @Component({
   selector: 'side-menu-column',
@@ -7,6 +7,6 @@ import { SideMenuService } from '../../../core/services/side-menu.service'
   styleUrls: ['./side-menu-column.component.scss']
 })
 export class SideMenuColumnComponent implements OnInit {
-  constructor(private sideMenu : SideMenuService) { }
+  constructor(private sideMenu : SideMenuProvider) { }
   ngOnInit() {}
 }

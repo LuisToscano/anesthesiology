@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
-import {CourseRow} from '../../../core/classes/course-row.class';
-import { Layout } from '../../../core/classes/layout.class';
-import { CourseContentProvider } from '../../../core/providers/course-content.provider';
+import { CourseRow} from '../../../core/classes/course-row.class';
+import { CourseSlide } from '../../../core/classes/course-slide.class';
+import { NavigationProvider } from '../../../core/providers/navigation.provider';
 
 @Component({
   selector: 'course-content',
@@ -11,17 +11,16 @@ import { CourseContentProvider } from '../../../core/providers/course-content.pr
 export class CourseContentComponent implements OnInit{
 
   rows: CourseRow[];
-  slideContent : Layout;
+  slideContent : CourseSlide;
   @Input() position: string;
 
-  constructor(private courseContentProvider : CourseContentProvider) {
+  constructor(private navigation : NavigationProvider) {
     this.rows = [];
-    this.slideContent = courseContentProvider.slide('1-1');
   }
 
   ngOnInit(){
-    console.log(this.slideContent);
-    this.rows = this.slideContent.rows;
+    this.slideContent = this.navigation.getCurrentSlide();
+    this.rows = this.slideContent.getRows();
   }
 
 }

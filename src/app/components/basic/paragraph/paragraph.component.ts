@@ -16,7 +16,8 @@ export class ParagraphComponent implements OnInit {
     }
   };
 
-  paragraphs : Array<{ text : string, args? : ParagraphObj }> = [{
+  data : Array<{ text : string, args? : ParagraphObj }>;
+  /*[{
     text: 'Este recurso educativo digital está bajo una %(a)',
     args: {
       a: {
@@ -29,11 +30,9 @@ export class ParagraphComponent implements OnInit {
     }
   }, {
     text: 'Además, tiene algunos derechos reservados a sus autores y colaboradores.'
-  }];
+  }];*/
 
-  constructor() {
-    _.forEach(this.paragraphs, this.processParagraphs.bind(this));
-  }
+  constructor() {}
 
   private processParagraphs(paragraph) {
     let modifiedText = paragraph.text;
@@ -56,7 +55,10 @@ export class ParagraphComponent implements OnInit {
            options[injectArgs.type](injectArgs.data) : '';
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+    console.log(this.data);
+    _.forEach(this.data, this.processParagraphs.bind(this));
+  }
 }
 
 interface Paragraph {
