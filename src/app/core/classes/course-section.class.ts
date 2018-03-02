@@ -2,12 +2,22 @@ import { CourseSlide } from './course-slide.class';
 import * as _ from "lodash";
 
 export class CourseSection {
+    private id: string;
     private name: string;
     private slides: Array<CourseSlide>;
 
-    constructor(name: string){
+    constructor(id: string, name: string){
+      this.id = id;
       this.name = name;
       this.slides = [];
+    }
+
+    getName() {
+        return this.name;
+    }
+
+    getId() {
+        return this.id;
     }
 
     getSlides() {

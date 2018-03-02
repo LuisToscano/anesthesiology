@@ -1,4 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { NavigationProvider } from '../../../core/providers/navigation.provider';
+import { MenuBarElement } from '../../../core/interfaces/menu-bar-element.interface';
+import * as _ from "lodash";
 
 @Component({
   selector: 'menu-bar-a',
@@ -7,25 +10,19 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuBarAComponent implements OnInit {
   
-  elements : Array<{ class : String, text: String, isActive : Boolean }> = [
-    {
-      class: 'fa-home',
-      text: 'Inicio',
-      isActive: true
-    }, {
-      class: 'fa-bullseye',
-      text: 'Objetivos',
-      isActive: false
-    }, {
-      class: 'fa-power-off',
-      text: 'Introducción',
-      isActive: false
-    }, {
-      class: 'fa-table',
-      text: 'Tabla de contenido',
-      isActive: false
-    }
-  ];
+  @Input() elements : Array<MenuBarElement>;
+  constructor(private navigation : NavigationProvider) {}
+
+  menuBarElementClicked(el : MenuBarElement) {
+    _.map(this.elements, elem => {
+      elem.isActive = false;
+      return elem;
+    });
+    el.isActive = true;
+    el.onClick();
+  }
   
-  ngOnInit() {}
+  ngOnInit() {
+    _.first(this.elements).isActive = true;
+  }
 }

@@ -7,6 +7,8 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class CourseBreadcrumbAComponent implements OnInit {
   constructor() {}
+  @Input() unit : number;
+  @Input() unitName : string;
 
   ngOnInit() {}
 }

@@ -1,4 +1,8 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { NavPosition } from '../../core/providers/navigation.provider';
+import { CourseInfo } from '../../../course.info';
+import { CourseContentProvider } from '../../core/providers/course-content.provider';
+import { MenuBarElement } from '../../core/interfaces/menu-bar-element.interface';
 
 @Component({
   selector: 'layout-demo',
@@ -7,7 +11,13 @@ import { Component, OnInit } from '@angular/core';
 })
 export class LayoutDemoComponent implements OnInit {
 
-  constructor() { }
+  @Input() navPosition : NavPosition;
+  @Input() topMenuBar : Array<MenuBarElement>;
+  courseInfo : any;
+
+  constructor(courseContent : CourseContentProvider) {
+    this.courseInfo = CourseInfo;
+  }
 
   ngOnInit() {
   }

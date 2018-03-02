@@ -1,1 +1,1 @@
-<course-row *ngFor='let row of rows; trackBy: index;' [ngStyle]="{'flex': row.flex}" [cols]="row.cols"></course-row>
+<course-row *ngFor='let row of getRows(); trackBy: index;' [ngStyle]="{'flex': row.flex}" [cols]="row.cols"></course-row>

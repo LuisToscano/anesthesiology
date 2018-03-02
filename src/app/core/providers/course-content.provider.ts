@@ -1,8 +1,4 @@
 import { Injectable } from '@angular/core';
-import { CourseRow } from '../classes/course-row.class';
-import { CourseColumn } from '../classes/course-column.class';
-import { CourseSlide } from '../classes/course-slide.class';
-import { ParagraphComponent } from '../../components/basic/paragraph/paragraph.component';
 import { courseContent } from '../../../course-content';
 import { CourseSection } from '../classes/course-section.class';
 import * as _ from "lodash";
@@ -17,7 +13,7 @@ export class CourseContentProvider {
 
   init(){
     _.forEach(courseContent, section => {
-        let newSection = new CourseSection(section.name).createSlides(section.slides.length);
+        let newSection = new CourseSection(section.id, section.name).createSlides(section.slides.length);
         _.forEach(newSection.getSlides(), (slide, idx) => {
             slide.setRows(section.slides[idx].rows.length);
             _.forEach(slide.getRows(), (row, idy) => {

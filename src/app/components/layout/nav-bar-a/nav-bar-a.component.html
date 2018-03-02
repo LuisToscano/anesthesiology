@@ -1,16 +1,16 @@
 <div class="where">
-   <span class="prefix">Está en:</span> Inicio
+   <span class="prefix">Está en:</span> {{getSectionName()}}
 </div>
 <div class="navigation">
-    <div class="title"> Inicio </div>
+    <div class="title"> {{getSectionName()}} </div>
     <div class="nav">
         <div class="nav-container">
-            <div class="before">
-                <div class="wrapper"><div><i class="fas fa-4x fa-angle-left"></i> <span>Anterior</span></div></div>
+            <div class="before" *ngIf="!isFirstSlide()">
+                <div class="wrapper" (click)="previous()"><div><i class="fas fa-4x fa-angle-left"></i> <span>Anterior</span></div></div>
             </div>
-            <div class="position"> <div class="inner"> 1 / 4 </div> </div>
-            <div class="after">
-            <div class="wrapper"><div><span>Siguiente</span><i class="fas fa-4x fa-angle-right"></i></div></div>
+            <div class="position"> <div class="inner"> {{navPosition.slide + 1}} / {{navPosition.totalSlides}} </div> </div>
+            <div class="after" *ngIf="!isLastSlide()" (click)="previous()">
+                <div class="wrapper" (click)="next()"><div><span>Siguiente</span><i class="fas fa-4x fa-angle-right"></i></div></div>
             </div>
         </div>
     </div>
