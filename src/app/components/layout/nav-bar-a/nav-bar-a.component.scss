@@ -27,10 +27,14 @@
         border-bottom: 1px dotted #6b8375;
         max-height: 35px;
         padding-bottom: 10px;
-        .title{
+        title{
+            &::ng-deep h1{
+                font-size: 24px;
+                font-weight: normal;
+                color: #6b8375;
+            }
+            display: flex;
             flex: 1;
-            font-size: 24px;
-            color: #6b8375;
             flex-direction: row;
             align-items: center;
         }

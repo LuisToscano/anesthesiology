@@ -13,11 +13,23 @@ export class CourseContentProvider {
 
   init(){
     _.forEach(courseContent, section => {
-        let newSection = new CourseSection(section.id, section.name).createSlides(section.slides.length);
+        let newSection = new CourseSection(section.id, section.name, section.icon)
+        .createSlides(section.slides.length);
         _.forEach(newSection.getSlides(), (slide, idx) => {
-            slide.setRows(section.slides[idx].rows.length);
+            let rows = _.find(section.slides[idx].rows, row => {
+                return Number.isInteger(row.flex);
+            }) ? _.map(section.slides[idx].rows, row => {
+                return Number.isInteger(row.flex) ? row.flex : 1;
+            }) : section.slides[idx].rows.length;
+            slide.setRows(rows);
+            slide.setStyle(section.slides[idx].style);
             _.forEach(slide.getRows(), (row, idy) => {
-                row.setCols(section.slides[idx].rows[idy].cols.length);
+                let cols = _.find(section.slides[idx].rows[idy].cols,
+                    col => { return Number.isInteger(col.flex);}) ?
+                _.map(section.slides[idx].rows[idy].cols, col => {
+                    return Number.isInteger(col.flex) ? col.flex : 1;
+                }) : section.slides[idx].rows[idy].cols.length;
+                row.setCols(cols);
                 _.forEach(row.getCols(), (col, idz) => {
                     let colData = section.slides[idx].rows[idy].cols[idz];
                     col.setContent(colData.component, colData.data);

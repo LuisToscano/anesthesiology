@@ -3,6 +3,7 @@ import { NavPosition } from '../../core/providers/navigation.provider';
 import { CourseInfo } from '../../../course.info';
 import { CourseContentProvider } from '../../core/providers/course-content.provider';
 import { MenuBarElement } from '../../core/interfaces/menu-bar-element.interface';
+import { ParagraphData } from '../../components/basic/paragraph/paragraph.component';
 
 @Component({
   selector: 'layout-demo',
@@ -13,13 +14,14 @@ export class LayoutDemoComponent implements OnInit {
 
   @Input() navPosition : NavPosition;
   @Input() topMenuBar : Array<MenuBarElement>;
+  @Input() bottomMenuBar : Array<MenuBarElement>;
+  @Input() copyright : Array<ParagraphData>;
   courseInfo : any;
 
   constructor(courseContent : CourseContentProvider) {
     this.courseInfo = CourseInfo;
   }
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
 }

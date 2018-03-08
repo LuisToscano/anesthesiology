@@ -1,8 +1,8 @@
 <div class="container">
     <div class="menu-element"
-    [ngClass]="element.isActive ? 'is-active' : ''"
+    [ngClass]="element.isActive() ? 'is-active' : ''"
     *ngFor="let element of elements;"
-    (click)="menuBarElementClicked(element)">
+    (click)="element.onClick()">
         <div class="menu-element-content">
             <i class="fas fa-lg" [ngClass]="element.iconClass"></i>
             <span>{{element.text}}</span>

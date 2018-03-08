@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 import * as _ from "lodash";
 
 @Component({
@@ -7,7 +7,6 @@ import * as _ from "lodash";
   styleUrls: ['./paragraph.component.scss']
 })
 export class ParagraphComponent implements OnInit {
-
   private readonly argRegex = /%\([A-z]*\)/;
   private readonly htmlTags = {
     paragraph: {
@@ -16,25 +15,13 @@ export class ParagraphComponent implements OnInit {
     }
   };
 
-  data : Array<{ text : string, args? : ParagraphObj }>;
-  /*[{
-    text: 'Este recurso educativo digital está bajo una %(a)',
-    args: {
-      a: {
-        type: 'link',
-        data: {
-          innerText: 'licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 2.5 Colombia',
-          href: 'http://creativecommons.org/licenses/by-nc-nd/2.5/co/deed.es_ES'
-        }
-      }
-    }
-  }, {
-    text: 'Además, tiene algunos derechos reservados a sus autores y colaboradores.'
-  }];*/
+  @Input() attributeData : Array<ParagraphData>;
+  data : Array<ParagraphData>;
+  paragraphs : Array<ParagraphData>;
 
   constructor() {}
 
-  private processParagraphs(paragraph) {
+  private processParagraphs(paragraph : ParagraphData) {
     let modifiedText = paragraph.text;
     let matches = paragraph.text.match(this.argRegex);
     _.forEach(matches, match => {
@@ -56,8 +43,8 @@ export class ParagraphComponent implements OnInit {
   }
 
   ngOnInit() {
-    console.log(this.data);
-    _.forEach(this.data, this.processParagraphs.bind(this));
+    this.paragraphs = this.attributeData ? this.attributeData : this.data;
+    _.forEach(this.paragraphs, this.processParagraphs.bind(this));
   }
 }
 
@@ -73,4 +60,10 @@ interface ParagraphLinkInjection {
 
 interface ParagraphObj {
     [key: string]: Paragraph
+}
+
+export interface ParagraphData {
+  text : string,
+  args ?: ParagraphObj,
+  innerHtml ?: string
 }

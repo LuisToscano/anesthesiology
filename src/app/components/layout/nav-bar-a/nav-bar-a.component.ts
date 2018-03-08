@@ -21,6 +21,10 @@ export class NavBarAComponent implements OnInit {
     return this.navPosition.section.getName();
   }
 
+  getSectionIcon() {
+    return this.navPosition.section.getIcon();
+  }
+
   previous() {
     this.navigation.previousSlide();
   }
@@ -31,5 +35,9 @@ export class NavBarAComponent implements OnInit {
 
   isLastSlide() {
     return this.navPosition.slide === (this.navPosition.totalSlides - 1);
+  }
+
+  hasOnlyOneSlide() {
+    return this.navPosition.totalSlides === 1;
   }
 }

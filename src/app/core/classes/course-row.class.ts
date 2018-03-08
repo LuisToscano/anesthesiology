@@ -3,11 +3,11 @@ import * as _ from "lodash";
 
 export class CourseRow {
     private cols : CourseColumn[];
-    private flex : number;
+    private flex : number | string;
 
     constructor(flex? : number) {
         this.cols = [];
-        this.flex = flex ? flex : null;
+        this.flex = flex === 0 ? 'none' : flex;
     }
 
     getCols() {

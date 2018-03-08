@@ -1,6 +1,6 @@
 export interface MenuBarElement{
     iconClass : string;
     text: string;
-    isActive : boolean;
+    isActive : () => boolean;
     onClick : () => void;
 }

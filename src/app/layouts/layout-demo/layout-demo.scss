@@ -1,3 +1,50 @@
+@import './course.variables';
+
+//banner unal A
+$banner_unal_a_headerColor: #666666 !default;
+$banner_unal_a_textColor: #FEFAC7 !default;
+$banner_unal_a_textBackground: #8EBB9F !default;
+$banner_unal_a_background: '/assets/img/banner-bg.png' !default;
+$banner_unal_a_logoBack: '/assets/img/sealBack.png' !default;
+
+//copyright
+$copyright_textColor: #999 !default;
+$copyright_linkColor: #799A86 !default;
+$copyright_linkHover: #B88609 !default;
+
+//course-breadcrumb-a
+$course_breadcrumb_a_outerBackground: #F0EDC8 !default;
+$course_breadcrumb_a_innerBackground: #FCFAE0 !default;
+$course_breadcrumb_a_textColor: #558265 !default;
+$course_breadcrumb_a_shadowColor: #DCDAB1 !default;
+
+//course-container
+$course_container_background: #FFF !default;
+$course_container_borderColor: #77BB9E !default;
+
+//menu-bar-a
+$m: #F0B31C;
+$n: #FFF;
+$o: #79A088;
+$p: #D5D11F;
+$q: #558265;
+
+//menu-bar-b
+$r: #E7E7E7;
+$s: #698373;
+$t: #666666;
+$u: #FFF;
+
+//nav-bar-a
+$v: #D8ECDF;
+$w: #666;
+$x: #6B8375;
+$y: #F0B31C;
+$z: #6b8275;
+$aa:#D5D11F;
+$bb: #EFEFEF;
+$cc: #0b4373;
+
 :host{
     flex-direction: column;
     flex: 1;
@@ -8,10 +55,52 @@
         height: 100%;
         flex: 1;
 
+        banner-unal-a{
+            height: 1px !important;
+            & ::ng-deep {
+                &.gray-space{
+                    background-color: $banner_unal_a_headerColor !important;
+                }
+
+                &.main {
+                    background: url($banner_unal_a_background) !important;
+                    .content{
+                        .text{
+                            background: $banner_unal_a_textBackground !important;
+                            .title, .subtitle{
+                                color: $banner_unal_a_textColor !important;
+                            }
+                            .separator{
+                                background: $banner_unal_a_textColor !important;
+                            }
+                        }
+                    }
+                }
+
+                &.unal-logo-container{
+                    background: url($banner_unal_a_logoBack) !important;
+                }
+            }
+        }
+
         course-breadcrumb-a{
             display: flex;
             margin-top: 20px;
             flex: 1;
+            & ::ng-deep {
+                .container{
+                    background: $course_breadcrumb_a_outerBackground !important;
+                    .content{
+                        background: $course_breadcrumb_a_innerBackground !important;
+                        .breadcrumb{
+                            color: $course_breadcrumb_a_textColor !important;
+                        }
+                        .volume-shadow{
+                            border-bottom-color: 12px solid $course_breadcrumb_a_shadowColor;
+                        }
+                    }
+                }
+            }
         }
 
         menu-bar-a{
@@ -24,6 +113,14 @@
             display: flex;
             margin-top: 20px;
             flex: 20;
+            & ::ng-deep {
+                .container{
+                    .content{
+                        background: $course_container_background !important;
+                        border-color: $course_container_borderColor !important;
+                    }
+                }
+            }
         }
 
         menu-bar-b{
@@ -36,6 +133,21 @@
             display: flex;
             margin: 5px 0 10px 0;
             flex: 2;
+            & ::ng-deep {
+                .container{
+                    .text{
+                        color: $copyright_textColor !important;
+                        a {
+                            color: #b88609;
+                            text-decoration: none;
+                            &:hover{
+                                color: #799A86;
+                                text-decoration: underline;
+                            }
+                        }
+                    }
+                }
+            }
         }
     }
 }

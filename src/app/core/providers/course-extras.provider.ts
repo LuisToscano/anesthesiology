@@ -10,24 +10,34 @@ export class CourseExtrasProvider {
 
   constructor(private navigation : NavigationProvider) {
     this.menuBarActions[contentConstants.actions.goToSection] = data => {
-        return () => { this.navigation.goToSection(data.target); };
+        return {
+            onClick: () => { this.navigation.goToSection(data.target); },
+            isActive: () => {
+                return this.navigation.getCurrentPosition().section.getId() === data.target;
+            }
+        }
+    };
+
+    this.menuBarActions[contentConstants.actions.popup] = data => {
+        return {
+            onClick: () => {},
+            isActive: () => { return false; }
+        };
     };
   }
 
   createMenuBarElementsArray(elemsData : Array<MenuBarElementData>) : Array<MenuBarElement> {
     return _.map(elemsData, elData => {
-        return {
+        return _.extend({
             iconClass: elData.iconClass,
-            text: elData.text,
-            isActive: false,
-            onClick: this.addMenuBarElementAction(elData)
-        };
+            text: elData.text
+        }, this.addMenuBarElementAction(elData));
     });
   }
 
   private addMenuBarElementAction(elemData : MenuBarElementData) {
     return this.menuBarActions.hasOwnProperty(elemData.action) ?
-    this.menuBarActions[elemData.action](elemData.data) : () => {};
+    this.menuBarActions[elemData.action](elemData.data) : {};
   }
 }
 

@@ -1,9 +1,9 @@
 <div class="where">
-   <span class="prefix">Está en:</span> {{getSectionName()}}
+   <span class="prefix">Está en: </span> {{getSectionName()}}
 </div>
 <div class="navigation">
-    <div class="title"> {{getSectionName()}} </div>
-    <div class="nav">
+    <title [title]="getSectionName()" [iconClass]="getSectionIcon()"></title>
+    <div class="nav" *ngIf="!hasOnlyOneSlide()">
         <div class="nav-container">
             <div class="before" *ngIf="!isFirstSlide()">
                 <div class="wrapper" (click)="previous()"><div><i class="fas fa-4x fa-angle-left"></i> <span>Anterior</span></div></div>

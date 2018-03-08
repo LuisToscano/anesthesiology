@@ -4,11 +4,13 @@ import * as _ from "lodash";
 export class CourseSection {
     private id: string;
     private name: string;
+    private icon: string;
     private slides: Array<CourseSlide>;
 
-    constructor(id: string, name: string){
+    constructor(id: string, name: string, icon ?: string){
       this.id = id;
       this.name = name;
+      this.icon = icon;
       this.slides = [];
     }
 
@@ -18,6 +20,10 @@ export class CourseSection {
 
     getId() {
         return this.id;
+    }
+
+    getIcon() {
+        return this.icon;
     }
 
     getSlides() {

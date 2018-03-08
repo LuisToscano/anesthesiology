@@ -25,6 +25,7 @@ import { MenuBarBComponent } from './components/layout/menu-bar-b/menu-bar-b.com
 import { CourseContainerAComponent } from './components/layout/course-container-a/course-container-a.component';
 import { CopyrightBarAComponent } from './components/layout/copyright-bar-a/copyright-bar-a.component';
 import { NavBarAComponent } from './components/layout/nav-bar-a/nav-bar-a.component';
+import { TitleComponent } from './components/basic/title/title.component';
 
 //services
 import { CourseContentProvider } from './core/providers/course-content.provider';
@@ -49,7 +50,8 @@ import { CourseExtrasProvider } from './core/providers/course-extras.provider';
     MenuBarBComponent,
     CourseContainerAComponent,
     CopyrightBarAComponent,
-    NavBarAComponent
+    NavBarAComponent,
+    TitleComponent
   ],
   imports: [
     BrowserModule

@@ -2,10 +2,10 @@ import { CourseRow } from './course-row.class';
 
 export class CourseColumn{
     private columnContent : ColumnContent;
-    private flex : number;
+    private flex : number | string;
 
-    constructor(flex? : number) {
-        this.flex = flex ? flex : null;
+    constructor(flex : number) {
+        this.flex = flex === 0 ? 'none' : flex;
         this.columnContent = {
             component: null,
             data: {}

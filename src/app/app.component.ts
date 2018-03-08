@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ParagraphComponent } from './components/basic/paragraph/paragraph.component';
+import { ParagraphData } from './components/basic/paragraph/paragraph.component';
 import { CourseContentProvider } from './core/providers/course-content.provider';
 import { CourseExtrasProvider } from './core/providers/course-extras.provider';
 import { NavigationProvider, NavPosition } from './core/providers/navigation.provider';
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
   navPosition : NavPosition;
   topMenuBar : Array<MenuBarElement>;
   bottomMenuBar : Array<MenuBarElement>;
+  copyright : Array<ParagraphData>;
 
   constructor(
     private courseContent : CourseContentProvider,
@@ -31,6 +32,9 @@ export class AppComponent implements OnInit{
     this.navigation.slideChanged.subscribe(this.currentSlideChanged.bind(this));
     this.topMenuBar = this.courseExtras.createMenuBarElementsArray(
       (courseContentExtras as any).menuBars.top);
+    this.bottomMenuBar = this.courseExtras.createMenuBarElementsArray(
+        (courseContentExtras as any).menuBars.bottom);
+    this.copyright = (courseContentExtras as any).copyright;
   }
 
   private currentSlideChanged(navPos : NavPosition) {

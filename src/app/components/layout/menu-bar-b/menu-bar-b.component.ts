@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { MenuBarElement } from '../../../core/interfaces/menu-bar-element.interface';
+import * as _ from "lodash";
 
 @Component({
   selector: 'menu-bar-b',
@@ -7,21 +9,7 @@ import { Component, OnInit, Input } from '@angular/core';
 })
 export class MenuBarBComponent implements OnInit {
   
-  elements : Array<{ text: String, isActive : Boolean }> = [
-    {
-      text: 'Bibliografía',
-      isActive: true
-    }, {
-      text: 'Guia de navegación',
-      isActive: false
-    }, {
-      text: 'Requerimientos técnicos',
-      isActive: false
-    }, {
-      text: 'Créditos',
-      isActive: false
-    }
-  ];
+  @Input() elements : Array<MenuBarElement>;
   
   ngOnInit() {}
 }

@@ -11,5 +11,10 @@ export class CourseContainerAComponent implements OnInit {
   @Input() navPosition : NavPosition;
   constructor() {}
 
-  ngOnInit() {}
+  ngOnInit() {
+  }
+
+  getSlideStyle() {
+    return this.navPosition.section.slide(this.navPosition.slide).getStyle();
+  }
 }

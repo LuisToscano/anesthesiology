@@ -1,7 +1,7 @@
 import { Component, Input, OnInit } from '@angular/core';
 import { CourseRow} from '../../../core/classes/course-row.class';
 import { CourseSlide } from '../../../core/classes/course-slide.class';
-import { NavigationProvider, NavPosition } from '../../../core/providers/navigation.provider';
+import { NavPosition } from '../../../core/providers/navigation.provider';
 
 @Component({
   selector: 'course-content',
@@ -10,8 +10,9 @@ import { NavigationProvider, NavPosition } from '../../../core/providers/navigat
 })
 export class CourseContentComponent implements OnInit{
   @Input() navPosition: NavPosition;
+  slideStyle : {};
 
-  constructor(private navigation : NavigationProvider) {}
+  constructor() {}
 
   ngOnInit(){}
 

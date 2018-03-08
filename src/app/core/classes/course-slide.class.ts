@@ -3,6 +3,7 @@ import * as _ from "lodash";
 
 export class CourseSlide{
     private rows: CourseRow[]
+    private style: {};
 
     constructor(){
       this.rows = [];
@@ -10,6 +11,14 @@ export class CourseSlide{
 
     getRows() {
       return this.rows;
+    }
+
+    getStyle() {
+      return this.style;
+    }
+
+    setStyle(style : {}){
+      this.style = style;
     }
 
     setRows(rowsParam : Array<number> | number) {

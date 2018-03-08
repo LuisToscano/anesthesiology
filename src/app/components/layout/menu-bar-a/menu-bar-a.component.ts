@@ -12,17 +12,6 @@ export class MenuBarAComponent implements OnInit {
   
   @Input() elements : Array<MenuBarElement>;
   constructor(private navigation : NavigationProvider) {}
-
-  menuBarElementClicked(el : MenuBarElement) {
-    _.map(this.elements, elem => {
-      elem.isActive = false;
-      return elem;
-    });
-    el.isActive = true;
-    el.onClick();
-  }
   
-  ngOnInit() {
-    _.first(this.elements).isActive = true;
-  }
+  ngOnInit() {}
 }
