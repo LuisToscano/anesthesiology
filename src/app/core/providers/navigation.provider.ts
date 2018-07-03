@@ -3,6 +3,7 @@ import { CourseSection } from '../classes/course-section.class';
 import { CourseSlide } from '../classes/course-slide.class';
 import { CourseContentProvider } from './course-content.provider';
 import { Observable } from 'rxjs/Observable';
+import { NavPosition } from '../interfaces/nav-position.interface';
 import * as _ from "lodash";
 
 @Injectable()
@@ -69,10 +70,4 @@ export class NavigationProvider {
       console.error('The desired section does not exist');
     }
   }
-}
-
-export interface NavPosition {
-  section : CourseSection;
-  slide : number;
-  totalSlides: number;
 }

@@ -1,7 +1,5 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { CourseRow} from '../../../core/classes/course-row.class';
-import { CourseSlide } from '../../../core/classes/course-slide.class';
-import { NavPosition } from '../../../core/providers/navigation.provider';
+import { NavPosition } from '../../../core/interfaces/nav-position.interface';
 
 @Component({
   selector: 'course-content',

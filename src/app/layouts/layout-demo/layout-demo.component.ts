@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavPosition } from '../../core/providers/navigation.provider';
+import { NavPosition } from '../../core/interfaces/nav-position.interface';
 import { CourseInfo } from '../../../course.info';
 import { CourseContentProvider } from '../../core/providers/course-content.provider';
 import { MenuBarElement } from '../../core/interfaces/menu-bar-element.interface';

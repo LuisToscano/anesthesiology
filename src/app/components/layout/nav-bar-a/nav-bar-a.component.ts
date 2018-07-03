@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavigationProvider, NavPosition } from '../../../core/providers/navigation.provider';
+import { NavigationProvider } from '../../../core/providers/navigation.provider';
+import { NavPosition } from '../../../core/interfaces/nav-position.interface';
 
 @Component({
   selector: 'nav-bar-a',
