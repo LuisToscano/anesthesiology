@@ -1,11 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { ParagraphData } from './components/basic/paragraph/paragraph.component';
 import { CourseContentProvider } from './core/providers/course-content.provider';
 import { CourseExtrasProvider } from './core/providers/course-extras.provider';
-import { NavigationProvider, NavPosition } from './core/providers/navigation.provider';
-import { CourseSlide } from './core/classes/course-slide.class';
-import { courseContentExtras } from '../course-content';
-import { MenuBarElement } from './core/interfaces/menu-bar-element.interface';
+import { NavigationProvider } from './core/providers/navigation.provider';
+import { SCORMProvider } from './core/providers/scorm.provider';
+import { NavPosition } from './core/interfaces/nav-position.interface';
 
 @Component({
   selector: 'app-root',
@@ -13,28 +11,21 @@ import { MenuBarElement } from './core/interfaces/menu-bar-element.interface';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  title = 'app';
   navPosition : NavPosition;
-  topMenuBar : Array<MenuBarElement>;
-  bottomMenuBar : Array<MenuBarElement>;
-  copyright : Array<ParagraphData>;
 
   constructor(
     private courseContent : CourseContentProvider,
     private courseExtras : CourseExtrasProvider,
-    private navigation : NavigationProvider
+    private navigation : NavigationProvider,
+    private scorm : SCORMProvider
   ) { }
 
   ngOnInit(){
     this.courseContent.init();
     this.navigation.init();
+    this.scorm.init();
     this.navPosition = this.navigation.getCurrentPosition();
     this.navigation.slideChanged.subscribe(this.currentSlideChanged.bind(this));
-    this.topMenuBar = this.courseExtras.createMenuBarElementsArray(
-      (courseContentExtras as any).menuBars.top);
-    this.bottomMenuBar = this.courseExtras.createMenuBarElementsArray(
-        (courseContentExtras as any).menuBars.bottom);
-    this.copyright = (courseContentExtras as any).copyright;
   }
 
   private currentSlideChanged(navPos : NavPosition) {

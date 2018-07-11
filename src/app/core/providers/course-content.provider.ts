@@ -1,5 +1,5 @@
 import { Injectable } from '@angular/core';
-import { courseContent } from '../../../course-content';
+import { LO } from '../../lo/lo.main';
 import { CourseSection } from '../classes/course-section.class';
 import * as _ from "lodash";
 
@@ -12,7 +12,7 @@ export class CourseContentProvider {
   }
 
   init(){
-    _.forEach(courseContent, section => {
+    _.forEach(LO.content, section => {
         let newSection = new CourseSection(section.id, section.name, section.icon)
         .createSlides(section.slides.length);
         _.forEach(newSection.getSlides(), (slide, idx) => {

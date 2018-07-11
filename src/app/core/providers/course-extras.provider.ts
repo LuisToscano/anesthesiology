@@ -1,8 +1,14 @@
 import { Injectable } from '@angular/core';
-import { contentConstants } from '../../../course-content';
 import { NavigationProvider } from '../../core/providers/navigation.provider';
 import { MenuBarElement } from '../interfaces/menu-bar-element.interface';
 import * as _ from "lodash";
+
+const contentConstants = {
+    actions: {
+        goToSection: 'goToSection',
+        popup: 'popup'
+    }
+};
 
 @Injectable()
 export class CourseExtrasProvider {
