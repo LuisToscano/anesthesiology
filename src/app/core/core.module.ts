@@ -11,6 +11,7 @@ import { CourseExtrasProvider } from './providers/course-extras.provider';
 import { NavigationProvider } from './providers/navigation.provider';
 import { SideMenuProvider } from './providers/side-menu.provider';
 import { SCORMProvider } from './providers/scorm.provider';
+import { StateProvider } from './providers/state.provider';
 import { BrowserModule } from '@angular/platform-browser';
 
 // @NgModule decorator with its metadata
@@ -31,7 +32,8 @@ import { BrowserModule } from '@angular/platform-browser';
     CourseExtrasProvider,
     NavigationProvider,
     SideMenuProvider,
-    SCORMProvider
+    SCORMProvider,
+    StateProvider
   ],
   exports: [
     ColumnContentComponent,

@@ -1,0 +1,40 @@
+<?xml version="1.0" standalone="no"?>
+<manifest identifier="_5YWKNGxbTOg_course_id" version="1.3" xmlns="http://www.imsglobal.org/xsd/imscp_v1p1" xmlns:adlcp="http://www.adlnet.org/xsd/adlcp_v1p3" xmlns:adlseq="http://www.adlnet.org/xsd/adlseq_v1p3" xmlns:adlnav="http://www.adlnet.org/xsd/adlnav_v1p3" xmlns:imsss="http://www.imsglobal.org/xsd/imsss" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.imsglobal.org/xsd/imscp_v1p1 imscp_v1p1.xsd&#xA;                        http://www.adlnet.org/xsd/adlcp_v1p3 adlcp_v1p3.xsd&#xA;                        http://www.adlnet.org/xsd/adlseq_v1p3 adlseq_v1p3.xsd&#xA;                        http://www.adlnet.org/xsd/adlnav_v1p3 adlnav_v1p3.xsd&#xA;                        http://www.imsglobal.org/xsd/imsss imsss_v1p0.xsd">
+  <metadata>
+    <schema>ADL SCORM</schema>
+    <schemaversion>CAM 1.3</schemaversion>
+    <adlcp:location>metadata.xml</adlcp:location>
+  </metadata>
+  <organizations default="test_ORG">
+    <organization identifier="test_ORG" adlseq:objectivesGlobalToSystem="false">
+      <title>test</title>
+      <item identifier="test_SCO" identifierref="__5YWKNGxbTOg_course_id_RES" isvisible="true">
+        <title>test</title>
+      </item>
+      <metadata>
+        <adlcp:location>metadata.xml</adlcp:location>
+      </metadata>
+      <imsss:sequencing>
+        <imsss:controlMode choice="true" flow="true" />
+        <imsss:deliveryControls tracked="true" completionSetByContent="false" objectiveSetByContent="false" />
+      </imsss:sequencing>
+    </organization>
+  </organizations>
+  <resources>
+    <resource identifier="__5YWKNGxbTOg_course_id_RES" type="webcontent" adlcp:scormType="sco" href="index.html">
+      <file href="assets/scripts/SCORM_API_wrapper.js" />
+      <file href="index.html" />
+      <file href="inline.bundle.js" />
+      <file href="inline.bundle.js.map" />
+      <file href="main.bundle.js" />
+      <file href="main.bundle.js.map" />
+      <file href="polyfills.bundle.js" />
+      <file href="polyfills.bundle.js.map" />
+      <file href="styles.bundle.js" />
+      <file href="styles.bundle.js.map" />
+      <file href="vendor.bundle.js" />
+      <file href="vendor.bundle.js.map" />
+      <file href="favicon.ico" />
+    </resource>
+  </resources>
+</manifest>

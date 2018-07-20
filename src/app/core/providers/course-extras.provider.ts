@@ -17,7 +17,7 @@ export class CourseExtrasProvider {
   constructor(private navigation : NavigationProvider) {
     this.menuBarActions[contentConstants.actions.goToSection] = data => {
         return {
-            onClick: () => { this.navigation.goToSection(data.target); },
+            onClick: () => { this.navigation.goToSectionSlide(data.target, 0); },
             isActive: () => {
                 return this.navigation.getCurrentPosition().section.getId() === data.target;
             }

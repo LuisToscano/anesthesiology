@@ -6,7 +6,7 @@ export const LO = {
     teacher: 'Your Name',
     unit: 0,
     unitName: 'Unit',
-    SCORM: false,
+    SCORM: true,
     content: LOContent,
     extras: LOExtras
 };

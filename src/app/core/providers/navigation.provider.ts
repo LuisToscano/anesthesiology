@@ -4,33 +4,46 @@ import { CourseSlide } from '../classes/course-slide.class';
 import { CourseContentProvider } from './course-content.provider';
 import { Observable } from 'rxjs/Observable';
 import { NavPosition } from '../interfaces/nav-position.interface';
+import { SCORMProvider } from './scorm.provider'; 
 import * as _ from "lodash";
+import { LocationSummary } from '../interfaces/location-summary.interface';
 
 @Injectable()
 export class NavigationProvider {
   private current : NavPosition;
-  private lastCheckedPosition : NavPosition;
+  private lastCheckedPosition : LocationSummary;
   slideChanged : Observable<NavPosition>;
 
-  constructor(private courseContent : CourseContentProvider) {}
+  constructor(
+    private courseContent : CourseContentProvider,
+    private scorm : SCORMProvider
+  ) {}
 
   init() : void {
     let sections = this.courseContent.courseSections;
     let firstSection = _.first(sections);
-    this.current = sections.length > 0 ? {
-        section: firstSection,
-        slide: 0,
-        totalSlides: firstSection.getSlides().length
-    } : null;
-    this.lastCheckedPosition = JSON.parse(JSON.stringify(this.current));
+    let currentSCORM = this.scorm.getLocation();
+    let defaultPosition = {
+      section: firstSection,
+      slide: 0,
+      totalSlides: firstSection.getSlides().length
+    };
+    
+    if (currentSCORM) {
+      this.goToSectionSlide(currentSCORM.section, currentSCORM.slide);
+    } else {
+      this.current = defaultPosition;
+    }
+
+    this.lastCheckedPosition = this.buildLastCheckedPosition();
 
     this.slideChanged = new Observable(observer => {
-        setInterval(() => { 
+        setInterval(() => {
           if (!this.validateLastChecked()) {
-          this.lastCheckedPosition = JSON.parse(JSON.stringify(this.current));
+          this.lastCheckedPosition = this.buildLastCheckedPosition();
           observer.next(this.current);
         }}, 500);
-    })
+    });
   }
 
   getCurrentPosition() : NavPosition {
@@ -53,18 +66,25 @@ export class NavigationProvider {
     }
   }
 
+  private buildLastCheckedPosition() {
+    return JSON.parse(JSON.stringify({
+      section: this.current.section.getId(),
+      slide: this.current.slide
+    }));
+  }
+
   private validateLastChecked() {
-    return this.current.section === this.lastCheckedPosition.section &&
+    return this.current.section.getId() == this.lastCheckedPosition.section &&
            this.current.slide === this.lastCheckedPosition.slide;
   }
 
-  goToSection(id : string) {
+  goToSectionSlide(id : string, slide? : number) {
     var desiredSection = _.find(this.courseContent.courseSections, section => {
       return section.getId() === id;
     });
     if (desiredSection) {
       this.current.section = desiredSection;
-      this.current.slide =  0;
+      this.current.slide =  slide ? slide : 0;
       this.current. totalSlides = desiredSection.getSlides().length;
     } else {
       console.error('The desired section does not exist');
