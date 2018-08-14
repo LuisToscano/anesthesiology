@@ -25,6 +25,9 @@ export class StateProvider {
         this.navigation.init();
         this.currentPosition = this.navigation.getCurrentPosition();
         this.navigation.slideChanged.subscribe(this.currentSlideChanged.bind(this));
+        _.forEach(this.content.courseInteractions, (interaction) => {
+            this.scorm.registerInteraction(interaction);
+        });
     }
 
     getCurrentPosition() : NavPosition {

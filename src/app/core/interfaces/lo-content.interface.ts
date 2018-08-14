@@ -1,3 +1,5 @@
+import { ComponentType } from '../enums/component-type.enum';
+
 export interface Sections{
     id: string,
     name: string,
@@ -18,5 +20,6 @@ interface Row{
 interface Col {
     component: any,
     data: {},
-    flex ?: number
+    flex ?: number,
+    type ?: ComponentType
 }

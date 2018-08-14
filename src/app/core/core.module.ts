@@ -13,6 +13,8 @@ import { SideMenuProvider } from './providers/side-menu.provider';
 import { SCORMProvider } from './providers/scorm.provider';
 import { StateProvider } from './providers/state.provider';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormQuestionComponent } from './components/learning-activities/form-question/form-question.component';
+import { FormsModule } from '@angular/forms';
 
 // @NgModule decorator with its metadata
 @NgModule({
@@ -22,10 +24,12 @@ import { BrowserModule } from '@angular/platform-browser';
     CourseContentComponent,
     CourseRowComponent,
     ParagraphComponent,
-    BaseCourseContainerComponent
+    BaseCourseContainerComponent,
+    FormQuestionComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule
   ],
   providers: [
     CourseContentProvider,
@@ -41,10 +45,12 @@ import { BrowserModule } from '@angular/platform-browser';
     CourseContentComponent,
     CourseRowComponent,
     ParagraphComponent,
-    BaseCourseContainerComponent
+    BaseCourseContainerComponent,
+    FormQuestionComponent
   ],
   entryComponents: [
-    ParagraphComponent
+    ParagraphComponent,
+    FormQuestionComponent
   ]
 })
 export class CoreModule { }

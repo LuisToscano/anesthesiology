@@ -1,17 +1,23 @@
 import { Injectable } from '@angular/core';
 import { LO } from '../../lo/lo.main';
 import { CourseSection } from '../classes/course-section.class';
+import { ComponentType } from '../enums/component-type.enum';
+import { SCORMInteractionType } from '../enums/scorm.enum';
+import { LOInteraction } from '../interfaces/lo-interaction.interface';
 import * as _ from "lodash";
 
 @Injectable()
 export class CourseContentProvider {
   courseSections : Array<CourseSection>;
+  courseInteractions : Array<LOInteraction>;
 
   constructor() {
     this.courseSections = [];
+    this.courseInteractions = [];
   }
 
   init(){
+    let interactionCount = 0;
     _.forEach(LO.content, section => {
         let newSection = new CourseSection(section.id, section.name, section.icon)
         .createSlides(section.slides.length);
@@ -32,7 +38,21 @@ export class CourseContentProvider {
                 row.setCols(cols);
                 _.forEach(row.getCols(), (col, idz) => {
                     let colData = section.slides[idx].rows[idy].cols[idz];
-                    col.setContent(colData.component, colData.data);
+                    if (colData.type === ComponentType.LearningActivity) {
+                        let scormData = (<any>colData.data).SCORM;
+                        let statement = (<any>colData.data).statement;
+                        this.courseInteractions.push({
+                            interactionId: ++interactionCount,
+                            type: scormData && scormData.type ? scormData.type : SCORMInteractionType.Choice,
+                            weight: scormData && scormData.weight ? scormData.weight : 1,
+                            description: statement ? statement : ''
+                        });
+                        col.setContent(colData.component, _.extend(colData.data, {
+                            interactionId: interactionCount
+                        }));
+                    } else {
+                        col.setContent(colData.component, colData.data);
+                    }
                 });
             });
         });

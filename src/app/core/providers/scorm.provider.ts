@@ -1,7 +1,9 @@
 import { Injectable } from '@angular/core';
 import { LO } from '../../lo/lo.main';
 import { NavPosition } from '../interfaces/nav-position.interface';
+import { LOInteraction } from '../interfaces/lo-interaction.interface';
 import { LocationSummary } from '../interfaces/location-summary.interface';
+import { SCORMInteractionResult, SCORMCompletionStatus, SCORMSuccessStatus } from '../enums/scorm.enum';
 import * as _ from "lodash";
 
 declare var pipwerks;
@@ -9,15 +11,17 @@ declare var pipwerks;
 const SCORMDataModel = {
     location: 'cmi.location',
     suspendData: 'cmi.suspend_data',
-    completionStatus: {
-        tag: 'cmi.completion_status',
-        complete: 'complete',
-        incomplete: 'incomplete'
-    },
-    successStatus: {
-        tag: 'cmi.success_status',
-        passed: 'passed',
-        failed: 'failed'
+    completionStatus: 'cmi.completion_status',
+    successStatus: 'cmi.success_status',
+    interaction: {
+        tag: 'cmi.interactions',
+        id: 'id',
+        idPrefix: 'learning-object-interaction-',
+        response: 'learner_response',
+        result: 'result',
+        type: 'type',
+        weight: 'weighting',
+        description: 'description'
     }
 }
 
@@ -43,23 +47,47 @@ export class SCORMProvider {
     }
 
     setLOIncomplete() {
-        this.setValidatedSCORMData(SCORMDataModel.completionStatus.tag, SCORMDataModel.completionStatus.incomplete);
+        this.setValidatedSCORMData(SCORMDataModel.completionStatus, SCORMCompletionStatus.Incomplete);
     }
 
     setLOComplete() {
-        this.setValidatedSCORMData(SCORMDataModel.completionStatus.tag, SCORMDataModel.completionStatus.complete);
+        this.setValidatedSCORMData(SCORMDataModel.completionStatus, SCORMCompletionStatus.Completed);
     }
 
     setLOFailure() {
-        this.setValidatedSCORMData(SCORMDataModel.successStatus.tag, SCORMDataModel.successStatus.failed);
+        this.setValidatedSCORMData(SCORMDataModel.successStatus, SCORMSuccessStatus.Failed);
     }
 
     setLOSuccess() {
-        this.setValidatedSCORMData(SCORMDataModel.successStatus.tag, SCORMDataModel.successStatus.passed);
+        this.setValidatedSCORMData(SCORMDataModel.successStatus, SCORMSuccessStatus.Passed);
     }
 
     setSuspendData(suspendData : object) {
         this.setValidatedSCORMData(SCORMDataModel.suspendData, JSON.stringify(suspendData));
+    }
+
+    registerInteraction(interaction : LOInteraction) {
+        let prefix = SCORMDataModel.interaction.tag + '.' + interaction.interactionId + '.';
+        console.log(prefix + SCORMDataModel.interaction.id,
+            SCORMDataModel.interaction.idPrefix + interaction.interactionId);
+        this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.id,
+            SCORMDataModel.interaction.idPrefix + interaction.interactionId);
+        console.log(prefix + SCORMDataModel.interaction.type, interaction.type);
+        this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.type, interaction.type);
+        console.log(prefix + SCORMDataModel.interaction.weight, interaction.weight);
+        this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.weight, interaction.weight);
+        console.log(prefix + SCORMDataModel.interaction.description, interaction.description);
+        this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.description, interaction.description);
+    }
+
+    submitInteraction(id : number, response : string, isCorrect : boolean) {
+        let prefix = SCORMDataModel.interaction.tag + '.' + id + '.';
+        console.log(prefix + SCORMDataModel.interaction.response, response);
+        this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.response, response);
+        console.log(prefix + SCORMDataModel.interaction.result,
+            isCorrect ? SCORMInteractionResult.Correct : SCORMInteractionResult.Incorrect);
+        this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.result,
+            isCorrect ? SCORMInteractionResult.Correct : SCORMInteractionResult.Incorrect);
     }
 
     getSuspendData() {
@@ -67,11 +95,11 @@ export class SCORMProvider {
     }
 
     getLOCompletionStatus() : string {
-        return this.getValidatedSCORMData(SCORMDataModel.completionStatus.tag);
+        return this.getValidatedSCORMData(SCORMDataModel.completionStatus);
     }
 
     getLOSuccessStatus() : string {
-        return this.getValidatedSCORMData(SCORMDataModel.successStatus.tag);
+        return this.getValidatedSCORMData(SCORMDataModel.successStatus);
     }
 
     getLocation() : LocationSummary {
