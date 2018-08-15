@@ -9,6 +9,7 @@ import { StateProvider } from './core/providers/state.provider';
 })
 export class AppComponent implements OnInit{
   navPosition : NavPosition;
+  menuElements : any;
 
   constructor(
     private LOState : StateProvider

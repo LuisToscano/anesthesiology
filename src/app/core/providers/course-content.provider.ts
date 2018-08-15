@@ -27,6 +27,7 @@ export class CourseContentProvider {
             }) ? _.map(section.slides[idx].rows, row => {
                 return Number.isInteger(row.flex) ? row.flex : 1;
             }) : section.slides[idx].rows.length;
+            slide.setName(section.slides[idx].name);
             slide.setRows(rows);
             slide.setStyle(section.slides[idx].style);
             _.forEach(slide.getRows(), (row, idy) => {

@@ -22,13 +22,17 @@ export class ParagraphComponent implements OnInit {
   constructor() {}
 
   private processParagraphs(paragraph : ParagraphData) {
+
     let modifiedText = paragraph.text;
-    let matches = paragraph.text.match(this.argRegex);
-    _.forEach(matches, match => {
-      let key = match.substring(2, match.length - 1);
-      modifiedText = modifiedText.replace(match, paragraph.args.hasOwnProperty(key) ?
-      this.createHtmlSnippet(paragraph.args[key]) : '');
-    });
+    let count = 0;
+    while(modifiedText.match(this.argRegex) !== null) {
+      let matches = modifiedText.match(this.argRegex);
+      _.forEach(matches, match => {
+        let key = match.substring(2, match.length - 1);
+        modifiedText = modifiedText.replace(match, paragraph.args.hasOwnProperty(key) ?
+        this.createHtmlSnippet(paragraph.args[key]) : '');
+      });
+    }
     paragraph.innerHtml = modifiedText;
   }
 
@@ -36,6 +40,10 @@ export class ParagraphComponent implements OnInit {
     let options = {
       link: (match : ParagraphLinkInjection) => {
         return '<a href=' + match.href + '>' + match.innerText + '</a>';
+      },
+      class: (match : ParagraphTextClassInjection) => {
+        let newClass =  Array.isArray(match.class) ? match.class.join(' ') : match.class;
+        return '<span class="'+ newClass +'">' + match.innerText + '</span>';
       }
     };
     return options.hasOwnProperty(injectArgs.type) ?
@@ -58,6 +66,11 @@ interface ParagraphLinkInjection {
   innerText: string
 }
 
+interface ParagraphTextClassInjection {
+  innerText: string,
+  class: string | Array<string>
+}
+
 interface ParagraphObj {
     [key: string]: Paragraph
 }
@@ -66,4 +79,14 @@ export interface ParagraphData {
   text : string,
   args ?: ParagraphObj,
   innerHtml ?: string
+}
+
+export enum ParagraphArgumentType {
+  Link = 'link',
+  Class = 'class'
+}
+
+export enum ParagraphClass {
+  Italic = 'italic',
+  Bold = 'bold'
 }

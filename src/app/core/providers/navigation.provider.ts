@@ -26,6 +26,7 @@ export class NavigationProvider {
     let defaultPosition = {
       section: firstSection,
       slide: 0,
+      name: firstSection.slide(0).getName(),
       totalSlides: firstSection.getSlides().length
     };
     
@@ -57,12 +58,14 @@ export class NavigationProvider {
   nextSlide() {
     if (this.current.slide < (this.current.totalSlides - 1)) {
       this.current.slide = this.current.slide + 1;
+      this.current.name = this.getCurrentSlide().getName();
     }
   }
 
   previousSlide() {
     if (this.current.slide > 0) {
       this.current.slide = this.current.slide - 1;
+      this.current.name = this.getCurrentSlide().getName();
     }
   }
 
@@ -86,8 +89,29 @@ export class NavigationProvider {
       this.current.section = desiredSection;
       this.current.slide =  slide ? slide : 0;
       this.current. totalSlides = desiredSection.getSlides().length;
+      this.current.name = this.getCurrentSlide().getName();
     } else {
       console.error('The desired section does not exist');
     }
+  }
+
+  isFirstSlide() {
+    return this.current.slide === 0;
+  }
+
+  isLastSlide() {
+    return this.current.slide === (this.current.totalSlides - 1);
+  }
+
+  hasOnlyOneSlide() {
+    return this.current.totalSlides === 1;
+  }
+
+  getSectionName() {
+    return this.current.section.getName();
+  }
+
+  getSlideName() {
+    return this.getCurrentSlide().getName();
   }
 }

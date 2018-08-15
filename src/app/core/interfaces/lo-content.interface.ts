@@ -9,7 +9,8 @@ export interface Sections{
 
 export interface Slide{
     rows: Array<Row>,
-    style ?: {},
+    name ?: string,
+    style ?: {}
 }
 
 interface Row{

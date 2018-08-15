@@ -1,6 +1,6 @@
 import { Sections } from '../core/interfaces/lo-content.interface';
-import { baseSection } from './sections/base/base.section';
+import { basicComponentsSection } from './sections/basic-components/basic-components';
 
 export const LOContent : Array<Sections> = [
-    baseSection
+    basicComponentsSection
 ];

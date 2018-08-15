@@ -1,0 +1,6 @@
+<ul>
+    <li *ngFor="let el of preparedMenuElements" (click)="el.onClick()"
+        [ngClass]="el.isActive() ? 'is-active' : ''">
+            {{ el.text }}
+    </li>
+</ul>

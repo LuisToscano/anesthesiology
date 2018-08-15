@@ -1,0 +1,14 @@
+
+:host{
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background: cornflowerblue;
+
+    .container{
+        width: 50%;
+        margin: 100px auto;
+        height: 500px;
+        background-color: white;
+    }
+}

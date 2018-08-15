@@ -2,11 +2,16 @@ import { CourseRow } from './course-row.class';
 import * as _ from "lodash";
 
 export class CourseSlide{
-    private rows: CourseRow[]
-    private style: {};
+    private name : string;
+    private rows : CourseRow[];
+    private style : {};
 
     constructor(){
       this.rows = [];
+    }
+
+    getName() {
+      return this.name;
     }
 
     getRows() {
@@ -19,6 +24,10 @@ export class CourseSlide{
 
     setStyle(style : {}){
       this.style = style;
+    }
+
+    setName(name : string) {
+      this.name = name;
     }
 
     setRows(rowsParam : Array<number> | number) {

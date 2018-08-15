@@ -68,24 +68,16 @@ export class SCORMProvider {
 
     registerInteraction(interaction : LOInteraction) {
         let prefix = SCORMDataModel.interaction.tag + '.' + interaction.interactionId + '.';
-        console.log(prefix + SCORMDataModel.interaction.id,
-            SCORMDataModel.interaction.idPrefix + interaction.interactionId);
         this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.id,
             SCORMDataModel.interaction.idPrefix + interaction.interactionId);
-        console.log(prefix + SCORMDataModel.interaction.type, interaction.type);
         this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.type, interaction.type);
-        console.log(prefix + SCORMDataModel.interaction.weight, interaction.weight);
         this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.weight, interaction.weight);
-        console.log(prefix + SCORMDataModel.interaction.description, interaction.description);
         this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.description, interaction.description);
     }
 
     submitInteraction(id : number, response : string, isCorrect : boolean) {
         let prefix = SCORMDataModel.interaction.tag + '.' + id + '.';
-        console.log(prefix + SCORMDataModel.interaction.response, response);
         this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.response, response);
-        console.log(prefix + SCORMDataModel.interaction.result,
-            isCorrect ? SCORMInteractionResult.Correct : SCORMInteractionResult.Incorrect);
         this.setValidatedSCORMData(prefix + SCORMDataModel.interaction.result,
             isCorrect ? SCORMInteractionResult.Correct : SCORMInteractionResult.Incorrect);
     }

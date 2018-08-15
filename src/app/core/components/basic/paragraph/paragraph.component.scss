@@ -1,1 +1,13 @@
-:host {}
+:host {
+    &::ng-deep{
+        span{
+            &.bold{
+                font-weight: bold;
+            }
+
+            &.italic{
+                font-style: italic;
+            }
+        }
+    }
+}
