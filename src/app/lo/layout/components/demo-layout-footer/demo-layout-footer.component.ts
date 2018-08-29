@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'demo-layout-footer',
@@ -6,6 +6,9 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./demo-layout-footer.component.scss']
 })
 export class DemoLayoutFooterComponent implements OnInit {
+
+  @Input() footer : Array<any>;
+
   constructor() {}
 
   ngOnInit() {}

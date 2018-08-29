@@ -22,9 +22,7 @@ export class ParagraphComponent implements OnInit {
   constructor() {}
 
   private processParagraphs(paragraph : ParagraphData) {
-
     let modifiedText = paragraph.text;
-    let count = 0;
     while(modifiedText.match(this.argRegex) !== null) {
       let matches = modifiedText.match(this.argRegex);
       _.forEach(matches, match => {

@@ -1,3 +1,3 @@
 export enum ComponentType {
-    Basic, Layout, LearningActivity
+    Basic, Layout, LearningActivity, ContentOrganizer
 }

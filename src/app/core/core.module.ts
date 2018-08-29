@@ -12,8 +12,10 @@ import { SideMenuProvider } from './providers/side-menu.provider';
 import { SCORMProvider } from './providers/scorm.provider';
 import { StateProvider } from './providers/state.provider';
 import { LOExtrasProvider } from './providers/lo-extras.provider';
+import { InteractionsProvider } from './providers/interactions.provider';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormQuestionComponent } from './components/learning-activities/form-question/form-question.component';
+import { TestOrganizerComponent } from './components/content-organizers/test-organizer/test-organizer.component';
 import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
 
@@ -27,6 +29,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     ParagraphComponent,
     BaseCourseContainerComponent,
     FormQuestionComponent,
+    TestOrganizerComponent,
     SafeHtmlPipe
   ],
   imports: [
@@ -39,7 +42,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     SideMenuProvider,
     SCORMProvider,
     StateProvider,
-    LOExtrasProvider
+    LOExtrasProvider,
+    InteractionsProvider
   ],
   exports: [
     ColumnContentComponent,
@@ -48,11 +52,13 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     CourseRowComponent,
     ParagraphComponent,
     BaseCourseContainerComponent,
-    FormQuestionComponent
+    FormQuestionComponent,
+    TestOrganizerComponent
   ],
   entryComponents: [
     ParagraphComponent,
-    FormQuestionComponent
+    FormQuestionComponent,
+    TestOrganizerComponent
   ]
 })
 export class CoreModule { }

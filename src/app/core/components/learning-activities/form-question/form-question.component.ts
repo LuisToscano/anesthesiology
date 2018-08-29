@@ -1,7 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { SCORMProvider } from '../../../providers/scorm.provider';
+import { InteractionsProvider } from '../../../providers/interactions.provider';
 import * as _ from "lodash";
-import { SummaryResolver } from '../../../../../../node_modules/@angular/compiler';
 
 @Component({
   selector: 'form-question',
@@ -14,11 +13,18 @@ export class FormQuestionComponent implements OnInit {
   formQuestionData : FormQuestionData;
   userResponse : any = {};
   isResponseObjectReady : boolean = false;
+  submitAction : (interactionId, response, isCorrect) => void;
+  private attempted : number;
+  private attempts : number;
 
-  constructor(private scorm : SCORMProvider) {}
+  constructor(private interactionProvider : InteractionsProvider) {
+    this.attempted = 0;
+  }
 
   ngOnInit() {
     this.formQuestionData = this.attributeData ? this.attributeData : this.data;
+    this.attempts = this.formQuestionData.attempts ? this.formQuestionData.attempts : 1;
+    this.submitAction = this.interactionProvider.prepareSubmitAction(this.formQuestionData);
     this.prepareUserResponseObj();
   }
 
@@ -38,7 +44,8 @@ export class FormQuestionComponent implements OnInit {
           (key) => { return parseInt(key) }),
         this.formQuestionData.correct).length === 0;
     }
-    this.scorm.submitInteraction(this.formQuestionData.interactionId, response, isCorrect);
+    this.submitAction(this.formQuestionData.interactionId, response, isCorrect);
+    this.attempted++;
   }
 
   private filterIfChecked(key) {
@@ -69,6 +76,7 @@ export interface FormQuestionData {
    correct: Array<number>;
    submitBtn ?: FormQuestionButton;
    SCORM ?: any;
+   attempts ?: number;
 }
 
 interface FormQuestionButton {

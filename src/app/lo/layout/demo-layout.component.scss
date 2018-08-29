@@ -1,14 +1,38 @@
+@import 'demo-layout.variables';
+@import 'demo-layout.mixin';
 
 :host{
-    display: flex;
-    flex-direction: column;
-    width: 100%;
-    background: cornflowerblue;
+    &::ng-deep{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: $layout-bg-color;
 
-    .container{
-        width: 50%;
-        margin: 100px auto;
-        height: 500px;
-        background-color: white;
+        .container{
+            width: 50%;
+            margin: 100px auto;
+            height: 500px;
+            background-color: $content-bg-color;
+        }
+
+        demo-layout-header{
+            background: $header-bg-color;
+            color: $header-text-color;
+            ul {
+                li {
+                    &:hover{
+                        color: $header-hover-text-color !important;
+                    }
+                    &.is-active {
+                        color: $header-active-text-color !important;
+                    }
+                }
+            }
+        }
+
+        demo-layout-nav-bar{
+            background: $nav-bar-bg-color !important;
+            color: $nav-bar-text-color;
+        }
     }
 }

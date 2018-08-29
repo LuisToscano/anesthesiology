@@ -4,6 +4,7 @@ import { CoreModule } from '../../core/core.module';
 import { DemoLayoutComponent } from './demo-layout.component';
 import { DemoLayoutHeaderComponent } from './components/demo-layout-header/demo-layout-header.component';
 import { DemoLayoutNavBarComponent } from './components/demo-layout-nav-bar/demo-layout-nav-bar.component';
+import { DemoLayoutFooterComponent } from './components/demo-layout-footer/demo-layout-footer.component';
 import { CommonModule } from '@angular/common';
 
 // @NgModule decorator with its metadata
@@ -11,7 +12,8 @@ import { CommonModule } from '@angular/common';
   declarations: [
     DemoLayoutComponent,
     DemoLayoutHeaderComponent,
-    DemoLayoutNavBarComponent
+    DemoLayoutNavBarComponent,
+    DemoLayoutFooterComponent
   ],
   imports: [
     CommonModule,
@@ -22,12 +24,14 @@ import { CommonModule } from '@angular/common';
   exports: [
     DemoLayoutComponent,
     DemoLayoutHeaderComponent,
-    DemoLayoutNavBarComponent
+    DemoLayoutNavBarComponent,
+    DemoLayoutFooterComponent
   ],
   entryComponents: [
     DemoLayoutComponent,
     DemoLayoutHeaderComponent,
-    DemoLayoutNavBarComponent
+    DemoLayoutNavBarComponent,
+    DemoLayoutFooterComponent
   ]
 })
 export class DemoLayoutModule { }

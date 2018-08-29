@@ -1,6 +1,6 @@
 <div class="position">{{navigation.getSectionName()}} > {{navigation.getSlideName()}}</div>
 <div class="navigation" *ngIf="!navigation.hasOnlyOneSlide()">
-    <div class="arrow" *ngIf="!navigation.isFirstSlide()"><i class="fas fa-2x fa-angle-left"></i> Anterior</div>
+    <div class="arrow" (click)="navigation.previousSlide()" *ngIf="!navigation.isFirstSlide()"><i class="fas fa-2x fa-angle-left"></i> Anterior</div>
     <div class="slide"> <span>{{ navPosition.slide + 1 }} de {{ navPosition.totalSlides }}</span> </div>
-    <div class="arrow" *ngIf="!navigation.isLastSlide()">Siguiente <i class="fas fa-2x fa-angle-right"></i></div>
+    <div class="arrow" (click)="navigation.nextSlide()" *ngIf="!navigation.isLastSlide()">Siguiente <i class="fas fa-2x fa-angle-right"></i></div>
 </div>

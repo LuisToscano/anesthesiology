@@ -10,10 +10,13 @@ export class TitleComponent implements OnInit {
 
   @Input() title : string;
   @Input() iconClass : string;
+  data : TitleData;
 
   constructor() {}
 
   ngOnInit() {
+    this.title = this.data.title ? this.data.title : this.title;
+    this.iconClass = this.data.iconClass ? this.data.iconClass : this.iconClass;
   }
 
   getInnerHtml() {
@@ -25,4 +28,9 @@ export class TitleComponent implements OnInit {
   getIcon() {
     return this.iconClass;
   }
+}
+
+interface TitleData{
+  title: string,
+  iconClass ?: string;
 }

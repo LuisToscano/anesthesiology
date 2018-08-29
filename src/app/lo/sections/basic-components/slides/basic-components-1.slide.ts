@@ -7,11 +7,11 @@ let myParagraph = 'Este es un ejemplo del componente básico párrafo. Este comp
 'es posible añadir características especiales a un fragmento de texto, como %(link), o estilos de %(bold), ' +
 '%(italic), o %(both).';
 
-export const baseSectionSlide1 : Slide = {
+export const baseComponentsSectionSlide1 : Slide = {
     name: 'Párrafo',
     rows: [{
         cols: [{
-            type: ComponentType.LearningActivity,
+            type: ComponentType.Basic,
             component: ParagraphComponent,
             data: [{
                 text: myParagraph,
@@ -50,47 +50,3 @@ export const baseSectionSlide1 : Slide = {
     }],
     style: {}
 };
-
-/*
-[{
-            type: ComponentType.LearningActivity,
-            component: FormQuestionComponent,
-            data: {
-                statement : 'Este es el enunciado de la primera pregunta',
-                answerOpts: [
-                    'Opción 1',
-                    'Opción 2',
-                    'Opción 3',
-                    'Opción 4'
-                ],
-                correct: [2],
-                SCORM: {
-                    weight: 1,
-                    type: SCORMInteractionType.Choice
-                },
-                submitBtn: {
-                    tag : 'Enviar'
-                }
-            }
-        }, {
-            type: ComponentType.LearningActivity,
-            component: FormQuestionComponent,
-            data: {
-                statement : 'Este es el enunciado de la segunda pregunta',
-                answerOpts: [
-                    'Opción 1',
-                    'Opción 2',
-                    'Opción 3',
-                    'Opción 4'
-                ],
-                correct: [2, 3],
-                SCORM: {
-                    weight: 1,
-                    type: SCORMInteractionType.Choice
-                },
-                submitBtn: {
-                    tag : 'Enviar'
-                }
-            }
-        }]
-*/

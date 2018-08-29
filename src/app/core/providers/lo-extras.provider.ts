@@ -13,7 +13,9 @@ export class LOExtrasProvider {
     ) {
         this.menuBarActions[MenuBarAction.GoToSection] = (data) => {
             return {
-                onClick: () => { this.navigation.goToSectionSlide(data.target, 0); },
+                onClick: () => {
+                    console.log('*******************************', data.target); 
+                    this.navigation.goToSectionSlide(data.target, 0); },
                 isActive: () => {
                     return this.navigation.getCurrentPosition().section.getId() === data.target;
                 }

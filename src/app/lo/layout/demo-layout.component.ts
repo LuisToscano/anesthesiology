@@ -11,10 +11,12 @@ export class DemoLayoutComponent implements OnInit {
   
   @Input() navPosition : NavPosition;
   menuElements : Array<any>;
+  footerContent: any;
   constructor() {}
 
   ngOnInit() {
     this.menuElements = LOExtras.menuBars.top;
+    this.footerContent = LOExtras.footer;
   }
 
   getSlideStyle() {

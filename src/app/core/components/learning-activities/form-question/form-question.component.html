@@ -9,6 +9,6 @@
         </div>
     </div>
     <div class="form-question-btn" *ngIf="formQuestionData.submitBtn">
-        <button (click)="submitInteraction()">{{ formQuestionData.submitBtn.tag }}</button>
+        <button [disabled]="attempted >= attempts" (click)="submitInteraction()">{{ formQuestionData.submitBtn.tag }}</button>
     </div>
 </div>
