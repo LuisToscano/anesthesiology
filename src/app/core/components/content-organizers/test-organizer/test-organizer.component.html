@@ -1,12 +1,18 @@
 <div class="test-organizer-menu">
     <ul>
-        <li class="active">Opcion 1</li>
-        <li>Opcion 2</li>
-        <li>Opcion 3</li>
-        <li>Opcion 4</li>
+        <li *ngFor="let section of sections; let i = index;"
+        [ngClass]="{'active': i === currentIdx}"
+        (click)="goTo(i)">
+            {{section.name}}
+        </li>
     </ul>
 </div>
 <div class="test-organizer-content">
-    <h1>Opcion 1</h1>
-    <paragraph [attributeData]="data"></paragraph>
+    <div *ngIf="current">
+        <course-row
+        *ngFor='let row of current.rows'
+        [style.flex]="row.flex"
+        [cols]="row.cols"
+        ></course-row>
+    </div>
 </div>

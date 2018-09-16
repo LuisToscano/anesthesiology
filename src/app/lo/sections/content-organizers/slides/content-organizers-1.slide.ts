@@ -17,13 +17,75 @@ export const contentOrganizerSectionSlide1 : Slide = {
                         type: ComponentType.Basic,
                         component: TitleComponent,
                         data: {
-                            title: 'Título de opción 1'
+                            title: 'Título de Opción 1'
                         }
-                    }, {
+                    }]
+                }, {
+                    cols: [{
                         type: ComponentType.Basic,
                         component: ParagraphComponent,
                         data: [{
                             text: 'Soy el texto de la opción 1'
+                        }]
+                    }]
+                }]
+            },
+            {
+                name: 'Opción 2',
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: TitleComponent,
+                        data: {
+                            title: 'Título de Opción 2'
+                        }
+                    }]
+                }, {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Soy el texto de la opción 2'
+                        }]
+                    }]
+                }]
+            },
+            {
+                name: 'Opción 3',
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: TitleComponent,
+                        data: {
+                            title: 'Título de Opción 3'
+                        }
+                    }]
+                }, {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Soy el texto de la opción 3'
+                        }]
+                    }]
+                }]
+            },
+            {
+                name: 'Opción 4',
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: TitleComponent,
+                        data: {
+                            title: 'Título de Opción 4'
+                        }
+                    }]
+                }, {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Soy el texto de la opción 4'
                         }]
                     }]
                 }]

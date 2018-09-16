@@ -21,6 +21,10 @@ export class CourseRow {
         return this;
     }
 
+    setColArray(cols : Array<CourseColumn>) {
+        this.cols = cols;
+    }
+
     col(idx : number) {
         return this.cols.length > idx ? this.cols[idx] : null;
     }

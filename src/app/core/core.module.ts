@@ -5,6 +5,7 @@ import { ColumnContentComponent } from './components/base/course-column/column-c
 import { CourseContentComponent } from './components/base/course-content/course-content.component';
 import { CourseRowComponent } from './components/base/course-row/course-row.component';
 import { ParagraphComponent } from './components/basic/paragraph/paragraph.component';
+import { TitleComponent } from './components/basic/title/title.component';
 import { BaseCourseContainerComponent } from './components/layout/base-course-container/base-course-container.component';
 import { CourseContentProvider } from './providers/course-content.provider';
 import { NavigationProvider } from './providers/navigation.provider';
@@ -30,7 +31,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     BaseCourseContainerComponent,
     FormQuestionComponent,
     TestOrganizerComponent,
-    SafeHtmlPipe
+    SafeHtmlPipe,
+    TitleComponent
   ],
   imports: [
     BrowserModule,
@@ -53,12 +55,14 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     ParagraphComponent,
     BaseCourseContainerComponent,
     FormQuestionComponent,
-    TestOrganizerComponent
+    TestOrganizerComponent,
+    TitleComponent
   ],
   entryComponents: [
     ParagraphComponent,
     FormQuestionComponent,
-    TestOrganizerComponent
+    TestOrganizerComponent,
+    TitleComponent
   ]
 })
 export class CoreModule { }
