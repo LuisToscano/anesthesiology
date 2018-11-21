@@ -3,11 +3,11 @@ import { NavPosition } from '../../core/interfaces/nav-position.interface';
 import { LOExtras } from '../lo.extras';
 
 @Component({
-  selector: 'demo-layout',
-  templateUrl: './demo-layout.component.html',
-  styleUrls: ['./demo-layout.component.scss']
+  selector: 'lo-layout',
+  templateUrl: './layout.component.html',
+  styleUrls: ['./layout.component.scss']
 })
-export class DemoLayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit {
   
   @Input() navPosition : NavPosition;
   menuElements : Array<any>;

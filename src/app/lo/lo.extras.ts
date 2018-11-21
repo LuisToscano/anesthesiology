@@ -1,21 +1,14 @@
-import { basicComponentsSection } from './sections/basic-components/basic-components.section';
-import { learningActivitiesSection } from './sections/learning-activities/learning-activities.section';
-import { contentOrganizersSection } from './sections/content-organizers/content-organizers.section'
+/*import { basicComponentsSection } from './sections/basic-components/basic-components.section';
 import { MenuBarAction } from '../core/enums/lo-extras.enum';
-import { LOHelper } from './lo.helper';
-
-let footer = 'Este es el texto que será utilizado en el pie de página de este demo.';
+import { LOHelper } from './lo.helper';*/
 
 export const LOExtras : LOExtrasContent = {
     menuBars: {
-        top: [
-            LOHelper.createMenuBarAction(basicComponentsSection, MenuBarAction.GoToSection),
-            LOHelper.createMenuBarAction(learningActivitiesSection, MenuBarAction.GoToSection),
-            LOHelper.createMenuBarAction(contentOrganizersSection, MenuBarAction.GoToSection)
-        ]
+        //LOHelper.createMenuBarAction(basicComponentsSection, MenuBarAction.GoToSection)
+        top: []
     },
     footer: [{
-        text: footer,
+        text: '',
         args: {}
     }]
 };

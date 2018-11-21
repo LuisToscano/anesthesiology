@@ -1,6 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavPosition } from '../../../../core/interfaces/nav-position.interface';
-import { NavigationProvider } from '../../../../core/providers/navigation.provider';
+import { NavPosition } from '../../../../interfaces/nav-position.interface';
+import { NavigationProvider } from '../../../../providers/navigation.provider';
 
 @Component({
   selector: 'demo-layout-nav-bar',

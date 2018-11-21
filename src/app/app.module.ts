@@ -1,7 +1,7 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { DemoLayoutModule } from './lo/layout/demo-layout.module';
+import { LayoutModule } from './lo/layout/layout.module';
 
 import { AppComponent } from './app.component';
 import { CoreModule } from './core/core.module';
@@ -14,7 +14,7 @@ import { CoreModule } from './core/core.module';
     BrowserModule,
     CoreModule,
     FormsModule,
-    DemoLayoutModule
+    LayoutModule
   ],
   providers: [],
   bootstrap: [AppComponent],

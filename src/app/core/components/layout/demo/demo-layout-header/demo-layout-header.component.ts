@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LOExtrasProvider } from '../../../../core/providers/lo-extras.provider';
+import { LOExtrasProvider } from '../../../../providers/lo-extras.provider';
 
 @Component({
   selector: 'demo-layout-header',

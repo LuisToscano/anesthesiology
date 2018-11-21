@@ -1,0 +1,18 @@
+@import 'layout.variables';
+@import 'layout.mixin';
+
+:host{
+    &::ng-deep{
+        display: flex;
+        flex-direction: column;
+        width: 100%;
+        background: $layout-bg-color;
+
+        .container{
+            width: 50%;
+            margin: 100px auto;
+            height: 500px;
+            background-color: $content-bg-color;
+        }
+    }
+}
