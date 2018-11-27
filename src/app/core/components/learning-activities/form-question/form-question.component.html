@@ -6,17 +6,17 @@
         <div class="form-question-answer-opt" *ngFor="let answerOpt of formQuestionData.answerOpts; let i = index">
             <!-- ONE CORRECT ANSWER -->
             <div *ngIf="formQuestionData.correct.length === 1">
-                <input type="radio" name="interaction-{{ formQuestionData.interactionId }}" [disabled]="attempted >= attempts" [value]="i" [(ngModel)]="userResponse[formQuestionData.interactionId]"/>
+                <input type="radio" name="interaction-{{ formQuestionData.interactionId }}" [disabled]="attempted >= maxAttempts" [value]="i" [(ngModel)]="userResponse[formQuestionData.interactionId]"/>
                 <span> {{ answerOpt }}</span>
             </div>
             <!-- MULTIPLE CORRECT ANSWERS -->
             <div *ngIf="formQuestionData.correct.length > 1">
-                <input type="checkbox" name="interaction-{{ formQuestionData.interactionId }}-{{i}}" [disabled]="attempted >= attempts" [value]="i" [(ngModel)]="userResponse[i]" />
+                <input type="checkbox" name="interaction-{{ formQuestionData.interactionId }}-{{i}}" [disabled]="attempted >= maxAttempts" [value]="i" [(ngModel)]="userResponse[i]" />
                 <span> {{ answerOpt }}</span>
             </div>
         </div>
     </div>
     <div class="form-question-btn" *ngIf="formQuestionData.submitBtn">
-        <button [disabled]="attempted >= attempts" (click)="submitInteraction()">{{ formQuestionData.submitBtn.tag }}</button>
+        <button [disabled]="attempted >= maxAttempts" (click)="submitInteraction()">{{ formQuestionData.submitBtn.tag }}</button>
     </div>
 </div>

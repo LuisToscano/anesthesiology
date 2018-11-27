@@ -1,4 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { noop } from '../../../constants/noop.constant';
+import { LearningActivity } from '../../../interfaces/learning-activity.interface';
 import * as _ from "lodash";
 
 @Component({
@@ -6,53 +8,66 @@ import * as _ from "lodash";
   templateUrl: './form-question.component.html',
   styleUrls: ['./form-question.component.scss']
 })
-export class FormQuestionComponent implements OnInit {
+export class FormQuestionComponent implements OnInit, LearningActivity {
   @Input() attributeData : FormQuestionData;
-  data : FormQuestionData;
-  formQuestionData : FormQuestionData;
-  userResponse : any = {};
-  isResponseObjectReady : boolean = false;
-  submitAction : (interactionId, response, isCorrect) => void;
+  private data : FormQuestionData;
+  private formQuestionData : FormQuestionData;
+  private userResponse : any = {};
+  private submitAction : (interactionId, response, isCorrect) => void;
   private currentInteraction;
+  private questionType : QuestionType;
+  private isResponseObjectReady : boolean = false;
   private attempted : number;
-  private attempts : number;
+  private maxAttempts : number;
 
   constructor() {}
 
   ngOnInit() {
     this.formQuestionData = this.attributeData ? this.attributeData : this.data;
+    this.questionType = this.formQuestionData.correct.length === 1 ?
+      QuestionType.OneAnswer : QuestionType.MultipleAnswers;
     this.currentInteraction =
       this.formQuestionData.LOCurrentState.interactions[this.formQuestionData.interactionId];
     this.attempted = this.currentInteraction.attempts;
-    this.attempts = this.formQuestionData.attempts ? this.formQuestionData.attempts : 1;
-    this.submitAction = this.formQuestionData.submitAction ? this.formQuestionData.submitAction :
-      () => { return undefined; };
-    this.prepareUserResponseObj();
-    this.decryptResponseObj();
+    this.maxAttempts = this.formQuestionData.attempts ? this.formQuestionData.attempts : 1;
+    this.submitAction =
+      this.formQuestionData.submitAction ? this.formQuestionData.submitAction : noop;
+    this.prepareResponseObj();
+    this.decryptResponseString();
   }
 
   submitInteraction() {
-    let response;
-    let isCorrect;
-    if (this.formQuestionData.correct.length === 1) {
-      //ONE CORRECT ANSWER
-      response = this.formQuestionData
-        .answerOpts[this.userResponse[this.formQuestionData.interactionId]];
-      isCorrect = _.isEmpty(_.difference(
-        _.values(this.userResponse), this.formQuestionData.correct
-      ));
-    } else {
-      //MULTIPLE CORRECT ANSWERS
-      let checkedResponses = _.pickBy(this.userResponse, response => {
-        return response === true;
-      });
-      response = _.reduce(checkedResponses, this.buildResponseString.bind(this) , '');
-      isCorrect = _.isEmpty(_.difference(
-          _.map(_.keys(checkedResponses), _.parseInt), this.formQuestionData.correct
-      ));
-    }
-    this.submitAction(this.formQuestionData.interactionId, response, isCorrect);
+    let grade = this.questionType === QuestionType.OneAnswer ?
+      this.gradeInteractionForOneAnswer() : this.gradeInteractionForMultipleAnswers();
+    this.submitAction(this.formQuestionData.interactionId, grade.response, grade.isCorrect);
     this.attempted++;
+  }
+
+  private gradeInteractionForOneAnswer() {
+    console.log('-----------',
+    _.compact(_.values(this.userResponse)),
+      this.formQuestionData.correct,
+      _.difference(_.values(this.userResponse), this.formQuestionData.correct)
+    );
+    return {
+      response: this.formQuestionData
+        .answerOpts[this.userResponse[this.formQuestionData.interactionId]],
+      isCorrect: _.isEmpty(_.difference(
+        _.compact(_.values(this.userResponse)), this.formQuestionData.correct
+      ))
+    };
+  }
+
+  private gradeInteractionForMultipleAnswers() {
+    let checkedResponses = _.pickBy(this.userResponse, response => {
+      return response === true;
+    });
+    return {
+      response: _.reduce(checkedResponses, this.buildResponseString.bind(this) , ''),
+      isCorrect: _.isEmpty(_.difference(
+        _.map(_.keys(checkedResponses), _.parseInt), this.formQuestionData.correct
+      ))
+    };
   }
 
   private buildResponseString(acum, answerOpt, answerKey) {
@@ -61,37 +76,44 @@ export class FormQuestionComponent implements OnInit {
     return acum + separator + strAnswer;
   }
 
-  private prepareUserResponseObj() {
-    if (this.formQuestionData.correct.length > 1) {
-      //ONE CORRECT ANSWER
-      _.range(this.formQuestionData.answerOpts.length).forEach((i) => {
-        this.userResponse[i] = null;
-      });
-    } else {
-      //MULTIPLE CORRECT ANSWERS
-      this.userResponse[this.formQuestionData.interactionId] = null;
+  private decryptResponseString() {
+    this.questionType === QuestionType.OneAnswer ?
+      this.decryptResponseStringForOneAnswer() :
+      this.decryptResponseStringForMultipleAnswers();
+  }
+
+  private decryptResponseStringForOneAnswer() {
+    let idx = _.indexOf(this.formQuestionData.answerOpts, this.currentInteraction.response);
+    if (idx > 0) {
+      this.userResponse[this.formQuestionData.interactionId] = idx;
     }
+  }
+
+  private decryptResponseStringForMultipleAnswers() {
+    let responses = this.currentInteraction.response.split(' / ');
+    _.each(responses, resp => {
+      let idx = _.indexOf(this.formQuestionData.answerOpts, resp);
+      if (idx >= 0) {
+        this.userResponse[idx] = true;
+      }
+    });
+  }
+
+  private prepareResponseObj() {
+    this.questionType === QuestionType.OneAnswer ?
+      this.prepareResponseObjForOneAnswer() :
+      this.prepareResponseObjForMultipleAnswers();
     this.isResponseObjectReady = true;
   }
 
-  private decryptResponseObj() {
-    if (this.formQuestionData.correct.length === 1) {
-      //ONE CORRECT ANSWER
-      let idx =
-        _.indexOf(this.formQuestionData.answerOpts, this.currentInteraction.response);
-      if (idx > 0) {
-        this.userResponse[this.formQuestionData.interactionId] = idx;
-      }
-    } else {
-      //MULTIPLE CORRECT ANSWERS
-      let responses = this.currentInteraction.response.split(' / ');
-      _.each(responses, resp => {
-        let idx = _.indexOf(this.formQuestionData.answerOpts, resp);
-        if (idx >= 0) {
-          this.userResponse[idx] = true;
-        }
-      });
-    }
+  private prepareResponseObjForOneAnswer() {
+    _.range(this.formQuestionData.answerOpts.length).forEach((i) => {
+      this.userResponse[i] = null;
+    });
+  }
+
+  private prepareResponseObjForMultipleAnswers() {
+    this.userResponse[this.formQuestionData.interactionId] = null;
   }
 }
 
@@ -109,4 +131,8 @@ export interface FormQuestionData {
 
 interface FormQuestionButton {
   tag: string;
+}
+
+enum QuestionType {
+  OneAnswer, MultipleAnswers
 }
