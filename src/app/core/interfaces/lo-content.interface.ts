@@ -1,4 +1,5 @@
 import { ComponentType } from '../enums/component-type.enum';
+import { ElementAction } from '../enums/element-action.enum';
 
 export interface Sections{
     id: string,
@@ -13,14 +14,22 @@ export interface Slide{
     style ?: {}
 }
 
+export interface Element{
+    type: ComponentType,
+    component: any,
+    data : any,
+    actions ?: Array<ElementAction>
+}
+
 interface Row{
     cols: Array<Col>,
     flex ?: number
 }
 
 interface Col {
+    type : ComponentType,
     component: any,
     data: {},
-    flex ?: number,
-    type ?: ComponentType
+    actions ?: Array<ElementAction>,
+    flex ?: number
 }

@@ -1,5 +1,4 @@
 import { Component, Input, OnInit } from '@angular/core';
-import { NavPosition } from '../../../interfaces/nav-position.interface';
 
 @Component({
   selector: 'course-content',
@@ -7,14 +6,15 @@ import { NavPosition } from '../../../interfaces/nav-position.interface';
   styleUrls: ['./course-content.component.scss']
 })
 export class CourseContentComponent implements OnInit{
-  @Input() navPosition: NavPosition;
-  slideStyle : {};
+  @Input() LOCurrentState : any;
 
   constructor() {}
 
   ngOnInit(){}
 
   getRows() {
-    return this.navPosition.section.slide(this.navPosition.slide).getRows();
+    return this.LOCurrentState.position.section.slide(
+      this.LOCurrentState.position.slide
+    ).getRows();
   }
 }

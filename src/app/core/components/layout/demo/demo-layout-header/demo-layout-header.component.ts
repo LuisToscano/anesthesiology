@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { LOExtrasProvider } from '../../../../providers/lo-extras.provider';
+import { ActionsProvider } from '../../../../providers/actions.provider';
 
 @Component({
   selector: 'demo-layout-header',
@@ -12,7 +12,7 @@ export class DemoLayoutHeaderComponent implements OnInit {
   preparedMenuElements : Array<any>;
 
   constructor(
-    private extras : LOExtrasProvider
+    private extras : ActionsProvider
   ) {}
 
   ngOnInit() {

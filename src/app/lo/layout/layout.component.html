@@ -1,3 +1,6 @@
 <div class="container">
-    <course-content [navPosition]="navPosition" [ngStyle]="getSlideStyle()"></course-content>
+    <course-content 
+        [ngStyle]="getSlideStyle()"
+        [LOCurrentState]="LOCurrentState"
+    ></course-content>
 </div>

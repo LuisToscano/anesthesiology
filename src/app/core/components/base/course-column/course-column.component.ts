@@ -1,6 +1,7 @@
 import { Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { ColumnContentComponent } from './column-content.component';
 import { ColumnContent } from '../../../interfaces/column-content.interface';
+import * as _ from "lodash";
 
 @Component({
   selector: 'course-column',
@@ -8,7 +9,7 @@ import { ColumnContent } from '../../../interfaces/column-content.interface';
   styleUrls: ['./course-column.component.scss']
 })
 export class CourseColumnComponent implements AfterViewInit {
-  
+  @Input() LOCurrentState : any;
   @Input() componentInner: any;
   @ViewChild(ColumnContentComponent) columnContent: ColumnContentComponent;
 
@@ -21,9 +22,12 @@ export class CourseColumnComponent implements AfterViewInit {
   loadComponent() {
     let componentFactory = this.componentFactoryResolver.resolveComponentFactory(this.componentInner.component);
     let viewContainerRef = this.columnContent.viewContainerRef;
+    this.columnContent.LOState = this.LOCurrentState;
     viewContainerRef.clear();
 
     let componentRef = viewContainerRef.createComponent(componentFactory);
-    (<ColumnContent>componentRef.instance).data = this.componentInner.data;
+    (<ColumnContent>componentRef.instance).data = _.extend(this.componentInner.data, {
+      LOCurrentState: this.LOCurrentState
+    });
   }
 }

@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavPosition } from '../../../interfaces/nav-position.interface';
 
 @Component({
   selector: 'base-course-container',
@@ -8,13 +7,15 @@ import { NavPosition } from '../../../interfaces/nav-position.interface';
 })
 export class BaseCourseContainerComponent implements OnInit {
   
-  @Input() navPosition : NavPosition;
+  @Input() LOCurrentState : any;
   constructor() {}
 
   ngOnInit() {
   }
 
   getSlideStyle() {
-    return this.navPosition.section.slide(this.navPosition.slide).getStyle();
+    return this.LOCurrentState.position.section.slide(
+      this.LOCurrentState.position.slide
+    ).getStyle();
   }
 }

@@ -7,7 +7,7 @@ import { CourseColumn } from '../../../classes/course-column.class';
   styleUrls: ['./course-row.component.scss']
 })
 export class CourseRowComponent{
-
+  @Input() LOCurrentState : any;
   @Input() cols: CourseColumn[];
   constructor() {}
 

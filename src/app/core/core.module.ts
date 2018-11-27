@@ -6,13 +6,15 @@ import { CourseContentComponent } from './components/base/course-content/course-
 import { CourseRowComponent } from './components/base/course-row/course-row.component';
 import { ParagraphComponent } from './components/basic/paragraph/paragraph.component';
 import { TitleComponent } from './components/basic/title/title.component';
+import { ButtonComponent } from './components/basic/button/button.component';
 import { BaseCourseContainerComponent } from './components/layout/base-course-container/base-course-container.component';
 import { CourseContentProvider } from './providers/course-content.provider';
 import { NavigationProvider } from './providers/navigation.provider';
 import { SideMenuProvider } from './providers/side-menu.provider';
 import { SCORMProvider } from './providers/scorm.provider';
 import { StateProvider } from './providers/state.provider';
-import { LOExtrasProvider } from './providers/lo-extras.provider';
+import { ActionsProvider } from './providers/actions.provider';
+import { LOStructureProvider } from './providers/lo-structure.provider';
 import { InteractionsProvider } from './providers/interactions.provider';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormQuestionComponent } from './components/learning-activities/form-question/form-question.component';
@@ -32,7 +34,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     FormQuestionComponent,
     TestOrganizerComponent,
     SafeHtmlPipe,
-    TitleComponent
+    TitleComponent,
+    ButtonComponent
   ],
   imports: [
     BrowserModule,
@@ -44,7 +47,8 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     SideMenuProvider,
     SCORMProvider,
     StateProvider,
-    LOExtrasProvider,
+    ActionsProvider,
+    LOStructureProvider,
     InteractionsProvider
   ],
   exports: [
@@ -56,13 +60,15 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     BaseCourseContainerComponent,
     FormQuestionComponent,
     TestOrganizerComponent,
-    TitleComponent
+    TitleComponent,
+    ButtonComponent
   ],
   entryComponents: [
     ParagraphComponent,
     FormQuestionComponent,
     TestOrganizerComponent,
-    TitleComponent
+    TitleComponent,
+    ButtonComponent
   ]
 })
 export class CoreModule { }

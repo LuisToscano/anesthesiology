@@ -5,4 +5,6 @@ export interface LOInteraction{
     type: SCORMInteractionType;
     weight: number;
     description : string;
+    section : string;
+    slide : number;
 }

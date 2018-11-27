@@ -1,7 +1,6 @@
 import { Injectable } from '@angular/core';
-import { CourseSection } from '../classes/course-section.class';
 import { CourseSlide } from '../classes/course-slide.class';
-import { CourseContentProvider } from './course-content.provider';
+import { LOStructureProvider } from './lo-structure.provider';
 import { Observable } from 'rxjs/Observable';
 import { NavPosition } from '../interfaces/nav-position.interface';
 import { SCORMProvider } from './scorm.provider'; 
@@ -15,12 +14,12 @@ export class NavigationProvider {
   slideChanged : Observable<NavPosition>;
 
   constructor(
-    private courseContent : CourseContentProvider,
+    private LOStructure : LOStructureProvider,
     private scorm : SCORMProvider
   ) {}
 
   init() : void {
-    let sections = this.courseContent.courseSections;
+    let sections = this.LOStructure.getSections();
     let firstSection = _.first(sections);
     let currentSCORM = this.scorm.getLocation();
     let defaultPosition = {
@@ -82,7 +81,7 @@ export class NavigationProvider {
   }
 
   goToSectionSlide(id : string, slide? : number) {
-    var desiredSection = _.find(this.courseContent.courseSections, section => {
+    var desiredSection = _.find(this.LOStructure.getSections(), section => {
       return section.getId() === id;
     });
     if (desiredSection) {

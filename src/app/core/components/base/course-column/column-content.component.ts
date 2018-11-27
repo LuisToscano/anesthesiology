@@ -5,5 +5,6 @@ import { Component, ViewContainerRef } from '@angular/core';
   template: ''
 })
 export class ColumnContentComponent {
+   LOState : any;
    constructor(public viewContainerRef: ViewContainerRef) { }
 } 

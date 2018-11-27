@@ -9,7 +9,7 @@ import { LOExtras } from '../lo.extras';
 })
 export class LayoutComponent implements OnInit {
   
-  @Input() navPosition : NavPosition;
+  @Input() LOCurrentState : any;
   menuElements : Array<any>;
   footerContent: any;
   constructor() {}
@@ -20,6 +20,8 @@ export class LayoutComponent implements OnInit {
   }
 
   getSlideStyle() {
-    return this.navPosition.section.slide(this.navPosition.slide).getStyle();
+    return this.LOCurrentState.position.section.slide(
+      this.LOCurrentState.position.slide
+    ).getStyle();
   }
 }

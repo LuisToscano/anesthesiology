@@ -8,8 +8,8 @@ import { StateProvider } from './core/providers/state.provider';
   styleUrls: ['./app.component.scss']
 })
 export class AppComponent implements OnInit{
-  navPosition : NavPosition;
-  menuElements : any;
+  interactionsData : any;
+  LOCurrentState : any;
 
   constructor(
     private LOState : StateProvider
@@ -17,6 +17,7 @@ export class AppComponent implements OnInit{
 
   ngOnInit(){
     this.LOState.init();
-    this.navPosition = this.LOState.getCurrentPosition();
+    this.LOCurrentState = this.LOState.getCurrentState();
+    this.interactionsData = this.LOState.getInteractions();
   }
 }

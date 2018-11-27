@@ -4,8 +4,16 @@
     </p>
     <div class="form-question-answer-opts" *ngIf="isResponseObjectReady">
         <div class="form-question-answer-opt" *ngFor="let answerOpt of formQuestionData.answerOpts; let i = index">
-            <div *ngIf="formQuestionData.correct.length === 1"><input type="radio" name="interaction-{{ formQuestionData.interactionId }}" [value]="i" [(ngModel)]="userResponse[formQuestionData.interactionId]"/> <span> {{ answerOpt }}</span></div>
-            <div *ngIf="formQuestionData.correct.length > 1"><input type="checkbox" name="interaction-{{ formQuestionData.interactionId }}-{{i}}" [value]="i" [(ngModel)]="userResponse[i]" /> <span> {{ answerOpt }}</span></div>
+            <!-- ONE CORRECT ANSWER -->
+            <div *ngIf="formQuestionData.correct.length === 1">
+                <input type="radio" name="interaction-{{ formQuestionData.interactionId }}" [disabled]="attempted >= attempts" [value]="i" [(ngModel)]="userResponse[formQuestionData.interactionId]"/>
+                <span> {{ answerOpt }}</span>
+            </div>
+            <!-- MULTIPLE CORRECT ANSWERS -->
+            <div *ngIf="formQuestionData.correct.length > 1">
+                <input type="checkbox" name="interaction-{{ formQuestionData.interactionId }}-{{i}}" [disabled]="attempted >= attempts" [value]="i" [(ngModel)]="userResponse[i]" />
+                <span> {{ answerOpt }}</span>
+            </div>
         </div>
     </div>
     <div class="form-question-btn" *ngIf="formQuestionData.submitBtn">

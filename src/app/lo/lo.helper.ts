@@ -1,9 +1,9 @@
-import { MenuBarAction } from '../core/enums/lo-extras.enum';
+import { ElementAction } from '../core/enums/element-action.enum';
 import { Sections } from '../core/interfaces/lo-content.interface';
 import * as _ from "lodash";
 
 let menuBarActions = {};
-menuBarActions[MenuBarAction.GoToSection] = (section : Sections) => {
+menuBarActions[ElementAction.GoToSection] = (section : Sections) => {
     return {
         data: {
             target: section.id
@@ -12,7 +12,7 @@ menuBarActions[MenuBarAction.GoToSection] = (section : Sections) => {
 };
 
 export const LOHelper = {
-    createMenuBarAction: (section : Sections, action : MenuBarAction) => {
+    createElementAction: (section : Sections, action : ElementAction) => {
         return _.extend({
             text: section.name,
             action: action

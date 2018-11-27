@@ -1,10 +1,10 @@
 /*import { basicComponentsSection } from './sections/basic-components/basic-components.section';
-import { MenuBarAction } from '../core/enums/lo-extras.enum';
+import { ElementAction } from '../core/enums/lo-extras.enum';
 import { LOHelper } from './lo.helper';*/
 
 export const LOExtras : LOExtrasContent = {
     menuBars: {
-        //LOHelper.createMenuBarAction(basicComponentsSection, MenuBarAction.GoToSection)
+        //LOHelper.createElementAction(basicComponentsSection, ElementAction.GoToSection)
         top: []
     },
     footer: [{
