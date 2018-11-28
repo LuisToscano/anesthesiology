@@ -18,6 +18,7 @@ export interface Element{
     type: ComponentType,
     component: any,
     data : any,
+    events ?: any,
     actions ?: Array<ElementAction>
 }
 
