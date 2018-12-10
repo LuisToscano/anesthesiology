@@ -44,11 +44,6 @@ export class FormQuestionComponent implements OnInit, LearningActivity {
   }
 
   private gradeInteractionForOneAnswer() {
-    console.log('-----------',
-    _.compact(_.values(this.userResponse)),
-      this.formQuestionData.correct,
-      _.difference(_.values(this.userResponse), this.formQuestionData.correct)
-    );
     return {
       response: this.formQuestionData
         .answerOpts[this.userResponse[this.formQuestionData.interactionId]],

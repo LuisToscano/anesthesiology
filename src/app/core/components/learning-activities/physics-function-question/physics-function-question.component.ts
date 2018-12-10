@@ -1,7 +1,7 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { noop } from '../../../constants/noop.constant';
 import { LearningActivity } from '../../../interfaces/learning-activity.interface';
-import { argumentsRegex } from '../../../constants/utils.constant';
+import { argumentsRegex, anythingRegex } from '../../../constants/utils.constant';
 import * as _ from "lodash";
 
 @Component({
@@ -21,6 +21,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   private maxAttempts : number;
 
   private variables : Variables;
+  private variablesArray : Array<any>;
   private constants : Variables;
   private questions : Array<Question>;
   private answers : Array<string>;
@@ -37,6 +38,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
     let vars = _.clone(this.physicsFnQuestionData.variables);
     let consts = _.remove(vars, myVar => !myVar.mutable);
     this.variables = _.reduce(vars, this.buildVariableObj.bind(this), {});
+    this.variablesArray = _.values(this.variables);
     this.constants = _.reduce(consts, this.buildVariableObj.bind(this), {});
     
     this.currentInteraction =
@@ -59,9 +61,6 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
         options: q.options
       }
     });
-
-    //this.prepareResponseObj();
-    //this.decryptResponseString();
   }
 
   submitInteraction() {
@@ -73,10 +72,8 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
       return acum + separator + answer;
     }, '');
 
-    console.log(response, allCorrect);
-
-    //this.submitAction(this.physicsFnQuestionData.interactionId, response, allCorrect);
-    //this.attempted++;
+    this.submitAction(this.physicsFnQuestionData.interactionId, response, allCorrect);
+    this.attempted++;
   }
 
   getStatement() {
@@ -84,6 +81,16 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
         this.physicsFnQuestionData.statement, _.extend(this.variables, this.constants),
         this.printVarClosure
     );
+  }
+
+  shouldDisableBtn() {
+    return this.attempted >= this.maxAttempts || !_.every(this.answers, this.validateAnswerPattern.bind(this));
+  }
+
+  private validateAnswerPattern(ans, idx) {
+    let pattern = this.questions[idx].options.pattern;
+    pattern = pattern instanceof RegExp ? pattern : anythingRegex;
+    return !_.isEmpty(ans) && pattern.test(ans);
   }
 
   private replaceStrings(text : string, replaceFrom : any, pickValue ?: (val) => string) {
@@ -104,17 +111,8 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   private buildVariableObj(acum, myVar) {
     let varObj = {};
-    varObj[myVar.name] = _.pick(myVar, ['value', 'unit']);
+    varObj[myVar.name] = _.pick(myVar, ['value', 'unit', 'tag']);
     return _.extend(acum, varObj);
-  }
-
-  private buildResponseString() {
-  }
-
-  private decryptResponseString() {
-  }
-
-  private prepareResponseObj() {
   }
 }
 
@@ -142,7 +140,9 @@ interface Variables {
 interface Question {
   getStatement : (val) => string;
   validateFn : (response, variables) => boolean;
-  options : {};
+  options : {
+    pattern : RegExp
+  };
 }
 
 interface FunctionQuestionButton {

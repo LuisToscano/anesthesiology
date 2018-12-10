@@ -24,7 +24,7 @@ export class ActionsProvider {
         });
     }
 
-    prepareElementAction(elem : Element) {
+    prepareElementAction(elem : any) {
         return this.extendObjectUsingDataActions(elem.data, elem.data, elem.actions);;
     }
 

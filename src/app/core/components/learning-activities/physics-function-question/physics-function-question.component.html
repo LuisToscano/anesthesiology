@@ -1,15 +1,21 @@
 <div class="function-question-container">
+    <div class="variables">
+        <div class="variable" *ngFor="let variable of variablesArray; let i = index">
+            <label for="variable-{{i}}">{{ variable.tag }}: </label>
+            <input type="number" id="variable-{{i}}" [(ngModel)]="variable.value">
+            <div class="unit">{{ variable.unit }}</div>
+        </div>
+    </div>
     <p>{{ getStatement() }}</p>
     <div class="question" *ngFor="let question of questions; let i = index">
         <p>{{i + 1}}. {{question.getStatement()}}</p>
-        <input type="text"
+        <input type="{{question.options.type}}"
             [(ngModel)]="answers[i]"
             placeholder="{{question.options.placeholder}}"
-            maxlength="{{question.options.maxLength}}"
         />
     </div>
     <br>
     <div class="function-question-btn" *ngIf="physicsFnQuestionData.submitBtn">
-        <button [disabled]="attempted >= maxAttempts" (click)="submitInteraction()">{{ physicsFnQuestionData.submitBtn.tag }}</button>
+        <button [disabled]="shouldDisableBtn()" (click)="submitInteraction()">{{ physicsFnQuestionData.submitBtn.tag }}</button>
     </div>
 </div>

@@ -1,4 +1,5 @@
 export const argumentsRegex = /%\([A-z]*\)/;
+export const anythingRegex = /.*/; 
 
 export const truncateDecimal : (num, amount) => number = (num, amount) => {
     let a = (num + '').split('.');
