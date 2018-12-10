@@ -1,0 +1,15 @@
+<div class="function-question-container">
+    <p>{{ getStatement() }}</p>
+    <div class="question" *ngFor="let question of questions; let i = index">
+        <p>{{i + 1}}. {{question.getStatement()}}</p>
+        <input type="text"
+            [(ngModel)]="answers[i]"
+            placeholder="{{question.options.placeholder}}"
+            maxlength="{{question.options.maxLength}}"
+        />
+    </div>
+    <br>
+    <div class="function-question-btn" *ngIf="physicsFnQuestionData.submitBtn">
+        <button [disabled]="attempted >= maxAttempts" (click)="submitInteraction()">{{ physicsFnQuestionData.submitBtn.tag }}</button>
+    </div>
+</div>

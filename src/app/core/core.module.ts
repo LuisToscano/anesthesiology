@@ -18,6 +18,7 @@ import { LOStructureProvider } from './providers/lo-structure.provider';
 import { InteractionsProvider } from './providers/interactions.provider';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormQuestionComponent } from './components/learning-activities/form-question/form-question.component';
+import { PhysicsFunctionQuestionComponent } from './components/learning-activities/physics-function-question/physics-function-question.component';
 import { TestOrganizerComponent } from './components/content-organizers/test-organizer/test-organizer.component';
 import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
@@ -32,6 +33,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     ParagraphComponent,
     BaseCourseContainerComponent,
     FormQuestionComponent,
+    PhysicsFunctionQuestionComponent,
     TestOrganizerComponent,
     SafeHtmlPipe,
     TitleComponent,
@@ -59,6 +61,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
     ParagraphComponent,
     BaseCourseContainerComponent,
     FormQuestionComponent,
+    PhysicsFunctionQuestionComponent,
     TestOrganizerComponent,
     TitleComponent,
     ButtonComponent
@@ -66,6 +69,7 @@ import { SafeHtmlPipe } from './pipes/safe-html.pipe';
   entryComponents: [
     ParagraphComponent,
     FormQuestionComponent,
+    PhysicsFunctionQuestionComponent,
     TestOrganizerComponent,
     TitleComponent,
     ButtonComponent
