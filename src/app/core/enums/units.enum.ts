@@ -10,3 +10,7 @@ export enum AccelerationUnits {
 export enum MassUnits {
     Kilogram = 'kg'
 }
+
+export enum ForceUnits {
+    Newton = 'N'
+}

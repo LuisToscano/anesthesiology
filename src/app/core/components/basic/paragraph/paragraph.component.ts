@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import * as _ from "lodash";
+import { ParagraphData } from "./paragraph.enum";
 
 @Component({
   selector: 'paragraph',
@@ -54,11 +55,6 @@ export class ParagraphComponent implements OnInit {
   }
 }
 
-interface Paragraph {
-  type: string,
-  data: any
-}
-
 interface ParagraphLinkInjection {
   href: string,
   innerText: string
@@ -67,24 +63,4 @@ interface ParagraphLinkInjection {
 interface ParagraphTextClassInjection {
   innerText: string,
   class: string | Array<string>
-}
-
-interface ParagraphObj {
-    [key: string]: Paragraph
-}
-
-export interface ParagraphData {
-  text : string,
-  args ?: ParagraphObj,
-  innerHtml ?: string
-}
-
-export enum ParagraphArgumentType {
-  Link = 'link',
-  Class = 'class'
-}
-
-export enum ParagraphClass {
-  Italic = 'italic',
-  Bold = 'bold'
 }

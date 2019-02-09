@@ -3,5 +3,6 @@ export enum ElementAction{
     GoToSectionSlide = 'goToSectionSlide',
     GoToSlide = 'goToSlide',
     ActiveIfCurrentSection = 'activeIfCurrentSection',
-    ActiveIfSlideInteractionsDone = 'activeIfSlideInteractionsDone'
+    ActiveIfSlideInteractionsDone = 'activeIfSlideInteractionsDone',
+    ActiveIfSectionInteractionsDone = 'activeIfSectionInteractionsDone'
 }

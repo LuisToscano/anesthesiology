@@ -12,18 +12,23 @@ export class ButtonComponent implements OnInit {
   @Input() onClick : () => void;
   @Input() isActive : () => Boolean;
   data : ButtonData;
+  btnStyle : any;
 
-  constructor() {}
+  constructor() {
+    this.btnStyle = {};
+  }
 
   ngOnInit() {
     this.text = this.data.text ? this.data.text : this.text;
-    this.onClick = this.data.onClick ? this.data.onClick : this.onClick;
-    this.isActive = this.data.isActive ? this.data.isActive : this.isActive;
+    this.btnStyle = this.data.style ? this.data.style : this.btnStyle;
+    this.onClick = this.data.onClick ? this.data.onClick : this.onClick ? this.onClick : () => true;
+    this.isActive = this.data.isActive ? this.data.isActive : this.isActive ? this.isActive : () => true;
   }
 }
 
 interface ButtonData{
   text: string,
+  style ?: any,
   onClick ?: () => void,
   isActive ?: () => Boolean
 }

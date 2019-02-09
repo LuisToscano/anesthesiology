@@ -57,4 +57,13 @@ export class InteractionsProvider {
         .status === InteractionStatus.Correct;
     });
   }
+
+  areAllSectionInteractionsCorrect(section : string) {
+    return _.every(_.filter(this.interactions, interaction => {
+      return interaction.section === section;
+    }), filteredInteraction => {
+      return this.interactionsStatus[filteredInteraction.interactionId]
+        .status === InteractionStatus.Correct;
+    });
+  }
 }

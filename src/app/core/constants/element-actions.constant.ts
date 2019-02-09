@@ -1,18 +1,18 @@
 import { ElementAction } from '../enums/element-action.enum';
 var elementActions = {};
 
-elementActions[ElementAction.GoToSection] = (data) => {
+elementActions[ElementAction.GoToSection] = (data, providers) => {
     return {
         onClick: () => {
-            this.navigation.goToSectionSlide(data.target, 0); 
+            providers.navigation.goToSectionSlide(data.target, 0); 
         }
     };
 };
 
-elementActions[ElementAction.GoToSectionSlide] = (data) => {
+elementActions[ElementAction.GoToSectionSlide] = (data, providers) => {
     return {
         onClick: data.target ? () => {
-            this.navigation.goToSectionSlide(data.target.section, data.target.slide); 
+            providers.navigation.goToSectionSlide(data.target.section, data.target.slide); 
         } : () => {}
     };
 };
@@ -43,6 +43,14 @@ elementActions[ElementAction.ActiveIfSlideInteractionsDone] = (data, providers) 
                 providers.navigation.getCurrentPosition().section.getId(),
                 data.target
             )
+        }
+    };
+};
+
+elementActions[ElementAction.ActiveIfSectionInteractionsDone] = (data, providers) => {
+    return {
+        isActive: () => {
+            return providers.interactions.areAllSectionInteractionsCorrect(data.target)
         }
     };
 };
