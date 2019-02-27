@@ -1,0 +1,9 @@
+<div class="intro-slideshow">
+    <div *ngIf="current" class="intro-slideshow-content">
+        <course-row
+        *ngFor='let row of current.rows'
+        [style.flex]="row.flex"
+        [cols]="row.cols"
+        ></course-row>
+    </div>
+</div>

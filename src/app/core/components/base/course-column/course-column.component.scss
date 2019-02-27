@@ -1,7 +1,10 @@
-:host ::ng-deep{
-    &>*{
-        display: flex;
-        flex-direction: column;
-        flex: 1;
+:host {
+    display: flex;
+    &::ng-deep{
+        &>:not(column-content){
+            display: flex;
+            flex-direction: column;
+            flex: 1;
+        }
     }
 }

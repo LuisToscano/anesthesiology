@@ -2,4 +2,6 @@
 *ngFor='let col of cols; trackBy: index;'
 [componentInner]="col.getContent()"
 [style.flex]="col.flex"
-[LOCurrentState]="LOCurrentState"></course-column>
+[LOCurrentState]="LOCurrentState"
+[ngStyle]="col.getStyle()"
+[ngClass]="col.getClasses()"></course-column>

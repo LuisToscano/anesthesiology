@@ -9,11 +9,13 @@
         background: $layout-bg-color;
 
         .container{
-            width: 50%;
-            margin: 100px auto;
-            height: 500px;
+            position: fixed;
+            height: 100%;
+            width: 100%;
             background-color: $content-bg-color;
-            overflow: scroll;
+            overflow: hidden;
+            display: flex;
+            flex: 1;
 
             lo-button{
                 button{
@@ -24,6 +26,39 @@
                     &:not(.is-active){
                         background: red;
                     }
+                }
+            }
+
+            course-column{
+                &.space-intro{
+                    background: url('../../../assets/img/space.gif') no-repeat;
+                    background-size: 100% 100%;
+                    intro-slideshow{
+                        div.intro-slideshow-content{
+                            flex-direction: row;
+                            align-items: center;
+                            font-family: 'last-jedi', Arial, sans-serif;
+                            paragraph{
+                                margin: 0 auto;
+                                p{
+                                    color: #351C75;
+                                    font-size: 1.4rem;
+                                    text-align: center;
+                                    line-height: 1.5;
+                                    width: 80%;
+                                    margin: 0 auto;
+                                    &:not(:first-of-type) {
+                                        margin-top: 20px;
+                                    }
+                                }
+                            }
+                        }
+                    }
+                }
+
+                &.img-intro{
+                    background-size: auto 100% !important;
+                    background-position: center !important;
                 }
             }
         }

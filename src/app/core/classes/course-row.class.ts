@@ -4,10 +4,14 @@ import * as _ from "lodash";
 export class CourseRow {
     private cols : CourseColumn[];
     private flex : number | string;
+    private style;
+    private classes;
 
     constructor(flex? : number) {
         this.cols = [];
         this.flex = flex === 0 ? 'none' : flex;
+        this.style = {};
+        this.classes = [];
     }
 
     getCols() {
@@ -27,5 +31,21 @@ export class CourseRow {
 
     col(idx : number) {
         return this.cols.length > idx ? this.cols[idx] : null;
+    }
+
+    getStyle() {
+        return this.style;
+    }
+
+    setStyle(style : {}){
+        this.style = style;
+    }
+
+    getClasses() {
+        return this.classes;
+    }
+
+    setClasses(classes : {}){
+        this.classes = classes;
     }
 }

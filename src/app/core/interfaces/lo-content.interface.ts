@@ -24,7 +24,9 @@ export interface Element{
 
 interface Row{
     cols: Array<Col>,
-    flex ?: number
+    flex ?: number,
+    style ?: {},
+    classes ?: Array<string>
 }
 
 interface Col {
@@ -32,5 +34,7 @@ interface Col {
     component: any,
     data: {},
     actions ?: Array<ElementAction>,
-    flex ?: number
+    flex ?: number,
+    style ?: {},
+    classes ?: Array<string>
 }

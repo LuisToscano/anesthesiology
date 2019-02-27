@@ -1,39 +1,40 @@
 import { Slide } from '../../../../core/interfaces/lo-content.interface';
+import { ParagraphComponent } from '../../../../core/components/basic/paragraph/paragraph.component';
+import { IntroSlideShowComponent } from '../../../../core/components/content-organizers/intro-slideshow/intro-slideshow.component';
+import { VoidComponent } from '../../../../core/components/basic/void/void.component';
 import { ComponentType } from '../../../../core/enums/component-type.enum';
-import { ParagraphComponent  } from '../../../../core/components/basic/paragraph/paragraph.component';
-import { ElementAction } from '../../../../core/enums/element-action.enum';
-import { ButtonComponent  } from '../../../../core/components/basic/button/button.component';
+import { LOi18n } from '../../../i18n/lo.i18n';
 
-var statement = 'En una de las búsquedas de asteroides colonizables, los exploradores encontraron el ' +
-'asteroide XXC1 y se empezó la construcción de la primera colonia en el asteroide.';
+const staticTxt = LOi18n.sections.introduction.slides[3];
 
 export const introductionSectionSlide3 : Slide = {
-    name: 'Introducción - 3',
+    name: 'Introducción - 1',
     rows: [{
         cols: [{
-            type: ComponentType.Basic,
-            component: ParagraphComponent,
-            data: [{
-                text: statement,
-                args: {}
-            }]
-        }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ButtonComponent,
-            actions: [ElementAction.GoToSlide],
-            data: {
-                text: 'Continuar',
-                target: 3,
+                type: ComponentType.ContentOrganizer,
+                component: IntroSlideShowComponent,
+                data: [{
+                    rows: [{
+                        cols: [{
+                            type: ComponentType.Basic,
+                            component: ParagraphComponent,
+                            data: [{
+                                text: staticTxt.intro
+                            }]
+                        }]
+                    }]
+                }],
+                classes: ['space-intro'],
+                flex: 3
+            },{
+                type: ComponentType.Basic,
+                component: VoidComponent,
+                data: {},
+                classes: ['img-intro'],
                 style: {
-                    background: 'lightgray'
-                }
-            }
-        }]
-    }],
-    style: {
-        padding: '25px'
-    }
+                    background: 'url("assets/img/dome-construction.jpg") no-repeat'
+                },
+                flex: 2
+            }]
+    }]
 };

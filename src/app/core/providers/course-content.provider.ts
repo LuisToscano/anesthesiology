@@ -57,6 +57,15 @@ export class CourseContentProvider {
         return _.isInteger(col.flex) ? col.flex : 1;
     }) : colsObj.length;
     row.setCols(colsParam);
+    
+    if (rowObj.style) {
+      row.setStyle(rowObj.style);
+    }
+
+    if (rowObj.classes) {
+      row.setClasses(rowObj.classes);
+    }
+    
     _.forEach(row.getCols(), (col, idz) => {
         this.prepareColumn(sectionObj, slideIdx, rowObj, col, idz);
     });
@@ -88,6 +97,14 @@ export class CourseContentProvider {
         }));
     } else {
         col.setContent(colObj.component, colObj.data);
+    }
+
+    if (colObj.style) {
+      col.setStyle(colObj.style);
+    }
+
+    if(colObj.classes) {
+      col.setClasses(colObj.classes);
     }
   }
 }

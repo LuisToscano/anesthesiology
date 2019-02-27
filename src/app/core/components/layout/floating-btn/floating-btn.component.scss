@@ -1,0 +1,56 @@
+$floatBtnBg: #351C75;
+$floatBtnBgActive: #5e32cd;
+$floatBtnFontColor: white;
+
+:host{
+    div.floating-btn{
+        position: fixed;
+        border-radius: 100%;
+        background: $floatBtnBg;
+        bottom: 10px;
+        right: 10px;
+        width: 80px;
+        height: 80px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        border: solid 2px $floatBtnFontColor;
+        .floating-btn-inner{
+            margin: 0 auto;
+            display: flex;
+            flex-direction: column;
+            i{
+                margin: 0 auto;
+                font-size: 25px;
+            }
+            span{
+                display: block;
+                margin-top: 8px;
+                font-weight: bold;
+            }
+            i, span{
+                color: $floatBtnFontColor;
+            }
+        }
+
+        &:hover{
+            background: $floatBtnFontColor;
+            border: solid 2px $floatBtnBg;
+            .floating-btn-inner{
+                i, span{
+                    color: $floatBtnBg;
+                }
+            }
+        }
+
+        &:active{
+            background: $floatBtnBgActive;
+            border: solid 2px $floatBtnFontColor;
+            .floating-btn-inner{
+                i, span{
+                    color: $floatBtnFontColor;
+                }
+            }
+        }
+    }
+}

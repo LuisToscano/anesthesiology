@@ -1,0 +1,46 @@
+$navSideBtnBg: white;
+$navSideBtnFontColor: #351C75;
+$navSideBtnFontColorActive: #5e32cd;
+
+:host{
+    div.nav-side-btn-container{
+        position: fixed;
+        height: 100%;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        z-index: 1;
+
+        &.left {
+            left: 0;
+        }
+
+        &.right {
+            right: 0;
+        }
+
+        div.nav-side-btn{
+            height: 70px;
+            width: 35px;
+            background: $navSideBtnBg;
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            font-size: 40px;
+            color: $navSideBtnFontColor;
+            i{
+                display: block;
+                margin: 0 auto;
+            }
+
+            &:hover{
+                background: $navSideBtnFontColor;
+                color: $navSideBtnBg;
+            }
+
+            &:active {
+                background: $navSideBtnFontColorActive;
+            }
+        }
+    }
+}

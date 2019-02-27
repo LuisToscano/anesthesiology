@@ -1,64 +1,46 @@
 import { Slide } from '../../../../core/interfaces/lo-content.interface';
+import { ParagraphComponent } from '../../../../core/components/basic/paragraph/paragraph.component';
+import { IntroSlideShowComponent } from '../../../../core/components/content-organizers/intro-slideshow/intro-slideshow.component';
+import { VoidComponent } from '../../../../core/components/basic/void/void.component';
 import { ComponentType } from '../../../../core/enums/component-type.enum';
-import { ParagraphComponent  } from '../../../../core/components/basic/paragraph/paragraph.component';
-import { ElementAction } from '../../../../core/enums/element-action.enum';
-import { ButtonComponent  } from '../../../../core/components/basic/button/button.component';
-import { ParagraphArgumentType, ParagraphClass } from '../../../../core/components/basic/paragraph/paragraph.enum';
+import { LOi18n } from '../../../i18n/lo.i18n';
 
-var statement = 'El primer paso, fue la construcción de un domo, bajo el cual se mantendría ' +
-'un ambiente apto para la vida sobre la superficie del asteroide. El domo, estaba formado de plafones ' +
-'hexagonales, unidos entre sí mediante juntas selladas para garantizar la atmósfera interna. Adicionalmente, ' +
-'estos plafones serían los responsables de manejar las condiciones de luz de la colonia. Para sostener ' +
-'cada plafón , es decir el domo, se utilizaría una estructura de barras que unidas entre sí, conformarían ' +
-'un domo geodésico externo';
-
-var statementcont = 'Una vez instalado el domo, empieza el proceso de colonización del planeta, en dos sectores donde la' +
-'superficie del planeta era relativamente plana. En el primer sector estaban las grandes' +
-'construcciones para las colonias y en el segundo sector las grandes granjas para garantizar la' +
-'seguridad alimentaria. En el interior del domo se mantiene una gravedad artificial de %(gravity) 10m/s2.';
+const staticTxt = LOi18n.sections.introduction.slides[4];
 
 export const introductionSectionSlide4 : Slide = {
     name: 'Introducción - 4',
     rows: [{
         cols: [{
             type: ComponentType.Basic,
-            component: ParagraphComponent,
+            component: VoidComponent,
+            data: {},
+            classes: ['img-intro'],
+            style: {
+                background: 'url("assets/img/dome.jpg") no-repeat'
+            },
+            flex: 2
+        },
+        {
+            type: ComponentType.ContentOrganizer,
+            component: IntroSlideShowComponent,
             data: [{
-                text: statement,
-                args: {}
-            }]
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: staticTxt.intro1
+                        }, {
+                            text: staticTxt.intro2
+                        }],
+                        style: {
+                            'flex-direction': 'column'
+                        }
+                    }]
+                }]
+            }],
+            classes: ['space-intro'],
+            flex: 3
         }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ParagraphComponent,
-            data: [{
-                text: statementcont,
-                args: {
-                    gravity: {
-                        type: ParagraphArgumentType.Class,
-                        data: ParagraphClass.Bold
-                    }
-                }
-            }]
-        }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ButtonComponent,
-            actions: [ElementAction.GoToSection],
-            data: {
-                text: 'Continuar',
-                target: 'scenarios',
-                style: {
-                    background: 'lightgray'
-                }
-            }
-        }]
-    }],
-    style: {
-        padding: '25px'
-    }
+    }]
 };
