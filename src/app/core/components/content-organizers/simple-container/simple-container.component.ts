@@ -4,20 +4,20 @@ import { CourseColumn } from '../../../classes/course-column.class';
 import * as _ from "lodash";
 
 @Component({
-  selector: 'intro-slideshow',
-  templateUrl: './intro-slideshow.component.html',
-  styleUrls: ['./intro-slideshow.component.scss']
+  selector: 'simple-container',
+  templateUrl: './simple-container.component.html',
+  styleUrls: ['./simple-container.component.scss']
 })
-export class IntroSlideShowComponent implements OnInit {
-
+export class SimpleContainerComponent implements OnInit {
+  
   data : Array<any>;
   sections : any;
   current : any;
-
+  
   constructor() {}
 
   ngOnInit() {
-      this.prepareData();
+    this.prepareData();
   }
 
   private prepareData() {
@@ -29,8 +29,20 @@ export class IntroSlideShowComponent implements OnInit {
           newRow.setColArray(_.map((row as any).cols, col => {
             let mapcol = new CourseColumn(1);
             mapcol.setContent((col as any).component, (col as any).data);
+            if (col.style) {
+              mapcol.setStyle(col.style);
+            }
+            if (col.classes) { 
+              mapcol.setClasses(col.classes)
+            }
             return mapcol;
           }));
+          if (row.style) {
+            newRow.setStyle(row.style);
+          }
+          if (row.classes) { 
+            newRow.setClasses(row.classes)
+          }
           return newRow;
         }) : []
       } 

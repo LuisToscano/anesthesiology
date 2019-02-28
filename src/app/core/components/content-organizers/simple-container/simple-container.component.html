@@ -1,0 +1,8 @@
+<div class="simple-container" *ngIf="current">
+    <course-row *ngFor='let row of current.rows'
+        [style.flex]="row.flex"
+        [cols]="row.cols"
+        [ngStyle]="row.getStyle()"
+        [ngClass]="row.getClasses()"
+        ></course-row>
+</div>

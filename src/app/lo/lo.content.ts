@@ -6,9 +6,10 @@ import { firstSceneSecondExerciseSection } from './sections/first-scenario-exerc
 import { firstSceneThirdExerciseSection } from './sections/first-scenario-exercises/third/first-scenario-third-exercise.section';
 
 export const LOContent : Array<Sections> = [
+    firstSceneFirstExerciseSection,
     introductionSection,
     scenariosSection,
-    firstSceneFirstExerciseSection,
+    //firstSceneFirstExerciseSection,
     firstSceneSecondExerciseSection,
     firstSceneThirdExerciseSection
 ];

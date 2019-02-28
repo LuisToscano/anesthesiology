@@ -24,6 +24,19 @@ export const LOi18n = {
                     ' barras que unidas entre sí, conformarían un domo geodésico externo.'
                 }
             }
+        },
+        scenario: {
+            1: {
+                exercises: {
+                    1: {
+                        intro1: 'En las primeras colonias, los plafones, con autonomía de vuelo, se sostenían' +
+                        ' del domo geodésico exterior mediante tres cables unidos a tres puntos de la estructura.',
+                        intro2: 'Pero, posteriormente se decidió, por velocidad de instalación, cambiar el sistema' +
+                        ' de sujeción, conectando cada plafón a un punto de la estructura. Los plafones una vez en contacto' +
+                        ' con los vecinos se unían automáticamente.'
+                    }
+                }
+            }
         }
     }
 };
