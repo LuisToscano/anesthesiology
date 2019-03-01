@@ -1,5 +1,20 @@
 <div class="function-question-container">
-    <div class="variables">
+    <div class="function-question-header ">
+        <div class="name" *ngIf="exerciseName">
+            <p>{{exerciseName}}</p>
+        </div>
+        <div class="change-values-container">
+            <div class="change-values">
+                <div class="change-values-icon">
+                    <i class="fas fa-brain"></i>
+                </div>
+                <div class="change-values-statement">
+                    <p class="statement">¡Ejercita tu cerebro! Prueba con otros valores y verifica las respuestas</p>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="variables" *ngIf="changeValues">
         <div class="variable" *ngFor="let variable of variablesArray; let i = index">
             <label for="variable-{{i}}">{{ variable.tag }}: </label>
             <input type="number" id="variable-{{i}}" [(ngModel)]="variable.value">
@@ -8,14 +23,16 @@
     </div>
     <p>{{ getStatement() }}</p>
     <div class="question" *ngFor="let question of questions; let i = index">
-        <p>{{i + 1}}. {{question.getStatement()}}</p>
-        <input type="{{question.options.type}}"
-            [(ngModel)]="answers[i]"
-            placeholder="{{question.options.placeholder}}"
-        />
+        <p><span class="question-number">{{i + 1}}.</span> {{question.getStatement()}}</p>
+        <div class="input-container">
+            <input type="{{question.options.type}}"
+                [(ngModel)]="answers[i]"
+                placeholder="{{question.options.placeholder}}"
+            />
+        </div>
     </div>
     <br>
     <div class="function-question-btn" *ngIf="physicsFnQuestionData.submitBtn">
-        <button [disabled]="shouldDisableBtn()" (click)="submitInteraction()">{{ physicsFnQuestionData.submitBtn.tag }}</button>
+        <button class="submit-btn" [disabled]="shouldDisableBtn()" (click)="submitInteraction()">{{ physicsFnQuestionData.submitBtn.tag }}</button>
     </div>
 </div>

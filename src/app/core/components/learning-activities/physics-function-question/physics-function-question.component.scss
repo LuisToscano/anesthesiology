@@ -1,5 +1,11 @@
+$titleFontSize: 1.6rem;
+$questionFontSize: 1.4rem;
+$questionSecondaryColor: #351C75;
+$answerColor: #5e32cd;
+
 :host {
     .function-question-container{
+        font-size: $questionFontSize;
         .variables{
             .variable{
                 margin-bottom: 10px;
@@ -11,6 +17,116 @@
                 }
                 input{
                     width: 30px;
+                }
+            }
+        }
+
+        .question{
+            span.question-number{
+                font-weight: bold;
+                color: $questionSecondaryColor;
+            }
+            .input-container{
+                display: flex;
+                flex-direction: column;
+                align-items: center;
+                input{
+                    height: 40px;
+                    width: 40%;
+                    font-size: $questionFontSize;
+                    color: $answerColor;
+                    text-align: center;
+                }
+            }
+        }
+
+        .function-question-btn{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            button.submit-btn{
+                border-radius: 10px;
+                height: 50px;
+                width: 150px;
+                font-size: 1.2rem;
+                border: 3px solid #351C75;
+                background: white;
+                color: #351C75;
+                &:hover{
+                    border-color: white;
+                    background: #351C75;
+                    color: white;
+                }
+                &:disabled{
+                    border-color: dimgray;
+                    background: lightgray;
+                    color: gray;
+                }
+            }
+        }
+
+        .function-question-header{
+            display: flex;
+            flex-direction: row;
+
+            .name{
+                flex: 1;
+                display: flex;
+                flex-direction: row;
+                align-items: flex-end;
+                p{
+                    font-weight: bold;
+                    color: #351C75;
+                    text-decoration: underline;
+                    font-size: $titleFontSize;
+                    margin: 0;
+                }
+            }
+    
+            .change-values-container{
+                display: flex;
+                flex-direction: column;
+                align-items: flex-end;
+                flex: 4;
+                .change-values{
+                    display: flex;
+                    width: 300px;
+                    flex-direction: row;
+                    background-color: #cfc1f0;
+                    //border: 3px solid #e67300;
+                    padding: 0px;
+                    border-radius: 10px;
+
+                    &:hover{
+                        background-color: #351C75;
+                        .change-values-icon{
+                            i{
+                                color: white;
+                            }
+                        }
+                        .change-values-statement{
+                            color: white;
+                        }
+                    }
+
+                    .change-values-icon{
+                        flex: 1;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        i {
+                            margin: 0 auto;
+                            font-size: 2.5rem;
+                        }
+                    }
+                    .change-values-statement{
+                        flex: 3;
+                        font-size: 0.8rem;
+                        display: flex;
+                        flex-direction: row;
+                        align-items: center;
+                        font-weight: bold;
+                    }
                 }
             }
         }

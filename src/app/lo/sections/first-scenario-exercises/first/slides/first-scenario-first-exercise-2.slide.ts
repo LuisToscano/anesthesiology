@@ -46,6 +46,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                 type: ComponentType.LearningActivity,
                 component: PhysicsFunctionQuestionComponent,
                 data: {
+                    name: 'Ejercicio 1',
                     variables: [{
                         name: 'hexagonSide',
                         tag: 'Lado plafón hexagonal',
@@ -118,7 +119,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         type: SCORMInteractionType.FillIn
                     },
                     submitBtn: {
-                        tag : 'Enviar'
+                        tag : 'Responder'
                     },
                     onSubmit: InteractionSubmitAction.Alert
                 },

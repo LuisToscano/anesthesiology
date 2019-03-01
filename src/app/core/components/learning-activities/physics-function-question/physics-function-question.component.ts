@@ -13,10 +13,8 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   @Input() attributeData : PhysicsFunctionQuestionData;
   private data : PhysicsFunctionQuestionData;
   private physicsFnQuestionData : PhysicsFunctionQuestionData;
-  private userResponse : any = {};
   private submitAction : (interactionId, response, isCorrect) => void;
   private currentInteraction;
-  private isResponseObjectReady : boolean = false;
   private attempted : number;
   private maxAttempts : number;
 
@@ -26,6 +24,9 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   private questions : Array<Question>;
   private answers : Array<string>;
 
+  private changeValues : boolean = false;
+  private exerciseName : string;
+
   private readonly printVarClosure : (val) => string = 
     variable => variable.value + ' ' + variable.unit;
 
@@ -33,6 +34,8 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   ngOnInit() {
     this.physicsFnQuestionData = this.attributeData ? this.attributeData : this.data;
+    this.exerciseName = this.physicsFnQuestionData.name ? this.physicsFnQuestionData.name :
+    this.data.name;
     this.answers = Array(this.physicsFnQuestionData.questions.length).fill('');
 
     let vars = _.clone(this.physicsFnQuestionData.variables);
@@ -117,6 +120,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 }
 
 export interface PhysicsFunctionQuestionData {
+   name ?: string;
    interactionId : number;
    statement : string;
    variables : Array<any>;
