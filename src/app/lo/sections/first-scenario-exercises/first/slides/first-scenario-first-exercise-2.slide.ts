@@ -121,7 +121,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                     submitBtn: {
                         tag : 'Responder'
                     },
-                    onSubmit: InteractionSubmitAction.Alert
+                    onSubmit: InteractionSubmitAction.DisplayModal
                 },
                 style: {
                     padding: '50px'

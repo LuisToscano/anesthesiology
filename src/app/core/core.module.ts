@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
 import { FormsModule } from '@angular/forms';
 import { SafeHtmlPipe } from './pipes/safe-html.pipe';
+import { HttpModule } from '@angular/http';
 
 //BASE
 import { CourseColumnComponent } from './components/base/course-column/course-column.component';
@@ -27,6 +28,7 @@ import { StateProvider } from './providers/state.provider';
 import { ActionsProvider } from './providers/actions.provider';
 import { LOStructureProvider } from './providers/lo-structure.provider';
 import { InteractionsProvider } from './providers/interactions.provider';
+import { ModalProvider } from './providers/modal-provider';
 
 //LEARNING ACTIVITIES
 import { FormQuestionComponent } from './components/learning-activities/form-question/form-question.component';
@@ -40,6 +42,9 @@ import { SimpleContainerComponent } from './components/content-organizers/simple
 //LAYOUT
 import { NavigationSideBtnsComponent } from './components/layout/navigations-side-btns/navigation-side-btns.component';
 import { FloatingBtnComponent } from './components/layout/floating-btn/floating-btn.component';
+import { LOModalComponent } from './components/layout/lo-modal/lo-modal.component';
+
+import { ModalsModule } from './components/layout/modals/modals.module';
 
 // @NgModule decorator with its metadata
 @NgModule({
@@ -61,11 +66,14 @@ import { FloatingBtnComponent } from './components/layout/floating-btn/floating-
     NavigationSideBtnsComponent,
     VoidComponent,
     FloatingBtnComponent,
-    SimpleContainerComponent
+    SimpleContainerComponent,
+    LOModalComponent
   ],
   imports: [
     BrowserModule,
-    FormsModule
+    FormsModule,
+    HttpModule,
+    ModalsModule
   ],
   providers: [
     CourseContentProvider,
@@ -75,7 +83,8 @@ import { FloatingBtnComponent } from './components/layout/floating-btn/floating-
     StateProvider,
     ActionsProvider,
     LOStructureProvider,
-    InteractionsProvider
+    InteractionsProvider,
+    ModalProvider
   ],
   exports: [
     ColumnContentComponent,
@@ -94,7 +103,8 @@ import { FloatingBtnComponent } from './components/layout/floating-btn/floating-
     NavigationSideBtnsComponent,
     VoidComponent,
     FloatingBtnComponent,
-    SimpleContainerComponent
+    SimpleContainerComponent,
+    LOModalComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -108,7 +118,8 @@ import { FloatingBtnComponent } from './components/layout/floating-btn/floating-
     NavigationSideBtnsComponent,
     VoidComponent,
     FloatingBtnComponent,
-    SimpleContainerComponent
+    SimpleContainerComponent,
+    LOModalComponent
   ]
 })
 export class CoreModule { }

@@ -1,6 +1,7 @@
 export enum InteractionSubmitAction{
     Alert = 'alert',
-    GoToPrevious = 'goToPrevious'
+    GoToPrevious = 'goToPrevious',
+    DisplayModal = 'displayModal'
 }
 
 export enum InteractionStatus{
