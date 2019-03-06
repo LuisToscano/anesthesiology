@@ -1,25 +1,26 @@
 // imports
 import { NgModule } from '@angular/core';
+import { CommonModule } from '@angular/common';  
+import { BrowserModule } from '@angular/platform-browser';
 
 //BASE
-import { ActivityErrorModal } from './activity-error/activity-error-modal';
-import { ActivitySuccessModal } from './activity-success/activity-success-modal';
+import { ActivitySubmitModal } from './activity-submit/activity-submit-modal';
 
 // @NgModule decorator with its metadata
 @NgModule({
   declarations: [
-    ActivityErrorModal,
-    ActivitySuccessModal
+    ActivitySubmitModal
   ],
-  imports: [],
+  imports: [
+    CommonModule,
+    BrowserModule
+  ],
   providers: [],
   exports: [
-    ActivityErrorModal,
-    ActivitySuccessModal
+    ActivitySubmitModal
   ],
   entryComponents: [
-    ActivityErrorModal,
-    ActivitySuccessModal
+    ActivitySubmitModal
   ]
 })
 export class ModalsModule { }

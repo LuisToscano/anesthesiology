@@ -13,7 +13,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   @Input() attributeData : PhysicsFunctionQuestionData;
   private data : PhysicsFunctionQuestionData;
   private physicsFnQuestionData : PhysicsFunctionQuestionData;
-  private submitAction : (interactionId, response, isCorrect) => void;
+  private submitAction : (interactionId, response, isCorrect, details) => void;
   private currentInteraction;
   private attempted : number;
   private maxAttempts : number;
@@ -75,8 +75,13 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
       return acum + separator + answer;
     }, '');
 
-    this.submitAction(this.physicsFnQuestionData.interactionId, response, allCorrect);
     this.attempted++;
+
+    var details = {
+      remainingAttempts: this.maxAttempts - this.attempted
+    };
+
+    this.submitAction(this.physicsFnQuestionData.interactionId, response, allCorrect, details);
   }
 
   getStatement() {

@@ -1,5 +1,8 @@
 <div class="lo-modal-container" *ngIf="modal.getVisible()">
     <div class="lo-modal-content">
-        <course-column [componentInner]="modal.getInnerComponent()"></course-column>
+        <course-column
+            [LOCurrentState]="LOCurrentState"
+            [componentInner]="modal.getInnerComponent()">
+        </course-column>
     </div>
 </div>

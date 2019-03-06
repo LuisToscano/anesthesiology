@@ -8,6 +8,8 @@ import { ModalProvider } from '../../../providers/modal-provider';
 })
 export class LOModalComponent implements OnInit {
 
+  @Input() LOCurrentState : any;
+
   constructor(private modal : ModalProvider) {}
 
   ngOnInit() {}

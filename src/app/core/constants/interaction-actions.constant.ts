@@ -1,22 +1,25 @@
 import { InteractionSubmitAction } from '../enums/interactions.enum';
-import { ActivityErrorModal } from '../components/layout/modals/activity-error/activity-error-modal';
-import { ActivitySuccessModal } from '../components/layout/modals/activity-success/activity-success-modal';
+import { ActivitySubmitModal } from '../components/layout/modals/activity-submit/activity-submit-modal';
+import * as _ from "lodash";
 
 var interactions = {};
 
-interactions[InteractionSubmitAction.Alert] = (response, correct) => {
+interactions[InteractionSubmitAction.Alert] = (response, correct, details) => {
     alert('Respuesta ' + (correct ? 'correcta' : 'incorrecta'));
 }
 
-interactions[InteractionSubmitAction.GoToPrevious] = (response, correct, providers) => {
+interactions[InteractionSubmitAction.GoToPrevious] = (response, correct, details, providers) => {
     alert('Respuesta ' + (correct ? 'correcta' : 'incorrecta'));
     providers.navigation.previousSlide();
 }
 
-interactions[InteractionSubmitAction.DisplayModal] = (response, correct, providers) => {
+interactions[InteractionSubmitAction.DisplayModal] = (response, correct, details, providers) => {
     var innerComponent = {
-        component: correct ? ActivitySuccessModal : ActivityErrorModal,
-        data: {}
+        component: ActivitySubmitModal,
+        data: _.extend({
+            response: response,
+            correct: correct
+        }, details)
     }
     providers.modal.showModal(innerComponent);
 }

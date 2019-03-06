@@ -1,0 +1,19 @@
+<div class="activity-submit-modal"
+    [ngClass]="{'error': !correct, 'success': correct}"
+    *ngIf="data">
+    <h1 class="activity-submit-modal-title">
+        {{i18n.title}}
+    </h1>
+    <h2 class="activity-submit-modal-msg">
+        {{i18n.msg}}
+    </h2>
+    <p class="activity-submit-modal-reminder">
+        <span *ngIf="!correct && remainingAttempts > 0">
+            {{i18n.reminder.attemptsRemaining}}
+        </span>
+        <span *ngIf="!correct && remainingAttempts === 0">
+            {{i18n.reminder.noAttemptsRemaining}}
+        </span>
+    </p>
+    <button (click)="close()"> Aceptar </button>
+</div>

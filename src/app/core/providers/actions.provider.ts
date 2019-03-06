@@ -7,7 +7,6 @@ import { ElementAction } from '../enums/element-action.enum';
 import { Element } from '../interfaces/lo-content.interface';
 import { InteractionsActions } from '../constants/interaction-actions.constant';
 import { ElementActions } from '../constants/element-actions.constant';
-import { Http } from '@angular/http';
 import * as _ from "lodash";
 
 @Injectable()
@@ -16,8 +15,7 @@ export class ActionsProvider {
         private scorm : SCORMProvider,
         private interactions : InteractionsProvider,
         private navigation : NavigationProvider,
-        private modal : ModalProvider,
-        private http : Http
+        private modal : ModalProvider
     ) {}
 
     prepareMenuBarElements(elems : Array<any>) {
@@ -33,14 +31,16 @@ export class ActionsProvider {
     }
 
     prepareSubmitAction(data) {
-        return (interactionId, response, isCorrect) => {
+        return (interactionId, response, isCorrect, details) => {
             this.interactions.submitInteraction(interactionId, response, isCorrect);
             this.scorm.submitInteraction(interactionId, response, isCorrect);
             if (InteractionsActions.hasOwnProperty(data.onSubmit)) {
-                InteractionsActions[data.onSubmit](response, isCorrect, {
+                var extendedDetails = _.extend({
+                    interactionId: interactionId  
+                }, details);
+                InteractionsActions[data.onSubmit](response, isCorrect, extendedDetails, {
                     navigation: this.navigation,
-                    modal: this.modal,
-                    http: this.http
+                    modal: this.modal
                 });
             }
         }
