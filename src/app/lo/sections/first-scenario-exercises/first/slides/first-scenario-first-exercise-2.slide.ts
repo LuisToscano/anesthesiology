@@ -52,7 +52,9 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         tag: 'Lado plafón hexagonal',
                         value: 1,
                         unit: LengthUnits.Meter,
-                        mutable: true
+                        mutable: true,
+                        min: 1,
+                        max: 10
                     }, {
                         name: 'hexagonWeight',
                         tag: 'Peso plafón hexagonal',
@@ -70,7 +72,9 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         tag: 'Distancia del punto de sujeción',
                         value: 80,
                         unit: LengthUnits.Centimeter,
-                        mutable: true
+                        mutable: true,
+                        min: 50,
+                        max: 100
                     }],
                     statement : 'Cada uno de los plafones hexagonales, cuyo lado mide %(hexagonSide), ' +
                     'tiene una masa de %(hexagonWeight). El asteroide tiene una gravedad de %(asteroidGravity).',
@@ -121,6 +125,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                     submitBtn: {
                         tag : 'Responder'
                     },
+                    attempts: 2,
                     onSubmit: InteractionSubmitAction.DisplayModal
                 },
                 style: {

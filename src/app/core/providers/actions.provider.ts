@@ -34,6 +34,13 @@ export class ActionsProvider {
         return (interactionId, response, isCorrect, details) => {
             this.interactions.submitInteraction(interactionId, response, isCorrect);
             this.scorm.submitInteraction(interactionId, response, isCorrect);
+
+            if (details.remainingAttempts === 0) {
+                this.interactions.resetInteraction(interactionId, {
+                    updatedValues: details.updatedValues
+                });
+            }
+
             if (InteractionsActions.hasOwnProperty(data.onSubmit)) {
                 var extendedDetails = _.extend({
                     interactionId: interactionId  

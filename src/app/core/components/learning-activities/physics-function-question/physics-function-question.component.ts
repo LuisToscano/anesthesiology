@@ -12,6 +12,7 @@ import * as _ from "lodash";
 export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivity {
   @Input() attributeData : PhysicsFunctionQuestionData;
   private data : PhysicsFunctionQuestionData;
+  private interactionData : any;
   private physicsFnQuestionData : PhysicsFunctionQuestionData;
   private submitAction : (interactionId, response, isCorrect, details) => void;
   private currentInteraction;
@@ -34,6 +35,9 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   ngOnInit() {
     this.physicsFnQuestionData = this.attributeData ? this.attributeData : this.data;
+    this.interactionData = this.data.LOCurrentState.interactions[
+      this.physicsFnQuestionData.interactionId
+    ];
     this.exerciseName = this.physicsFnQuestionData.name ? this.physicsFnQuestionData.name :
     this.data.name;
     this.answers = Array(this.physicsFnQuestionData.questions.length).fill('');
@@ -41,6 +45,13 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
     let vars = _.clone(this.physicsFnQuestionData.variables);
     let consts = _.remove(vars, myVar => !myVar.mutable);
     this.variables = _.reduce(vars, this.buildVariableObj.bind(this), {});
+
+    if (_.has(this.interactionData, 'data.updatedValues')) {
+      Object.keys(this.interactionData.data.updatedValues).forEach(newValKey => {
+        this.variables[newValKey] = this.interactionData.data.updatedValues[newValKey];
+      });
+    }
+
     this.variablesArray = _.values(this.variables);
     this.constants = _.reduce(consts, this.buildVariableObj.bind(this), {});
     
@@ -81,6 +92,14 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
       remainingAttempts: this.maxAttempts - this.attempted
     };
 
+    if (this.maxAttempts - this.attempted <= 0) {
+      this.changeMutableValues();
+      this.attempted = 0;
+      details = _.extend(details, {
+        updatedValues: _.pickBy(this.variables, v => v.mutable)
+      });
+    }
+
     this.submitAction(this.physicsFnQuestionData.interactionId, response, allCorrect, details);
   }
 
@@ -119,8 +138,27 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   private buildVariableObj(acum, myVar) {
     let varObj = {};
-    varObj[myVar.name] = _.pick(myVar, ['value', 'unit', 'tag']);
+    varObj[myVar.name] = _.pick(myVar, ['value', 'unit', 'tag', 'mutable', 'min', 'max']);
     return _.extend(acum, varObj);
+  }
+
+  private changeMutableValues() {
+    let defaultMin = 0;
+    let defaultMax = 1000;
+
+    let mutable = Object.values(this.variables).filter(v => {
+      return v.mutable;
+    });
+
+    mutable.forEach(v => {
+      let _min = _.get(v, 'min', defaultMin);
+      let _max = _.get(v, 'max', defaultMax);
+      if (_min >= _max) {
+        _min = defaultMin;
+        _max = defaultMax;
+      }
+      v.value = Math.floor(Math.random() * (_max - _min + 1)) + _min;
+    });
   }
 }
 
@@ -142,7 +180,8 @@ export interface PhysicsFunctionQuestionData {
 interface Variables {
   [key: string] : {
     value: number,
-    unit: string
+    unit: string,
+    mutable: boolean
   }
 }
 

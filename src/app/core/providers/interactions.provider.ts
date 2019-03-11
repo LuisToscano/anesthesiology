@@ -38,6 +38,19 @@ export class InteractionsProvider {
     this.interactions = interactions;
   }
 
+  setInteractionData(id : number, data : any) {
+    this.interactionsStatus[id].data = data;
+  }
+
+  resetInteraction(id: number, data ?: any) {
+    this.interactionsStatus[id].status = InteractionStatus.NewAttempt;
+    this.interactionsStatus[id].attempts = 0;
+    this.interactionsStatus[id].response = '';
+    if (data) {
+      this.interactionsStatus[id].data = data;
+    }
+  }
+
   submitInteraction(id : number, response : string, isCorrect : boolean) {
     this.interactionsStatus[id].status = isCorrect ?
       InteractionStatus.Correct : InteractionStatus.Wrong;

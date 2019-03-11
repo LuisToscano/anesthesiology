@@ -9,7 +9,9 @@
     </h2>
     <p class="activity-submit-modal-reminder">
         <span *ngIf="!correct && remainingAttempts > 0">
-            {{i18n.reminder.attemptsRemaining}}
+            {{i18n.reminder.attemptsRemainingBefore}} {{remainingAttempts}}
+            <span *ngIf="remainingAttempts > 1">{{i18n.reminder.attemptsRemainingAfterPlural}}</span>
+            <span *ngIf="remainingAttempts === 1">{{i18n.reminder.attemptsRemainingAfterSingular}}</span>
         </span>
         <span *ngIf="!correct && remainingAttempts === 0">
             {{i18n.reminder.noAttemptsRemaining}}

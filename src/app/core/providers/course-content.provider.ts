@@ -11,11 +11,15 @@ import * as _ from "lodash";
 @Injectable()
 export class CourseContentProvider {
 
+  interactionCount : number;
+
   constructor(
       private LOStructure : LOStructureProvider,
       private actions : ActionsProvider,
       private interactions : InteractionsProvider
-    ) {}
+    ) {
+      this.interactionCount = 0;
+    }
 
   init(){
     _.forEach(LO.content, this.prepareSection.bind(this));
@@ -72,7 +76,6 @@ export class CourseContentProvider {
   }
 
   private prepareColumn(sectionObj, slideIdx, rowObj, col, idz) {
-    let interactionCount = 0;
     let colObj = rowObj.cols[idz];
     if (colObj.actions) {
         this.actions.prepareElementAction(
@@ -83,7 +86,7 @@ export class CourseContentProvider {
         let scormData = (<any>colObj.data).SCORM;
         let statement = (<any>colObj.data).statement;
         this.interactions.addInteraction({
-            interactionId: ++interactionCount,
+            interactionId: ++this.interactionCount,
             type: scormData && scormData.type ? scormData.type : SCORMInteractionType.Choice,
             weight: scormData && scormData.weight ? scormData.weight : 1,
             description: statement ? statement : '',
@@ -92,7 +95,7 @@ export class CourseContentProvider {
         });
         
         col.setContent(colObj.component, _.extend(colObj.data, {
-            interactionId: interactionCount,
+            interactionId: this.interactionCount,
             submitAction: this.actions.prepareSubmitAction(colObj.data)
         }));
     } else {

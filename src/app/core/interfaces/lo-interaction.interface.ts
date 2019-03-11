@@ -7,4 +7,5 @@ export interface LOInteraction{
     description : string;
     section : string;
     slide : number;
+    data ?: any;
 }

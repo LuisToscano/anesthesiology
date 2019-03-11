@@ -22,8 +22,9 @@ export class ActivitySubmitModal implements OnInit {
     this.currentInteraction = this.data.LOCurrentState.interactions[this.data.interactionId];
     this.correct = this.data.correct ? this.data.correct : false;
     this.i18n = this.correct ? activitySubmitModali18n.success : activitySubmitModali18n.error;
+    console.log('modal data', this.data);
     this.remainingAttempts = _.isNumber(this.data.remainingAttempts) ? this.data.remainingAttempts : -1;
-    console.log('AAAAAAAA', this.remainingAttempts);
+    console.log('remainingAttempts', this.remainingAttempts);
   }
 
   close() {

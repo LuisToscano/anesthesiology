@@ -3,7 +3,9 @@ export const activitySubmitModali18n = {
         title: 'Respuesta Incorrecta',
         msg: 'Alguna de las respuestas seleccionadas no es válida.',
         reminder: {
-            attemptsRemaining: 'No te desanimes, aun tienes {{remainingAttempts}} intentos.',
+            attemptsRemainingBefore: 'No te desanimes, aun tienes',
+            attemptsRemainingAfterPlural: 'intentos.',
+            attemptsRemainingAfterSingular: 'intento.',
             noAttemptsRemaining: 'Has agotado todos tus intentos. Los valores del ejercicio cambiarán ahora.'
         }
     },

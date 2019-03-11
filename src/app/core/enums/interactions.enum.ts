@@ -7,5 +7,6 @@ export enum InteractionSubmitAction{
 export enum InteractionStatus{
     Unanswered = 'unanswered',
     Wrong = 'wrong',
-    Correct = 'correct'
+    Correct = 'correct',
+    NewAttempt = 'newAttempt'
 }
