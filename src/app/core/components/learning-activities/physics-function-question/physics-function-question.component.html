@@ -3,7 +3,7 @@
         <div class="name" *ngIf="exerciseName">
             <p>{{exerciseName}}</p>
         </div>
-        <div class="change-values-container">
+        <div class="change-values-container" (click)="toggleChangeValues()">
             <div class="change-values">
                 <div class="change-values-icon">
                     <i class="fas fa-brain"></i>
@@ -14,11 +14,15 @@
             </div>
         </div>
     </div>
-    <div class="variables" *ngIf="changeValues">
-        <div class="variable" *ngFor="let variable of variablesArray; let i = index">
-            <label for="variable-{{i}}">{{ variable.tag }}: </label>
-            <input type="number" id="variable-{{i}}" [(ngModel)]="variable.value">
-            <div class="unit">{{ variable.unit }}</div>
+    <div class="change-variables-modal" *ngIf="changeValues">
+        <div class="change-variables-container">
+            <div class="variable" *ngFor="let variable of variablesArray; let i = index">
+                <label for="variable-{{i}}">{{ variable.tag }}: </label>
+                <input type="number" id="variable-{{i}}" [(ngModel)]="variable.value">
+                <div class="unit">{{ variable.unit }}</div>
+                <p *ngIf="variablesErrArray[i]"> El valor debe estar entre {{ variable.min }} y {{ variable.max }}. </p>
+            </div>
+            <button (click)="validateVariableValues()"> Aceptar </button>
         </div>
     </div>
     <p>{{ getStatement() }}</p>

@@ -3,6 +3,7 @@ import { noop } from '../../../constants/noop.constant';
 import { LearningActivity } from '../../../interfaces/learning-activity.interface';
 import { argumentsRegex, anythingRegex } from '../../../constants/utils.constant';
 import * as _ from "lodash";
+import { TouchSequence } from 'selenium-webdriver';
 
 @Component({
   selector: 'physics-function-question',
@@ -21,6 +22,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   private variables : Variables;
   private variablesArray : Array<any>;
+  private variablesErrArray : Array<any>;
   private constants : Variables;
   private questions : Array<Question>;
   private answers : Array<string>;
@@ -52,7 +54,17 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
       });
     }
 
-    this.variablesArray = _.values(this.variables);
+    this.variablesArray = _.filter(_.values(this.variables), v => v.mutable);
+    this.variablesErrArray = _.map(this.variablesArray, v => false);
+    _.each(this.variablesArray, v => {
+      v.min = _.isNumber(v.min) && v.min >= 0 ? v.min : 0;
+      v.max = _.isNumber(v.max) && v.max >= 0 ? v.max : 1000;
+      if (v.max < v.min) {
+        v.min = 0;
+        v.max = 1000;
+      }
+    });
+
     this.constants = _.reduce(consts, this.buildVariableObj.bind(this), {});
     
     this.currentInteraction =
@@ -114,6 +126,21 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
     return this.attempted >= this.maxAttempts || !_.every(this.answers, this.validateAnswerPattern.bind(this));
   }
 
+  toggleChangeValues() {
+    this.changeValues = !this.changeValues;
+  }
+
+  validateVariableValues() {
+    this.variablesErrArray = _.map(this.variablesArray, v => {
+      return !(_.isNumber(v.value) && v.value >= v.min && v.value <= v.max);
+    });
+    console.log(this.variablesErrArray);
+
+    if (!_.some(this.variablesErrArray, e => e === true)) {
+      this.toggleChangeValues();
+    }
+  }
+
   private validateAnswerPattern(ans, idx) {
     let pattern = this.questions[idx].options.pattern;
     pattern = pattern instanceof RegExp ? pattern : anythingRegex;
@@ -143,21 +170,8 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   }
 
   private changeMutableValues() {
-    let defaultMin = 0;
-    let defaultMax = 1000;
-
-    let mutable = Object.values(this.variables).filter(v => {
-      return v.mutable;
-    });
-
-    mutable.forEach(v => {
-      let _min = _.get(v, 'min', defaultMin);
-      let _max = _.get(v, 'max', defaultMax);
-      if (_min >= _max) {
-        _min = defaultMin;
-        _max = defaultMax;
-      }
-      v.value = Math.floor(Math.random() * (_max - _min + 1)) + _min;
+    this.variablesArray.forEach(v => {
+      v.value = Math.floor(Math.random() * (v.max - v.min + 1)) + v.min;
     });
   }
 }
@@ -182,6 +196,8 @@ interface Variables {
     value: number,
     unit: string,
     mutable: boolean
+    min ?: number;
+    max ?: number;
   }
 }
 
