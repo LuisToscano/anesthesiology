@@ -16,6 +16,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   private interactionData : any;
   private physicsFnQuestionData : PhysicsFunctionQuestionData;
   private submitAction : (interactionId, response, isCorrect, details) => void;
+  private updateAction : (interactionId, updatedData) => void;
   private currentInteraction;
   private attempted : number;
   private maxAttempts : number;
@@ -26,6 +27,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   private constants : Variables;
   private questions : Array<Question>;
   private answers : Array<string>;
+  private validateValues : Array<number>;
 
   private changeValues : boolean = false;
   private exerciseName : string;
@@ -75,6 +77,9 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
     this.submitAction =
       this.physicsFnQuestionData.submitAction ? this.physicsFnQuestionData.submitAction : noop;
+
+    this.updateAction =
+      this.physicsFnQuestionData.updateAction ? this.physicsFnQuestionData.updateAction : noop;
 
     this.questions = _.map(this.physicsFnQuestionData.questions, q => {
       return {
@@ -128,15 +133,26 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   toggleChangeValues() {
     this.changeValues = !this.changeValues;
+
+    if (this.changeValues) {
+      this.validateValues = this.variablesArray.map(v => v.value);
+    }
   }
 
   validateVariableValues() {
     this.variablesErrArray = _.map(this.variablesArray, v => {
       return !(_.isNumber(v.value) && v.value >= v.min && v.value <= v.max);
     });
-    console.log(this.variablesErrArray);
 
     if (!_.some(this.variablesErrArray, e => e === true)) {
+      if (!_.isEqual(this.validateValues, this.variablesArray.map(v => v.value))) {
+        this.attempted = 0;
+        this.updateAction(this.physicsFnQuestionData.interactionId, {
+          resetInteraction: {
+            updatedValues: _.pickBy(this.variables, v => v.mutable)
+          }
+        });
+      }
       this.toggleChangeValues();
     }
   }
@@ -186,6 +202,7 @@ export interface PhysicsFunctionQuestionData {
    correct: Array<number>;
    LOCurrentState: any;
    submitAction ?: any;
+   updateAction ?: any;
    submitBtn ?: FunctionQuestionButton;
    SCORM ?: any;
    attempts ?: number;

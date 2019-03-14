@@ -53,6 +53,14 @@ export class ActionsProvider {
         }
     }
 
+    prepareUpdateAction() {
+        return (interactionId, updatedData) => {
+            if (updatedData.resetInteraction) {
+                this.interactions.resetInteraction(interactionId, updatedData.resetInteraction);
+            }
+        }
+    }
+
     private extendObjectUsingDataActions(obj, data, actions : Array<any>) {
         return _.extend(obj, this.retrieveActionsObj(data, actions));
     }

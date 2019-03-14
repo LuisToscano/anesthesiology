@@ -25,9 +25,9 @@ export class SimpleContainerComponent implements OnInit {
       return {
         name: section.name,
         rows: section.rows ? _.map(section.rows, row => {
-          let newRow = new CourseRow(1);
+          let newRow = new CourseRow(row.flex ? row.flex : 1);
           newRow.setColArray(_.map((row as any).cols, col => {
-            let mapcol = new CourseColumn(1);
+            let mapcol = new CourseColumn(col.flex ? col.flex : 1);
             mapcol.setContent((col as any).component, (col as any).data);
             if (col.style) {
               mapcol.setStyle(col.style);

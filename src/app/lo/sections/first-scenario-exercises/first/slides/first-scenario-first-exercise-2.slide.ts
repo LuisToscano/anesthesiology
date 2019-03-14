@@ -125,7 +125,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                     submitBtn: {
                         tag : 'Responder'
                     },
-                    attempts: 2,
+                    attempts: 3,
                     onSubmit: InteractionSubmitAction.DisplayModal
                 },
                 style: {

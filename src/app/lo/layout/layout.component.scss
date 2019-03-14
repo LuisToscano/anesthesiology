@@ -60,6 +60,28 @@
                     background-size: auto 100% !important;
                     background-position: center !important;
                 }
+
+                &.cover{
+                    .simple-container{
+                        flex-direction: column;
+
+                        .main-title{
+                            font-size: 4rem;
+                            border-bottom: 1px solid gray;
+                            p {
+                                margin: 20px 0;
+                            }
+                        }
+
+                        .subtitle{
+                            margin-top: 15px;
+                            font-size: 1.5rem;
+                            p {
+                                margin: 10px 0;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

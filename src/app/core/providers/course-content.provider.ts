@@ -96,7 +96,8 @@ export class CourseContentProvider {
         
         col.setContent(colObj.component, _.extend(colObj.data, {
             interactionId: this.interactionCount,
-            submitAction: this.actions.prepareSubmitAction(colObj.data)
+            submitAction: this.actions.prepareSubmitAction(colObj.data),
+            updateAction: this.actions.prepareUpdateAction()
         }));
     } else {
         col.setContent(colObj.component, colObj.data);

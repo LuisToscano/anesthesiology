@@ -10,6 +10,11 @@ import { StateProvider } from './core/providers/state.provider';
 export class AppComponent implements OnInit{
   interactionsData : any;
   LOCurrentState : any;
+  readonly layoutConfig = {
+    hide: {
+      floatBtn: ['cover', 'scenarios']
+    }
+  };
 
   constructor(
     private LOState : StateProvider
