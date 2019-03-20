@@ -11,7 +11,8 @@ import { LocationSummary } from '../interfaces/location-summary.interface';
 export class NavigationProvider {
   private current : NavPosition;
   private lastCheckedPosition : LocationSummary;
-  slideChanged : Observable<NavPosition>;
+  subscriptions : number = 0;
+  private notifiedSubscriptors : number = 0;
 
   constructor(
     private LOStructure : LOStructureProvider,
@@ -36,13 +37,25 @@ export class NavigationProvider {
     }
 
     this.lastCheckedPosition = this.buildLastCheckedPosition();
+  }
 
-    this.slideChanged = new Observable(observer => {
-        setInterval(() => {
-          if (!this.validateLastChecked()) {
+  getSlideChangedObservable() {
+    this.subscriptions++;
+    return new Observable(observer => {
+      
+      let interval = setInterval(() => {
+        if (!this.validateLastChecked()) {
+        this.notifiedSubscriptors++;
+        if (this.notifiedSubscriptors === this.subscriptions) {
           this.lastCheckedPosition = this.buildLastCheckedPosition();
-          observer.next(this.current);
-        }}, 500);
+          this.notifiedSubscriptors = 0;
+        }
+        observer.next(this.current);
+      }}, 500);
+
+      return {unsubscribe() {
+        clearInterval(interval);
+      }};
     });
   }
 

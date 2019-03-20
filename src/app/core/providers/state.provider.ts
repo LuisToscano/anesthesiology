@@ -27,7 +27,7 @@ export class StateProvider {
         this.navigation.init();
         this.interactions.init();
         this.currentPosition = this.navigation.getCurrentPosition();
-        this.navigation.slideChanged.subscribe(this.currentSlideChanged.bind(this));
+        this.navigation.getSlideChangedObservable().subscribe(this.currentSlideChanged.bind(this));
         _.forEach(this.interactions.getInteractions(), (interaction) => {
             this.scorm.registerInteraction(interaction);
         });
@@ -49,6 +49,7 @@ export class StateProvider {
     }
 
     private currentSlideChanged(navPos : NavPosition) {
+        console.log('currentSlideChanged');
         this.scorm.setLocation(navPos);
         this.updateNavigationState(navPos);
     }

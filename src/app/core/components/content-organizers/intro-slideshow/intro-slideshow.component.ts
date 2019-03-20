@@ -24,15 +24,7 @@ export class IntroSlideShowComponent implements OnInit {
     this.sections = _.map(this.data, section => {
       return {
         name: section.name,
-        rows: section.rows ? _.map(section.rows, row => {
-          let newRow = new CourseRow(1);
-          newRow.setColArray(_.map((row as any).cols, col => {
-            let mapcol = new CourseColumn(1);
-            mapcol.setContent((col as any).component, (col as any).data);
-            return mapcol;
-          }));
-          return newRow;
-        }) : []
+        rows: section.rows ? section.rows : []
       } 
     });
     if (this.sections.length > 0) {

@@ -44,6 +44,12 @@ import { NavigationSideBtnsComponent } from './components/layout/navigations-sid
 import { FloatingBtnComponent } from './components/layout/floating-btn/floating-btn.component';
 import { LOModalComponent } from './components/layout/lo-modal/lo-modal.component';
 
+//DIRECTIVES
+import { HideInSectionDirective } from './directives/hide-in-section.directive';
+import { ShowInSectionDirective } from './directives/show-in-section.directive';
+import { NavigateToSectionDirective } from './directives/navigate-to-section.directive';
+
+
 import { ModalsModule } from './components/layout/modals/modals.module';
 
 // @NgModule decorator with its metadata
@@ -67,7 +73,10 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     VoidComponent,
     FloatingBtnComponent,
     SimpleContainerComponent,
-    LOModalComponent
+    LOModalComponent,
+    HideInSectionDirective,
+    ShowInSectionDirective,
+    NavigateToSectionDirective
   ],
   imports: [
     BrowserModule,
@@ -104,7 +113,10 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     VoidComponent,
     FloatingBtnComponent,
     SimpleContainerComponent,
-    LOModalComponent
+    LOModalComponent,
+    HideInSectionDirective,
+    ShowInSectionDirective,
+    NavigateToSectionDirective
   ],
   entryComponents: [
     ParagraphComponent,

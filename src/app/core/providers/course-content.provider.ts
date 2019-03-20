@@ -6,6 +6,7 @@ import { SCORMInteractionType } from '../enums/scorm.enum';
 import { LOStructureProvider } from '../providers/lo-structure.provider';
 import { InteractionsProvider } from '../providers/interactions.provider';
 import { ActionsProvider } from '../providers/actions.provider';
+import { CourseRow } from '../classes/course-row.class';
 import * as _ from "lodash";
 
 @Injectable()
@@ -99,8 +100,17 @@ export class CourseContentProvider {
             submitAction: this.actions.prepareSubmitAction(colObj.data),
             updateAction: this.actions.prepareUpdateAction()
         }));
+    } else if (colObj.type === ComponentType.ContentOrganizer) {
+      if (_.isObject(colObj.data) && _.has(colObj.data, 'rows')) {
+        this.prepareInnerRowCols(colObj.data, sectionObj.id, slideIdx);
+      } else if (Array.isArray(colObj.data) && _.some(colObj.data, d => d.rows)){
+        colObj.data.forEach(d => {
+          this.prepareInnerRowCols(d, sectionObj.id, slideIdx);
+        });
+      }
+      col.setContent(colObj.component, colObj.data);
     } else {
-        col.setContent(colObj.component, colObj.data);
+      col.setContent(colObj.component, colObj.data);
     }
 
     if (colObj.style) {
@@ -111,4 +121,78 @@ export class CourseContentProvider {
       col.setClasses(colObj.classes);
     }
   }
+
+  private prepareInnerRowCols(colObj, section, slide) {
+    colObj.rows = colObj.rows.map(innerRowObj => {
+      let innerRowFlex = innerRowObj.flex ? innerRowObj.flex : 1;
+      let innerRow = new CourseRow(innerRowFlex);
+      let innerColsObj = innerRowObj.cols;
+
+      let doColsHaveFlexAssigned = _.some(innerColsObj, innerColObj => {
+        return _.isInteger(innerColObj.flex);
+      });
+      let innerColsParam = doColsHaveFlexAssigned ? _.map(innerColsObj, innerColObj => {
+          return _.isInteger(innerColObj.flex) ? innerColObj.flex : 1;
+      }) : innerColsObj.length;
+
+      innerRow.setCols(innerColsParam);
+
+      if (innerRowObj.style) {
+        innerRow.setStyle(innerRowObj.style);
+      }
+
+      if (innerRowObj.classes) {
+        innerRow.setClasses(innerRowObj.classes);
+      }
+
+      innerRow.getCols().forEach((innerCol, innerIdx) => {
+        let innerColObj = innerColsObj[innerIdx];
+        if (innerColObj.actions) {
+            this.actions.prepareElementAction(
+                _.pick(innerColObj, ['type', 'component', 'data', 'actions'])
+            );
+        }
+        if (innerColObj.type === ComponentType.LearningActivity) {
+            let scormData = (<any>innerColObj.data).SCORM;
+            let statement = (<any>innerColObj.data).statement;
+            this.interactions.addInteraction({
+                interactionId: ++this.interactionCount,
+                type: scormData && scormData.type ? scormData.type : SCORMInteractionType.Choice,
+                weight: scormData && scormData.weight ? scormData.weight : 1,
+                description: statement ? statement : '',
+                section: section,
+                slide: slide
+            });
+            
+            innerCol.setContent(innerColObj.component, _.extend(innerColObj.data, {
+                interactionId: this.interactionCount,
+                submitAction: this.actions.prepareSubmitAction(innerColObj.data),
+                updateAction: this.actions.prepareUpdateAction()
+            }));
+        } else if (innerColObj.type === ComponentType.ContentOrganizer) {
+          if (_.isObject(innerColObj.data) && _.has(innerColObj.data, 'rows')) {
+            this.prepareInnerRowCols(innerColObj.data, section, slide);
+          } else if (Array.isArray(colObj.data) && _.some(colObj.data, d => d.rows)){
+            innerColObj.data.forEach(d => {
+              this.prepareInnerRowCols(d, section, slide);
+            });
+          }
+          innerCol.setContent(innerColObj.component, innerColObj.data);
+        } else {
+          innerCol.setContent(innerColObj.component, innerColObj.data);
+        }
+    
+        if (innerColObj.style) {
+          innerCol.setStyle(innerColObj.style);
+        }
+    
+        if(innerColObj.classes) {
+          innerCol.setClasses(innerColObj.classes);
+        }
+      });
+
+      return innerRow;
+    });
+  }
+
 }

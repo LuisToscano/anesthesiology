@@ -7,7 +7,7 @@ import { NavigationProvider } from '../../../providers/navigation.provider';
   styleUrls: ['./navigation-side-btns.component.scss']
 })
 export class NavigationSideBtnsComponent implements OnInit {
-  
+
   shouldDisplayRightBtn : boolean;
   shouldDisplayLeftBtn : boolean;
 
@@ -15,16 +15,15 @@ export class NavigationSideBtnsComponent implements OnInit {
 
   ngOnInit() {
     this.updateDisplay();
+    this.navigation.getSlideChangedObservable().subscribe(this.updateDisplay.bind(this));
   }
 
   next() {
     this.navigation.nextSlide();
-    this.updateDisplay();
   }
 
   previous() {
     this.navigation.previousSlide();
-    this.updateDisplay();
   }
 
   private updateDisplay() {

@@ -8,15 +8,7 @@ import { NavigationProvider } from '../../../providers/navigation.provider';
 })
 export class FloatingBtnComponent implements OnInit {
 
-  @Input() hiddenIn : any;
-
   constructor(private navigation : NavigationProvider) {}
 
   ngOnInit() {}
-
-  shouldHide() {
-    return Array.isArray(this.hiddenIn) && this.hiddenIn.includes(
-      this.navigation.getCurrentPosition().section.getName()
-    );
-  }
 }

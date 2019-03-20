@@ -1,9 +1,9 @@
-<navigation-side-btns></navigation-side-btns>
+<navigation-side-btns [hideInSection]="'cover'"></navigation-side-btns>
 <div class="container">
     <course-content 
         [ngStyle]="getSlideStyle()"
         [LOCurrentState]="LOCurrentState"
     ></course-content>
 </div>
-<floating-btn [hiddenIn]="hideInFloatingBtn"></floating-btn>
+<floating-btn [hideInSection]="hideInFloatingBtn" [navigateToSection]="'scenarios'"></floating-btn>
 <lo-modal [LOCurrentState]="LOCurrentState"></lo-modal>
