@@ -28,6 +28,17 @@ export const scenariosSectionSlide1 : Slide = {
             component: ButtonComponent,
             actions: [ElementAction.GoToSection, ElementAction.ActiveIfSectionInteractionsDone],
             data: {
+                text: 'Presentación',
+                target: 'intro'
+            }
+        }]
+    },
+    {
+        cols: [{
+            type: ComponentType.Basic,
+            component: ButtonComponent,
+            actions: [ElementAction.GoToSection, ElementAction.ActiveIfSectionInteractionsDone],
+            data: {
                 text: 'Primer ejercicio',
                 target: 'scene1exercise1'
             }

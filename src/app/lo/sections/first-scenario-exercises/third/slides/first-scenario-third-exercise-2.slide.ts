@@ -1,59 +1,90 @@
 import { Slide } from '../../../../../core/interfaces/lo-content.interface';
 import { PhysicsFunctionQuestionComponent } from '../../../../../core/components/learning-activities/physics-function-question/physics-function-question.component';
+import { ImgComponent } from '../../../../../core/components/basic/img/img.component';
+import { SimpleContainerComponent } from '../../../../../core/components/content-organizers/simple-container/simple-container.component';
 import { ComponentType } from '../../../../../core/enums/component-type.enum';
+import { InteractionSubmitAction } from '../../../../../core/enums/interactions.enum';
 import { SCORMInteractionType } from '../../../../../core/enums/scorm.enum';
-import { InteractionSubmitAction } from '../../../../../core/enums/interactions.enum'
-import { ParagraphComponent } from '../../../../../core/components/basic/paragraph/paragraph.component';
+import { AccelerationUnits, LengthUnits, MassUnits, ForceUnits } from '../../../../../core/enums/units.enum';
 import { physicsHelper } from '../../../../helpers/physics.helper';
-import { ForceUnits, LengthUnits } from '../../../../../core/enums/units.enum';
+import { LOi18n } from '../../../../i18n/lo.i18n';
+
+const staticTxt = LOi18n.sections.scenario[1].exercises[3];
 
 export const firstScenarioThirdExerciseSlide2 : Slide = {
     name: 'Escenario 1 - Ejercicio 1',
     rows: [{
         cols: [{
+            type: ComponentType.ContentOrganizer,
+            component: SimpleContainerComponent,
+            data: [{
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: 'assets/img/exercise3.png',
+                            style: {
+                                'max-width': '80%',
+                                'margin': '0 auto'
+                            }
+                        },
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center',
+                            'background': 'white'
+                        }
+                    }]
+                }]
+            }],
+            style: {
+                padding: '50px'
+            },
+            classes: ['space-intro']
+            },{
             type: ComponentType.LearningActivity,
             component: PhysicsFunctionQuestionComponent,
             data: {
+                name: staticTxt.name,
                 variables: [{
                     name: 'adCableTension',
-                    tag: 'Tensión en el cable AD',
+                    tag: staticTxt.variables.adCableTension.tag,
                     value: 400,
                     unit: ForceUnits.Newton,
                     mutable: false
                 },
                 {
                     name: 'xDistance',
-                    tag: 'distancia OD en el eje X',
+                    tag: staticTxt.variables.xDistance.tag,
                     value: 2,
                     unit: LengthUnits.Meter,
                     mutable: false
                 },
                 {
                     name: 'yDistance',
-                    tag: 'distancia OD en el eje Y',
+                    tag: staticTxt.variables.yDistance.tag,
                     value: 2.5,
                     unit: LengthUnits.Meter,
                     mutable: false
                 },
                 {
                     name: 'zDistance',
-                    tag: 'distancia OA en el eje Z',
+                    tag: staticTxt.variables.zDistance.tag,
                     value: 5,
                     unit: LengthUnits.Meter,
                     mutable: false
                 },
                 {
                     name: 'obDistance',
-                    tag: 'distancia OB en el eje Y',
+                    tag: staticTxt.variables.obDistance.tag,
                     value: 3,
                     unit: LengthUnits.Meter,
                     mutable: true
                 }],
-                statement : 'Para garantizar la comunicación en toda la colonia se instalo una torre ' +
-                'de comunicación localizada en la cima de una loma. Si la tension en el cable AD es' +
-                'de %(adCableTension):',
+                statement : staticTxt.statement,
                 questions: [{
-                    statement: '¿Cuál es la tensión en el cable AB?',
+                    statement: staticTxt.questions[1].tag,
                     validateFn: (response, variables) => {
                         return physicsHelper.scenario[1].exercise[3].getCableTensionAB(
                             parseFloat(response), variables
@@ -65,7 +96,7 @@ export const firstScenarioThirdExerciseSlide2 : Slide = {
                         pattern: /\d+(\.\d{1,2})*/
                     }
                 },{
-                    statement: '¿Cuál es la tensión en el cable AC?',
+                    statement: staticTxt.questions[2].tag,
                     validateFn: (response, variables) => {
                         return physicsHelper.scenario[1].exercise[3].getCableTensionAC(
                             parseFloat(response), variables
@@ -77,7 +108,7 @@ export const firstScenarioThirdExerciseSlide2 : Slide = {
                         pattern: /\d+(\.\d{1,2})*/
                     }
                 },{
-                    statement: '¿Cuál es la reacción vertical en el apoyo B?',
+                    statement: staticTxt.questions[3].tag,
                     validateFn: (response, variables) => {
                         return physicsHelper.scenario[1].exercise[3].getVerticalReactionInB(
                             parseFloat(response), variables
@@ -94,13 +125,14 @@ export const firstScenarioThirdExerciseSlide2 : Slide = {
                     type: SCORMInteractionType.FillIn
                 },
                 submitBtn: {
-                    tag : 'Enviar'
+                    tag : staticTxt.btns.submit.tag
                 },
-                onSubmit: InteractionSubmitAction.Alert
+                attempts: 3,
+                onSubmit: InteractionSubmitAction.DisplayModal
+            },
+            style: {
+                padding: '50px'
             }
         }]
-    }],
-    style: {
-        padding: '25px'
-    }
+    }]
 };

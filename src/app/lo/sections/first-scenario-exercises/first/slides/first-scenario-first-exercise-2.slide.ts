@@ -46,10 +46,10 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                 type: ComponentType.LearningActivity,
                 component: PhysicsFunctionQuestionComponent,
                 data: {
-                    name: 'Ejercicio 1',
+                    name: staticTxt.name,
                     variables: [{
                         name: 'hexagonSide',
-                        tag: 'Lado plafón hexagonal',
+                        tag: staticTxt.variables.hexagonSide.tag,
                         value: 1,
                         unit: LengthUnits.Meter,
                         mutable: true,
@@ -57,30 +57,28 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         max: 10
                     }, {
                         name: 'hexagonWeight',
-                        tag: 'Peso plafón hexagonal',
+                        tag: staticTxt.variables.hexagonWeight.tag,
                         value: 20,
                         unit: MassUnits.Kilogram,
                         mutable: false
                     },{
                         name: 'asteroidGravity',
-                        tag: 'Gravedad del asteroide',
+                        tag: staticTxt.variables.asteroidGravity.tag,
                         value: 2,
                         unit: AccelerationUnits.MeterPerSecondSquare,
                         mutable: false
                     }, {
                         name: 'tieDownDistance',
-                        tag: 'Distancia del punto de sujeción',
+                        tag: staticTxt.variables.tieDownDistance.tag,
                         value: 80,
                         unit: LengthUnits.Centimeter,
                         mutable: true,
                         min: 50,
                         max: 100
                     }],
-                    statement : 'Cada uno de los plafones hexagonales, cuyo lado mide %(hexagonSide), ' +
-                    'tiene una masa de %(hexagonWeight). El asteroide tiene una gravedad de %(asteroidGravity).',
+                    statement : staticTxt.statement,
                     questions: [{
-                        statement: 'Cual es la tensión en cada cable del plafón central si el punto de sujeción ' + 
-                        'de los cables se encuentra a %(tieDownDistance)?',
+                        statement: staticTxt.questions[1].statement,
                         validateFn: (response, variables) => {
                             return physicsHelper.scenario[1].exercise[1].getEachCableTension(
                                 parseFloat(response), variables
@@ -92,8 +90,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                             pattern: /\d+(\.\d{1,2})*/
                         }
                     }, {
-                        statement: 'Cuáles son las componentes rectangulares de la tensión TGE de acuerdo ' +
-                        'al sistema de coordenadas mostrado?',
+                        statement: staticTxt.questions[2].statement,
                         validateFn: (response, variables) => {
                             return physicsHelper.scenario[1].exercise[1].getTGETensionRectangularComponent(
                                 response, variables
@@ -105,8 +102,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                             pattern: /\d+(\.\d{1,2})*[i][+-]\d+(\.\d{1,2})*[j][+-]\d+(\.\d{1,2})*[k]/
                         }
                     }, {
-                        statement: 'Cuáles son las componentes rectangulares de la tensión TGD de acuerdo ' +
-                        'al sistema de coordenadas mostrado?',
+                        statement: staticTxt.questions[3].statement,
                         validateFn: (response, variables) => {
                             return physicsHelper.scenario[1].exercise[1].getTGDTensionRectangularComponent(
                                 response, variables
@@ -123,7 +119,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         type: SCORMInteractionType.FillIn
                     },
                     submitBtn: {
-                        tag : 'Responder'
+                        tag : staticTxt.btns.submit.tag
                     },
                     attempts: 3,
                     onSubmit: InteractionSubmitAction.DisplayModal

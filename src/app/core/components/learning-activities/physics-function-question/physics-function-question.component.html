@@ -26,9 +26,11 @@
             <button (click)="validateVariableValues()"> Aceptar </button>
         </div>
     </div>
-    <p>{{ getStatement() }}</p>
+    <p class="physics-fn-question-statement">{{ getStatement() }}</p>
     <div class="question" *ngFor="let question of questions; let i = index">
-        <p><span class="question-number">{{i + 1}}.</span> {{question.getStatement()}}</p>
+        <p class="question-statement">
+            <span class="question-number">{{i + 1}}.</span> {{question.getStatement()}}
+        </p>
         <div class="input-container">
             <input type="{{question.options.type}}"
                 [(ngModel)]="answers[i]"

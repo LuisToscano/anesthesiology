@@ -1,130 +1,146 @@
 import { Slide } from '../../../../../core/interfaces/lo-content.interface';
 import { PhysicsFunctionQuestionComponent } from '../../../../../core/components/learning-activities/physics-function-question/physics-function-question.component';
+import { ImgComponent } from '../../../../../core/components/basic/img/img.component';
+import { SimpleContainerComponent } from '../../../../../core/components/content-organizers/simple-container/simple-container.component';
 import { ComponentType } from '../../../../../core/enums/component-type.enum';
+import { InteractionSubmitAction } from '../../../../../core/enums/interactions.enum';
 import { SCORMInteractionType } from '../../../../../core/enums/scorm.enum';
-import { InteractionSubmitAction } from '../../../../../core/enums/interactions.enum'
-import { ParagraphComponent } from '../../../../../core/components/basic/paragraph/paragraph.component';
+import { AccelerationUnits, LengthUnits, MassUnits, ForceUnits } from '../../../../../core/enums/units.enum';
 import { physicsHelper } from '../../../../helpers/physics.helper';
-import { AccelerationUnits, ForceUnits, MassUnits, LengthUnits } from '../../../../../core/enums/units.enum';
+import { LOi18n } from '../../../../i18n/lo.i18n';
 
-var statement = 'En la figura se observa la estructura de la granja construida por el polímero xyz, ' +
-'muy resistente y super liviano. Ningún elemento de la estructura es continuo y todas las uniones son ' +
-'articuladas, para un fácil transporte y armado. La estructura se encuentra simplemente apoyada en un ' +
-'único punto (G) y estabilizada por un cable amarrado en K y anclado en L. La granja esta automatizada ' +
-'para garantizar las condiciones de humedad, temperatura y luz de las plantas.';
+const staticTxt = LOi18n.sections.scenario[1].exercises[2];
 
 export const firstScenarioSecondExerciseSlide2 : Slide = {
-    name: 'Escenario 1 - Ejercicio 1',
+    name: 'Escenario 1 - Ejercicio 2',
     rows: [{
         cols: [{
-                type: ComponentType.Basic,
-                component: ParagraphComponent,
-                data: [{
-                    text: statement,
-                    args: {}
+            type: ComponentType.ContentOrganizer,
+            component: SimpleContainerComponent,
+            data: [{
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: 'assets/img/exercise2.png',
+                            style: {
+                                'max-width': '80%',
+                                'margin': '0 auto'
+                            }
+                        },
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center',
+                            'background': 'white'
+                        }
+                    }]
                 }]
+            }],
+            style: {
+                padding: '50px'
+            },
+            classes: ['space-intro']
+            },
+            {
+                type: ComponentType.LearningActivity,
+                component: PhysicsFunctionQuestionComponent,
+                data: {
+                    name: staticTxt.name,
+                    variables: [{
+                        name: 'lampMass',
+                        tag: staticTxt.variables.lampMass.tag,
+                        value: 10,
+                        unit: MassUnits.Kilogram,
+                        mutable: true
+                    }, {
+                        name: 'maxMassBetweenBnC',
+                        tag: staticTxt.variables.maxMassBetweenBnC.tag,
+                        value: 4,
+                        unit: MassUnits.Kilogram,
+                        mutable: true
+                    },
+                    {
+                        name: 'asteroidGravity',
+                        tag: staticTxt.variables.asteroidGravity.tag,
+                        value: 10,
+                        unit: AccelerationUnits.MeterPerSecondSquare,
+                        mutable: false
+                    },
+                    {
+                        name: 'klCableTension',
+                        tag: staticTxt.variables.klCableTension.tag,
+                        value: 109.1,
+                        unit: ForceUnits.Newton,
+                        mutable: false
+                    },
+                    {
+                        name: 'jdDistance',
+                        tag: staticTxt.variables.jdDistance.tag,
+                        value: 2,
+                        unit: LengthUnits.Meter,
+                        mutable: true
+                    },
+                    {
+                        name: 'efDistance',
+                        tag: staticTxt.variables.efDistance.tag,
+                        value: 3,
+                        unit: LengthUnits.Meter,
+                        mutable: false
+                    },
+                    {
+                        name: 'abcdeklDistance',
+                        tag: staticTxt.variables.abcdeklDistance.tag,
+                        value: 2,
+                        unit: LengthUnits.Meter,
+                        mutable: false
+                    }],
+                    statement : staticTxt.statement,
+                    questions: [{
+                        statement: staticTxt.questions[1].statement,
+                        validateFn: (response, variables) => {
+                            return physicsHelper.scenario[1].exercise[2].getABAxial(parseInt(response), variables);
+                        },
+                        options: {
+                            type: 'number',
+                            placeholder: '14.37',
+                            pattern: /\d+(\.\d{1,2})*/
+                        }
+                    },{
+                        statement: staticTxt.questions[2].statement,
+                        validateFn: (response, variables) => {
+                            return physicsHelper.scenario[1].exercise[2].getGKAxial(parseInt(response), variables);
+                        },
+                        options: {
+                            type: 'number',
+                            placeholder: '14.37',
+                            pattern: /\d+(\.\d{1,2})*/
+                        }
+                    },{
+                        statement: staticTxt.questions[3].statement,
+                        validateFn: (response, variables) => {
+                            return physicsHelper.scenario[1].exercise[2].getICAxial(parseInt(response), variables);
+                        },
+                        options: {
+                            type: 'number',
+                            placeholder: '14.37',
+                            pattern: /\d+(\.\d{1,2})*/
+                        }
+                    }],
+                    SCORM: {
+                        weight: 1,
+                        type: SCORMInteractionType.FillIn
+                    },
+                    submitBtn: {
+                        tag : staticTxt.btns.submit.tag
+                    },
+                    attempts: 3,
+                    onSubmit: InteractionSubmitAction.DisplayModal
+                },
+                style: {
+                    padding: '50px'
+                }
             }]
-        },{
-        cols: [{
-            type: ComponentType.LearningActivity,
-            component: PhysicsFunctionQuestionComponent,
-            data: {
-                variables: [{
-                    name: 'lampMass',
-                    tag: 'Peso de la lámpara',
-                    value: 10,
-                    unit: MassUnits.Kilogram,
-                    mutable: true
-                }, {
-                    name: 'maxMassBetweenBnC',
-                    tag: 'Máxima masa permitida entre B y C',
-                    value: 4,
-                    unit: MassUnits.Kilogram,
-                    mutable: true
-                },
-                {
-                    name: 'asteroidGravity',
-                    tag: 'Gravedad del asteroide',
-                    value: 10,
-                    unit: AccelerationUnits.MeterPerSecondSquare,
-                    mutable: false
-                },
-                {
-                    name: 'klCableTension',
-                    tag: 'Tensión en el cable KL',
-                    value: 109.1,
-                    unit: ForceUnits.Newton,
-                    mutable: false
-                },
-                {
-                    name: 'jdDistance',
-                    tag: 'Distancia entre los puntos J y D',
-                    value: 2,
-                    unit: LengthUnits.Meter,
-                    mutable: true
-                },
-                {
-                    name: 'efDistance',
-                    tag: 'Distancia entre los puntos E y F',
-                    value: 3,
-                    unit: LengthUnits.Meter,
-                    mutable: false
-                },
-                {
-                    name: 'abcdeklDistance',
-                    tag: 'Distancia entre los puntos AB, BC, CD, DK y KL',
-                    value: 2,
-                    unit: LengthUnits.Meter,
-                    mutable: false
-                }],
-                statement : 'B y C son los puntos de suministro de agua y A es uno de los dos puntos que ' +
-                'sostienen la lampara. Si la masa de la lampara es de %(lampMass) (para repartir en dos) y los ' +
-                'máximas masas que pueden haber en un momento dado en B y C es de %(maxMassBetweenBnC). ' +
-                'Recordando que la gravedad artificial de %(asteroidGravity) y si la tensión en el cable KL es ' +
-                'de %(klCableTension):',
-                questions: [{
-                    statement: '¿Cuál es el axial en AB?',
-                    validateFn: (response, variables) => {
-                        return physicsHelper.scenario[1].exercise[2].getABAxial(parseInt(response), variables);
-                    },
-                    options: {
-                        type: 'number',
-                        placeholder: '14.37',
-                        pattern: /\d+(\.\d{1,2})*/
-                    }
-                },{
-                    statement: '¿Cuál es el axial en GK?',
-                    validateFn: (response, variables) => {
-                        return physicsHelper.scenario[1].exercise[2].getGKAxial(parseInt(response), variables);
-                    },
-                    options: {
-                        type: 'number',
-                        placeholder: '14.37',
-                        pattern: /\d+(\.\d{1,2})*/
-                    }
-                },{
-                    statement: '¿Cuál es el axial en IC?',
-                    validateFn: (response, variables) => {
-                        return physicsHelper.scenario[1].exercise[2].getICAxial(parseInt(response), variables);
-                    },
-                    options: {
-                        type: 'number',
-                        placeholder: '14.37',
-                        pattern: /\d+(\.\d{1,2})*/
-                    }
-                }],
-                SCORM: {
-                    weight: 1,
-                    type: SCORMInteractionType.FillIn
-                },
-                submitBtn: {
-                    tag : 'Enviar'
-                },
-                onSubmit: InteractionSubmitAction.Alert
-            }
         }]
-    }],
-    style: {
-        padding: '25px'
-    }
 };

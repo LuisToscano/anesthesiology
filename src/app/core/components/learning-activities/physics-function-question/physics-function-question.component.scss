@@ -43,10 +43,18 @@ $answerColor: #5e32cd;
             }
         }
 
+        .physics-fn-question-statement{
+            text-align: justify;
+            font-size: 1.2rem;
+        }
+
         .question{
-            span.question-number{
-                font-weight: bold;
-                color: $questionSecondaryColor;
+            p.question-statement{
+                font-size: 1.2rem;
+                span.question-number{
+                    font-weight: bold;
+                    color: $questionSecondaryColor;
+                }
             }
             .input-container{
                 display: flex;
