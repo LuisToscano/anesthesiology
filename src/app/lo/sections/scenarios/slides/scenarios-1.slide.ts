@@ -1,9 +1,6 @@
 import { Slide } from '../../../../core/interfaces/lo-content.interface';
-import { ParagraphComponent } from '../../../../core/components/basic/paragraph/paragraph.component';
-import { ButtonComponent } from '../../../../core/components/basic/button/button.component';
+import { DynamicOverlapMenuComponent } from '../../../../core/components/content-organizers/dynamic-overlap-menu/dynamic-overlap-menu.component';
 import { ComponentType } from '../../../../core/enums/component-type.enum';
-import { ElementAction } from '../../../../core/enums/element-action.enum';
-import { ParagraphClass, ParagraphArgumentType } from '../../../../core/components/basic/paragraph/paragraph.enum';
 
 var statement = 'Una vez instalado el domo, empieza el proceso de colonización del planeta, en dos sectores ' +
 'donde la superficie del planeta era relativamente plana. En el primer sector estaban las grandes ' +
@@ -14,57 +11,33 @@ export const scenariosSectionSlide1 : Slide = {
     name: 'Starting Colonization',
     rows: [{
         cols: [{
-            type: ComponentType.Basic,
-            component: ParagraphComponent,
-            data: [{
-                text: statement,
-                args: {}
-            }]
-        }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ButtonComponent,
-            actions: [ElementAction.GoToSection, ElementAction.ActiveIfSectionInteractionsDone],
+            type: ComponentType.ContentOrganizer,
+            component: DynamicOverlapMenuComponent,
             data: {
-                text: 'Presentación',
-                target: 'intro'
-            }
-        }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ButtonComponent,
-            actions: [ElementAction.GoToSection, ElementAction.ActiveIfSectionInteractionsDone],
-            data: {
-                text: 'Primer ejercicio',
-                target: 'scene1exercise1'
-            }
-        }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ButtonComponent,
-            actions: [ElementAction.GoToSection, ElementAction.ActiveIfSectionInteractionsDone],
-            data: {
-                text: 'Segundo ejercicio',
-                target: 'scene1exercise2'
-            }
-        }]
-    },
-    {
-        cols: [{
-            type: ComponentType.Basic,
-            component: ButtonComponent,
-            actions: [ElementAction.GoToSection, ElementAction.ActiveIfSectionInteractionsDone],
-            data: {
-                text: 'Tercer ejercicio',
-                target: 'scene1exercise3'
+                defaultSelection: 'Asteroide XXC1',
+                bgImage: 'assets/img/landscape-test.jpg',
+                btns: [{
+                    tag: 'Introducción',
+                    width: 10,
+                    top: 65,
+                    left: 3,
+                    target: 'scene1exercise1',
+                    disableOnInteractions: false,
+                    disableOnVisit: false,
+                    bgImages: {
+                        normal: 'house-nobg-test.png' ,
+                        hover: 'house-no-bg2.png',
+                        disabled: 'gray-house-nobg.png'
+                    }
+                }]
+            },
+            style: {
+                'flex-direction': 'row',
+                'align-items': 'center'
             }
         }]
     }],
-    style: {}
+    style: {
+        background: '#142325'
+    }
 };

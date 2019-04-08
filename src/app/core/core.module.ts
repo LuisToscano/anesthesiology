@@ -38,6 +38,7 @@ import { PhysicsFunctionQuestionComponent } from './components/learning-activiti
 import { TestOrganizerComponent } from './components/content-organizers/test-organizer/test-organizer.component';
 import { IntroSlideShowComponent } from './components/content-organizers/intro-slideshow/intro-slideshow.component';
 import { SimpleContainerComponent } from './components/content-organizers/simple-container/simple-container.component';
+import { DynamicOverlapMenuComponent } from './components/content-organizers/dynamic-overlap-menu/dynamic-overlap-menu.component';
 
 //LAYOUT
 import { NavigationSideBtnsComponent } from './components/layout/navigations-side-btns/navigation-side-btns.component';
@@ -48,7 +49,7 @@ import { LOModalComponent } from './components/layout/lo-modal/lo-modal.componen
 import { HideInSectionDirective } from './directives/hide-in-section.directive';
 import { ShowInSectionDirective } from './directives/show-in-section.directive';
 import { NavigateToSectionDirective } from './directives/navigate-to-section.directive';
-
+import { DynamicOverlapMenuItemDirective } from './components/content-organizers/dynamic-overlap-menu/dynamic-overlap-menu-item.directive';
 
 import { ModalsModule } from './components/layout/modals/modals.module';
 
@@ -76,7 +77,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     LOModalComponent,
     HideInSectionDirective,
     ShowInSectionDirective,
-    NavigateToSectionDirective
+    NavigateToSectionDirective,
+    DynamicOverlapMenuComponent,
+    DynamicOverlapMenuItemDirective
   ],
   imports: [
     BrowserModule,
@@ -116,7 +119,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     LOModalComponent,
     HideInSectionDirective,
     ShowInSectionDirective,
-    NavigateToSectionDirective
+    NavigateToSectionDirective,
+    DynamicOverlapMenuComponent,
+    DynamicOverlapMenuItemDirective
   ],
   entryComponents: [
     ParagraphComponent,
@@ -131,7 +136,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     VoidComponent,
     FloatingBtnComponent,
     SimpleContainerComponent,
-    LOModalComponent
+    LOModalComponent,
+    DynamicOverlapMenuComponent
   ]
 })
 export class CoreModule { }

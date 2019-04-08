@@ -1,0 +1,41 @@
+:host{
+    padding: 50px;
+    .dynamic-overlap-menu{
+        position: relative;
+        width: 80%;
+        margin: 0 auto;
+
+        img.overlap-menu-bg{
+            width:100%;
+            height:100%;
+            object-fit: contain;
+        }
+
+        .overlap-menu-item{
+            position: absolute;
+            img.overlap-menu-item-img{
+                width:100%;
+                height:100%;
+                object-fit: contain;
+            }
+        }
+    }
+
+    .dynamic-overlap-dashboard{
+        width: 80%;
+        margin: 0 auto;
+        padding: 10px;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        .overlap-menu-selection{
+            width: 30%;
+            background: white;
+            margin: 0 auto;
+            padding: 10px;
+            text-align: center;
+            font-weight: bold;
+            color: #142325;
+        }
+    }
+}

@@ -14,6 +14,8 @@ export class NavigationProvider {
   subscriptions : number = 0;
   private notifiedSubscriptors : number = 0;
 
+  visitedSections = {};
+
   constructor(
     private LOStructure : LOStructureProvider,
     private scorm : SCORMProvider
@@ -29,6 +31,8 @@ export class NavigationProvider {
       name: firstSection.slide(0).getName(),
       totalSlides: firstSection.getSlides().length
     };
+
+    this.updateVisitedSections(firstSection.getId(), 0);
     
     if (currentSCORM) {
       this.goToSectionSlide(currentSCORM.section, currentSCORM.slide);
@@ -102,6 +106,7 @@ export class NavigationProvider {
       this.current.slide =  slide ? slide : 0;
       this.current. totalSlides = desiredSection.getSlides().length;
       this.current.name = this.getCurrentSlide().getName();
+      this.updateVisitedSections(id, slide ? slide : 0);
     } else {
       console.error('The desired section does not exist');
     }
@@ -125,5 +130,19 @@ export class NavigationProvider {
 
   getSlideName() {
     return this.getCurrentSlide().getName();
+  }
+
+  hasSectionBeenVisited(sectionId : string) {
+    return _.has(this.visitedSections, sectionId);
+  }
+
+  private updateVisitedSections(section : string, slide : number) {
+    if (_.has(this.visitedSections, section)) {
+      if (!_.includes(this.visitedSections[section], slide)) {
+        this.visitedSections[section].push(slide);
+      }
+    } else {
+      this.visitedSections[section] = [slide];
+    }
   }
 }

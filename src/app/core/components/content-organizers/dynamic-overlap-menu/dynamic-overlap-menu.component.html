@@ -1,0 +1,21 @@
+<div class="dynamic-overlap-menu-container">
+    <div class="dynamic-overlap-menu">
+        <img class="overlap-menu-bg" *ngIf="data.bgImage" [src]="data.bgImage">
+        <div *ngFor="let btn of data.btns" dynamicOverlapMenuItem
+            (hover)="onItemHover($event)"
+            omi-width-perc="{{btn.width}}"
+            omi-left-perc="{{btn.left}}"
+            omi-top-perc="{{btn.top}}"
+            omi-redirect="{{btn.target}}"
+            omi-disable-on-interactions="{{btn.disableOnInteractions}}"
+            omi-disable-on-visit="{{btn.disableOnVisit}}"
+            omi-btn-tag="{{btn.tag}}"
+            omi-btn-img="{{btn.bgImages.normal}}"
+            omi-btn-img-hover="{{btn.bgImages.hover}}"
+            omi-btn-img-disabled="{{btn.bgImages.disabled}}"
+        ></div>
+    </div>
+    <div class="dynamic-overlap-dashboard">
+        <div class="overlap-menu-selection">{{selectionTxt}}</div>
+    </div>
+</div>
