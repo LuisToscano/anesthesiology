@@ -20,6 +20,7 @@ export class DynamicOverlapMenuItemDirective implements OnInit {
     @Input('omi-btn-tag') btnTag : string;
     @Input('omi-disable-on-interactions') disableOnInteractions: string;
     @Input('omi-disable-on-visit') disableOnVisit: string;
+    @Input('omi-validate-section') validateSection: string;
 
     @Output() hover = new EventEmitter<string>();
 
@@ -47,11 +48,11 @@ export class DynamicOverlapMenuItemDirective implements OnInit {
         this.el.nativeElement.style.top = this.topPercentage + '%';
         this.el.nativeElement.style.left = this.leftPercentage + '%';
 
-        if (this.redirectTo) {
+        if (this.validateSection) {
             if (this.shouldDisableOnInteractions) {
-                this.isDisabled = !this.interactions.areAllSectionInteractionsCorrect(this.redirectTo);
+                this.isDisabled = !this.interactions.areAllSectionInteractionsCorrect(this.validateSection);
             } else if (this.shouldDisableOnVisit) {
-                this.isDisabled = !this.navigation.hasSectionBeenVisited(this.redirectTo);
+                this.isDisabled = !this.navigation.hasSectionBeenVisited(this.validateSection);
             }
         }
 

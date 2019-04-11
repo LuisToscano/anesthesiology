@@ -17,7 +17,8 @@ export class InteractionsProvider {
       this.interactionsStatus[interaction.interactionId] = {
         status: InteractionStatus.Unanswered,
         response: '',
-        attempts: 0
+        attempts: 0,
+        previouslyCorrect: false
       }
     });
   }
@@ -43,6 +44,9 @@ export class InteractionsProvider {
   }
 
   resetInteraction(id: number, data ?: any) {
+    if (this.interactionsStatus[id].status === InteractionStatus.Correct) {
+      this.interactionsStatus[id].previouslyCorrect = true;
+    }
     this.interactionsStatus[id].status = InteractionStatus.NewAttempt;
     this.interactionsStatus[id].attempts = 0;
     this.interactionsStatus[id].response = '';
@@ -67,7 +71,9 @@ export class InteractionsProvider {
       return interaction.section === section && interaction.slide === slide;
     }), filteredInteraction => {
       return this.interactionsStatus[filteredInteraction.interactionId]
-        .status === InteractionStatus.Correct;
+        .status === InteractionStatus.Correct ||
+        this.interactionsStatus[filteredInteraction.interactionId]
+        .previouslyCorrect === true;
     });
   }
 
@@ -76,7 +82,9 @@ export class InteractionsProvider {
       return interaction.section === section;
     }), filteredInteraction => {
       return this.interactionsStatus[filteredInteraction.interactionId]
-        .status === InteractionStatus.Correct;
+        .status === InteractionStatus.Correct ||
+        this.interactionsStatus[filteredInteraction.interactionId]
+        .previouslyCorrect === true;
     });
   }
 }

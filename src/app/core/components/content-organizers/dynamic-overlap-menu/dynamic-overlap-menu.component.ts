@@ -13,6 +13,7 @@ export class DynamicOverlapMenuComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
+    console.log(this.data);
     this.data.btns = this.data.btns ? this.data.btns : [];
     this.data.defaultSelection = this.data.defaultSelection ? this.data.defaultSelection : '';
     this.data.btns = this.data.btns.map(btn => {
@@ -22,6 +23,7 @@ export class DynamicOverlapMenuComponent implements OnInit {
         top: btn.top ? btn.top : 0,
         left: btn.left ? btn.left : 0,
         target: btn.target ? btn.target : '',
+        validateSection: btn.validateSection ? btn.validateSection : '',
         disableOnInteractions: btn.disableOnInteractions ? btn.disableOnInteractions : false,
         disableOnVisit: btn.disableOnVisit ? btn.disableOnVisit : false,
         bgImages: {

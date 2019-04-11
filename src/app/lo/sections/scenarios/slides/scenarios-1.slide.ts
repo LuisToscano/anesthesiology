@@ -15,19 +15,62 @@ export const scenariosSectionSlide1 : Slide = {
             component: DynamicOverlapMenuComponent,
             data: {
                 defaultSelection: 'Asteroide XXC1',
-                bgImage: 'assets/img/landscape-test.jpg',
+                bgImage: 'assets/img/asteroid-bg.png',
                 btns: [{
                     tag: 'Introducción',
-                    width: 10,
-                    top: 65,
-                    left: 3,
-                    target: 'scene1exercise1',
+                    width: 40,
+                    top: 53.5,
+                    left: 4,
+                    target: 'intro',
+                    validateSection: '',
                     disableOnInteractions: false,
                     disableOnVisit: false,
                     bgImages: {
-                        normal: 'house-nobg-test.png' ,
-                        hover: 'house-no-bg2.png',
-                        disabled: 'gray-house-nobg.png'
+                        normal: 'asteroid-city.png' ,
+                        hover: 'asteroid-city-hover.png',
+                        disabled: 'asteroid-city-disabled.png'
+                    }
+                },{
+                    tag: 'Ejercicio 1',
+                    width: 22,
+                    top: 16,
+                    left: 20,
+                    target: 'scene1exercise1',
+                    validateSection: 'intro',
+                    disableOnInteractions: false,
+                    disableOnVisit: true,
+                    bgImages: {
+                        normal: 'asteroid-dome-section.png' ,
+                        hover: 'asteroid-dome-section-hover.png',
+                        disabled: 'asteroid-dome-section-disabled.png'
+                    }
+                },{
+                    tag: 'Ejercicio 2',
+                    width: 30,
+                    top: 60,
+                    left: 60,
+                    target: 'scene1exercise2',
+                    validateSection: 'scene1exercise1',
+                    disableOnInteractions: true,
+                    disableOnVisit: false,
+                    bgImages: {
+                        normal: 'asteroid-farm.png' ,
+                        hover: 'asteroid-farm-hover.png',
+                        disabled: 'asteroid-farm-disabled.png'
+                    }
+                },{
+                    tag: 'Ejercicio 3',
+                    width: 24,
+                    top: 31,
+                    left: 41,
+                    target: 'scene1exercise3',
+                    validateSection: 'scene1exercise2',
+                    disableOnInteractions: true,
+                    disableOnVisit: false,
+                    bgImages: {
+                        normal: 'asteroid-antenna.png' ,
+                        hover: 'asteroid-antenna-hover.png',
+                        disabled: 'asteroid-antenna-disabled.png'
                     }
                 }]
             },

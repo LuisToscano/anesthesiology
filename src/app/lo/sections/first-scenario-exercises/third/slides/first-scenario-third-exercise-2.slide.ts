@@ -25,23 +25,19 @@ export const firstScenarioThirdExerciseSlide2 : Slide = {
                         data: {
                             source: 'assets/img/exercise3.png',
                             style: {
-                                'max-width': '80%',
+                                'max-width': '95%',
                                 'margin': '0 auto'
                             }
                         },
                         style: {
                             'display': 'flex',
                             'flex-direction': 'row',
-                            'align-items': 'center',
-                            'background': 'white'
-                        }
+                            'align-items': 'center'
+                        },
+                        classes: ['space-intro']
                     }]
                 }]
-            }],
-            style: {
-                padding: '50px'
-            },
-            classes: ['space-intro']
+            }]
             },{
             type: ComponentType.LearningActivity,
             component: PhysicsFunctionQuestionComponent,

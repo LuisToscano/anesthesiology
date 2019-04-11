@@ -32,6 +32,8 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   private changeValues : boolean = false;
   private exerciseName : string;
 
+  private isCorrect : boolean = false;
+
   private readonly printVarClosure : (val) => string = 
     variable => variable.value + ' ' + variable.unit;
 
@@ -95,7 +97,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   }
 
   submitInteraction() {
-    let allCorrect = _.every(this.answers, (answer, idx) => {
+    this.isCorrect = _.every(this.answers, (answer, idx) => {
       return this.questions[idx].validateFn(answer ,_.extend(this.variables, this.constants))
     });
     let response = _.reduce(this.answers, (acum, answer) => {
@@ -109,7 +111,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
       remainingAttempts: this.maxAttempts - this.attempted
     };
 
-    if (this.maxAttempts - this.attempted <= 0) {
+    if (!this.isCorrect && (this.maxAttempts - this.attempted <= 0)) {
       this.changeMutableValues();
       this.attempted = 0;
       details = _.extend(details, {
@@ -117,7 +119,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
       });
     }
 
-    this.submitAction(this.physicsFnQuestionData.interactionId, response, allCorrect, details);
+    this.submitAction(this.physicsFnQuestionData.interactionId, response, this.isCorrect, details);
   }
 
   getStatement() {
@@ -128,7 +130,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   }
 
   shouldDisableBtn() {
-    return this.attempted >= this.maxAttempts || !_.every(this.answers, this.validateAnswerPattern.bind(this));
+    return this.isCorrect || this.attempted >= this.maxAttempts || !_.every(this.answers, this.validateAnswerPattern.bind(this));
   }
 
   toggleChangeValues() {
