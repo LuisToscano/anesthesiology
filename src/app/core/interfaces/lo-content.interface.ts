@@ -11,7 +11,8 @@ export interface Sections{
 export interface Slide{
     rows: Array<Row>,
     name ?: string,
-    style ?: {}
+    style ?: {},
+    classes ?: Array<string>
 }
 
 export interface Element{

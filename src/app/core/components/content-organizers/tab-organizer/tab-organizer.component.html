@@ -1,0 +1,18 @@
+<div class="tab-organizer-menu">
+    <ul>
+        <li *ngFor="let section of sections; let i = index;"
+        [ngClass]="{'active': i === currentIdx}"
+        (click)="goTo(i)">
+            <span>{{section.name}}</span>
+        </li>
+    </ul>
+</div>
+<div class="tab-organizer-content">
+    <div *ngIf="current">
+        <course-row
+        *ngFor='let row of current.rows'
+        [style.flex]="row.flex"
+        [cols]="row.cols"
+        ></course-row>
+    </div>
+</div>

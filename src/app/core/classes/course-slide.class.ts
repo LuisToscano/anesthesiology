@@ -5,9 +5,11 @@ export class CourseSlide{
     private name : string;
     private rows : CourseRow[];
     private style : {};
-
+    private classes : Array<string>;
+    
     constructor(){
       this.rows = [];
+      this.classes = [];
     }
 
     getName() {
@@ -22,12 +24,20 @@ export class CourseSlide{
       return this.style;
     }
 
+    getClasses() {
+        return this.classes;
+    }
+
     setStyle(style : {}){
       this.style = style;
     }
 
     setName(name : string) {
       this.name = name;
+    }
+
+    setClasses(classes : Array<string>){
+      this.classes = classes;
     }
 
     setRows(rowsParam : Array<number> | number) {

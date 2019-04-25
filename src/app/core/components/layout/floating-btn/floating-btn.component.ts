@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { NavigationProvider } from '../../../providers/navigation.provider';
 
 @Component({
   selector: 'floating-btn',
@@ -8,7 +7,14 @@ import { NavigationProvider } from '../../../providers/navigation.provider';
 })
 export class FloatingBtnComponent implements OnInit {
 
-  constructor(private navigation : NavigationProvider) {}
+  @Input() floatBtnIconTxt : string;
+  @Input() floatBtnTag : string;
+  iconClassObj = {}; 
 
-  ngOnInit() {}
+  constructor() {}
+
+  ngOnInit() {
+    let iconClassKey = this.floatBtnIconTxt ? 'fa-' + this.floatBtnIconTxt : 'fa-question';
+    this.iconClassObj[iconClassKey] = true;
+  }
 }

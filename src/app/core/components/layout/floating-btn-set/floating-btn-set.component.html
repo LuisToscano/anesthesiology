@@ -1,0 +1,16 @@
+<div class="floating-btn-set">
+    <ng-container *ngFor="let btn of floatingBtns">
+        
+        <floating-btn *ngIf="!btn.action"
+            [floatBtnTag]="btn.floatBtnTag"
+            [floatBtnIconTxt]="btn.icon">
+        </floating-btn>
+
+        <floating-btn *ngIf="btn.action === 'modal'"
+            [displayModal]="btn.data"
+            [floatBtnTag]="btn.tag"
+            [floatBtnIconTxt]="btn.icon">
+        </floating-btn>
+
+    </ng-container>
+</div>

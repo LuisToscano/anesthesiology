@@ -1,7 +1,8 @@
 :host{
     .dynamic-overlap-menu{
         position: relative;
-        width: 70%;
+        max-width: 1200px;
+        width: 90%;
         margin: 0 auto;
 
         img.overlap-menu-bg{
@@ -27,18 +28,19 @@
     .dynamic-overlap-dashboard{
         width: 70%;
         margin: 0 auto;
-        padding: 10px;
+        padding: 20px;
         display: flex;
         flex-direction: row;
         align-items: center;
         .overlap-menu-selection{
-            width: 30%;
+            width: 50%;
             background: white;
             margin: 0 auto;
             padding: 10px;
             text-align: center;
             font-weight: bold;
             color: #142325;
+            font-size: 1.5rem;
         }
     }
 }

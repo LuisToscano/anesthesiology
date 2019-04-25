@@ -1,0 +1,54 @@
+:host{
+    display: flex;
+    flex-direction: column;
+    width: 75%;
+    margin: 0 auto;
+    font-family: Arial, Helvetica, sans-serif;
+
+    .tab-organizer-menu{
+        display: flex;
+        flex: 1;
+        flex-direction: row;
+        ul {
+            display: flex;
+            list-style: none;
+            flex: 1;
+            flex-direction: row;
+            margin: 0;
+            padding: 0;
+            li{
+                flex: 1;
+                min-height: 50px;
+                background: darkred;
+                color: white;
+                font-weight: bold;
+                text-align: center;
+                border-bottom: 1px solid white;
+                display: flex;
+                flex-direction: row;
+                align-items: center;
+
+                span{
+                    display: block;
+                    margin: 0 auto;
+                }
+
+                cursor: pointer;
+                &:hover{
+                    background: red;
+                }
+                &.active{
+                    background: red;
+                }
+            }
+        }
+    }
+
+    .tab-organizer-content{
+        flex: 2;
+        padding: 20px;
+        -webkit-box-sizing: border-box;
+        -moz-box-sizing: border-box;
+        box-sizing: border-box;
+    }
+}

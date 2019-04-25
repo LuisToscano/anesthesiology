@@ -50,28 +50,16 @@ export const coverSectionSlide1 : Slide = {
                         component: ButtonComponent,
                         data: {
                             text: 'Iniciar',
-                            target: 'scenarios',
-                            style: {
-                                'max-width': '100px',
-                                'width': '100px',
-                                'height': '50px',
-                                'border-radius': '20px',
-                                'background': 'white',
-                                'font-weight': 'bold'
-                            }
+                            target: 'scenarios'
                         },
                         actions: [ElementAction.GoToSection],
-                        style: {
-                            display: 'flex',
-                            'flex-direction': 'column',
-                            'align-items': 'flex-end'
-                        }
+                        classes: ['init-btn-container']
                     }],
                     flex: 2,
                     classes: ['subtitle']
                 }]
             }],
-            classes: ['cover']
+            classes: ['cover-simple-container']
         }],
         flex: 5,
         style: {

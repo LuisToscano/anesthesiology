@@ -47,6 +47,9 @@ export class CourseContentProvider {
     slide.setName(slideObj.name);
     slide.setRows(rowsParam);
     slide.setStyle(slideObj.style);
+    if (slideObj.classes) {
+      slide.setClasses(slideObj.classes);
+    }
     _.forEach(slide.getRows(), (row, idy) => {
         this.prepareRow(sectionObj, slideObj, idx, row, idy);
     });

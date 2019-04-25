@@ -1,0 +1,22 @@
+:host{
+    &::ng-deep{
+        div.floating-btn-set{
+            position: fixed;
+            bottom: 10px;
+            right: 10px;
+            display: flex;
+            flex-direction: row;
+            floating-btn{
+                div.floating-btn{
+                    position: static;
+                }
+
+                &:not(:last-child) {
+                    div.floating-btn{
+                        margin-right: 10px;
+                    }
+                }
+            }
+        }
+    }
+}

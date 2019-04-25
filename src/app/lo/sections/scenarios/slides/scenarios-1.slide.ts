@@ -80,7 +80,5 @@ export const scenariosSectionSlide1 : Slide = {
             }
         }]
     }],
-    style: {
-        background: '#142325'
-    }
+    classes: ['asteroid-scene']
 };

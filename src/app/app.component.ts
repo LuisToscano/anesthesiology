@@ -12,7 +12,10 @@ export class AppComponent implements OnInit{
   LOCurrentState : any;
   readonly layoutConfig = {
     hide: {
-      floatBtn: ['cover', 'scenarios']
+      floatMenuBtn: ['cover', 'scenarios']
+    },
+    show: {
+      helpBtns: ['scenarios']
     }
   };
 

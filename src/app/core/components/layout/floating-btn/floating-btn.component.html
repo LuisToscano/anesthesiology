@@ -1,6 +1,6 @@
 <div class="floating-btn">
     <div class="floating-btn-inner">
-        <i class="fas fa-igloo"></i>
-        <span>Menú</span>
+        <i class="fas" [ngClass]="iconClassObj"></i>
+        <span *ngIf="floatBtnTag">{{ floatBtnTag }}</span>
     </div>
 </div>

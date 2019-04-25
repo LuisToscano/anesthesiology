@@ -10,12 +10,14 @@ import * as _ from "lodash";
 })
 export class LayoutComponent implements OnInit {
   
-  @Input() LOCurrentState : any;
+  @Input() LOCurrentState : LOState;
   @Input() layoutConfig : any;
   menuElements : Array<any>;
   footerContent: any;
 
+  helpBtns : Array<any>;
   hideInFloatingBtn : Array<string>;
+  showHelpBtns : Array<string>;
 
   constructor() {}
 
@@ -23,7 +25,10 @@ export class LayoutComponent implements OnInit {
     this.menuElements = LOExtras.menuBars.top;
     this.footerContent = LOExtras.footer;
 
-    this.hideInFloatingBtn = _.get(this.layoutConfig, 'hide.floatBtn');
+    this.hideInFloatingBtn = _.get(this.layoutConfig, 'hide.floatMenuBtn');
+    this.showHelpBtns = _.get(this.layoutConfig, 'show.helpBtns');
+
+    this.helpBtns = LOExtras.helpBtns;
   }
 
   getSlideStyle() {
@@ -31,4 +36,19 @@ export class LayoutComponent implements OnInit {
       this.LOCurrentState.position.slide
     ).getStyle();
   }
+
+  getContentClasses() {
+    let sectionId = this.LOCurrentState.position.section.getId();
+    let slideClasses = Array.from(this.LOCurrentState.position.section.slide(
+      this.LOCurrentState.position.slide
+    ).getClasses());
+
+    slideClasses.unshift(sectionId);
+
+    return slideClasses;
+  }
+}
+
+class LOState {
+  position : NavPosition
 }

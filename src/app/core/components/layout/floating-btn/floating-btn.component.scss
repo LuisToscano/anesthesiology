@@ -21,7 +21,10 @@ $floatBtnFontColor: white;
             flex-direction: column;
             i{
                 margin: 0 auto;
-                font-size: 25px;
+                font-size: 1.8rem;
+                &:only-child {
+                    font-size: 3.2rem;
+                }
             }
             span{
                 display: block;
