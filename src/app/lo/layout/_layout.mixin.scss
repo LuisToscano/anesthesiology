@@ -5,44 +5,23 @@ $color-scheme-3: #3B0D8D;
 $color-scheme-4: #643DBF;
 $color-scheme-5: #D2ECD6;
 
+$basic-color-white: #fff;
+$basic-color-black: #000;
 
-$layout-bg-color: cornflowerblue !default;
+/*** LAYOUT ***/
+$layout-bg-color: white !default;
 $content-bg-color: white !default;
-$header-bg-color: darkblue !default;
-$header-text-color: white !default;
-$header-active-text-color: cyan !default;
-$header-hover-text-color: cyan !default;
-$nav-bar-bg-color: darkcyan !default;
-$nav-bar-text-color: white !default;
 
-@if variable-exists(layout-background-color) {
-    $layout-bg-color: $layout-background-color;
-}
 
-@if variable-exists(content-background-color) {
-    $content-bg-color: $content-background-color;
-}
+/******  MODAL  *******/
+$modal-close-btn-color: $color-scheme-5;
+$modal-close-btn-hover-color: $color-scheme-5;
+$modal-close-btn-active-color: $color-scheme-2;
 
-@if variable-exists(header-background-color) {
-    $header-bg-color: $header-background-color;
-}
+/*** TAB ORGANIZER ***/
+$tab-bg-color: $color-scheme-3;
+$tab-active-bg-color: $color-scheme-4;
+$tab-hover-bg-color: $color-scheme-4;
+//$tab-font-color: white !default;
 
-@if variable-exists(header-font-color) {
-    $header-text-color: $header-font-color;
-}
 
-@if variable-exists(header-active-font-color) {
-    $header-active-text-color: $header-active-font-color;
-}
-
-@if variable-exists(header-hover-font-color) {
-    $header-hover-text-color: $header-hover-font-color;
-}
-
-@if variable-exists(nav-bar-background-color) {
-    $nav-bar-bg-color: $nav-bar-background-color;
-}
-
-@if variable-exists(nav-bar-font-color) {
-    $nav-bar-text-color: $nav-bar-font-color;
-}

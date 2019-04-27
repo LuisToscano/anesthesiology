@@ -38,8 +38,20 @@ export class TabOrganizerComponent implements OnInit {
           newRow.setColArray(_.map((row as any).cols, col => {
             let mapcol = new CourseColumn(1);
             mapcol.setContent((col as any).component, (col as any).data);
+            if (col.classes) {
+              mapcol.setClasses(col.classes);
+            }
+            if (col.style) {
+              mapcol.setStyle(row.style);
+            }
             return mapcol;
           }));
+          if (row.classes) {
+            newRow.setClasses(row.classes);
+          }
+          if (row.style) {
+            newRow.setStyle(row.style);
+          }
           return newRow;
         }) : []
       } 

@@ -1,9 +1,16 @@
+@import '../../../../lo/layout/layout.mixin';
+
+//Exposed style values
+$tab-bg-color: darkred !default;
+$tab-font-color: white !default;
+$tab-active-bg-color: red !default;
+$tab-hover-bg-color: red !default;
+
 :host{
     display: flex;
     flex-direction: column;
     width: 75%;
     margin: 0 auto;
-    font-family: Arial, Helvetica, sans-serif;
 
     .tab-organizer-menu{
         display: flex;
@@ -19,8 +26,8 @@
             li{
                 flex: 1;
                 min-height: 50px;
-                background: darkred;
-                color: white;
+                background: $tab-bg-color;
+                color: $tab-font-color;
                 font-weight: bold;
                 text-align: center;
                 border-bottom: 1px solid white;
@@ -35,10 +42,10 @@
 
                 cursor: pointer;
                 &:hover{
-                    background: red;
+                    background: $tab-hover-bg-color;
                 }
                 &.active{
-                    background: red;
+                    background: $tab-active-bg-color;
                 }
             }
         }

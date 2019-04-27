@@ -13,6 +13,8 @@
         *ngFor='let row of current.rows'
         [style.flex]="row.flex"
         [cols]="row.cols"
+        [ngStyle]="row.getStyle()"
+        [ngClass]="row.getClasses()"
         ></course-row>
     </div>
 </div>
