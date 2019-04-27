@@ -16,9 +16,9 @@
     </div>
     <div class="change-variables-modal" *ngIf="changeValues">
         <div class="change-variables-container">
-            <h2>Modificar Valores</h2>
+            <h2 class="change-variables-title">Modificar Valores</h2>
             <div class="variable" *ngFor="let variable of variablesArray; let i = index">
-                <label for="variable-{{i}}">{{ variable.tag }}: </label>
+                <label for="variable-{{i}}">{{ variable.tag }} ({{ variable.ref }}): </label>
                 <input type="number" id="variable-{{i}}" [(ngModel)]="variable.value">
                 <div class="unit">{{ variable.unit }}</div>
                 <p *ngIf="variablesErrArray[i]"> El valor debe estar entre {{ variable.min }} y {{ variable.max }}. </p>

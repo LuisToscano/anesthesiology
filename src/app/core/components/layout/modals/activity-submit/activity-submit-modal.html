@@ -4,6 +4,10 @@
     <h1 class="activity-submit-modal-title">
         {{i18n.title}}
     </h1>
+    <div class="result-icon-container">
+        <i *ngIf="correct" class="fas fa-check-circle result-icon"></i>
+        <i *ngIf="!correct" class="fas fa-times-circle result-icon"></i>
+    </div>
     <h2 class="activity-submit-modal-msg">
         {{i18n.msg}}
     </h2>
@@ -17,5 +21,4 @@
             {{i18n.reminder.noAttemptsRemaining}}
         </span>
     </p>
-    <button (click)="close()"> Aceptar </button>
 </div>

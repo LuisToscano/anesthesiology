@@ -35,7 +35,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
   private isCorrect : boolean = false;
 
   private readonly printVarClosure : (val) => string = 
-    variable => variable.value + ' ' + variable.unit;
+    variable => variable.value + ' ' + variable.unit + ( variable.ref ? ' (' + variable.ref + ')' : '' );
 
   constructor() {}
 
@@ -183,7 +183,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
 
   private buildVariableObj(acum, myVar) {
     let varObj = {};
-    varObj[myVar.name] = _.pick(myVar, ['value', 'unit', 'tag', 'mutable', 'min', 'max']);
+    varObj[myVar.name] = _.pick(myVar, ['ref', 'value', 'unit', 'tag', 'mutable', 'min', 'max']);
     return _.extend(acum, varObj);
   }
 

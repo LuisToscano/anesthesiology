@@ -1,1 +1,60 @@
-:host {}
+$error-red: darkred;
+$success-green: green;
+
+:host {
+    .activity-submit-modal{
+
+        .activity-submit-modal-title{
+            font-weight: bolder;
+            text-align: center;
+            border-bottom: solid 5px;
+            padding-bottom: 20px;
+            margin-bottom: 0;
+        }
+
+        .result-icon-container{
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .result-icon{
+                font-size: 10rem;
+            }
+        }
+
+        .activity-submit-modal-msg{
+            text-align: center;
+        }
+
+        .activity-submit-modal-reminder{
+            text-align: center;
+            font-size: 1.2rem;
+        }
+
+        &.error{
+            .activity-submit-modal-title{
+                color: $error-red;
+                border-color: $error-red;
+            }
+
+            .result-icon-container{
+                .result-icon{
+                    color: $error-red;
+                }
+            }
+        }
+
+        &.success{
+            .activity-submit-modal-title{
+                color: $success-green;
+                border-color: $success-green;
+            }
+
+            .result-icon-container{
+                .result-icon{
+                    color: $success-green;
+                }
+            }
+        }
+    }
+}

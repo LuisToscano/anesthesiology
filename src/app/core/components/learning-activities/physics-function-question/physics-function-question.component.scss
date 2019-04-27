@@ -28,16 +28,54 @@ $answerColor: #5e32cd;
                 height: 40%;
                 padding: 20px;
 
+                h2.change-variables-title{
+                    font-weight: bolder;
+                    text-align: center;
+                    color: #11434A;
+                    border-bottom: solid 5px #11434A;
+                    padding-bottom: 20px;
+                    margin-bottom: 0;
+                }
+
                 .variable{
-                    margin-bottom: 10px;
+                    padding: 20px 30px;
+                    border-bottom: solid 1px dimgray;
                     label{
                         font-weight: bold;
+                        color: #333;
                     }
                     .unit{
                         display: inline-block;
                     }
                     input{
-                        width: 30px;
+                        width: 80px;
+                        font-size: 1.5rem;
+                        margin-left: 10px;
+                        text-align: center;
+                    }
+                }
+
+                button{
+                    display: block;
+                    margin-top: 20px;
+                    float: right;
+                    background: #11434A;
+                    color: white;
+                    //font-weight: bold;
+                    padding: 10px;
+                    border: 0;
+                    font-size: 1.3rem;
+                    border-radius: 10px;
+
+                    &:hover{
+                        background: #D2ECD6;
+                        color: #142325;
+                        border: 1px solid #11434A;
+                    }
+
+                    &:active{
+                        background: #142325;
+                        color: white;
                     }
                 }
             }

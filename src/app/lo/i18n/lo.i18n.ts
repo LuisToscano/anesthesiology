@@ -12,15 +12,17 @@ export const LOi18n = {
                     ' exploradores encontraron el asteroide XXC1.'
                 },
                 3: {
-                    intro: 'se empezó la construcción de la primera colonia en el asteroide.' +
+                    intro: 'Se empezó la construcción de la primera colonia en el asteroide.' +
                     ' El primer paso, fue la construcción de un domo, bajo el cual se' +
                     ' mantendría un ambiente apto para la vida sobre la superficie del asteroide.'
                 },
                 4: {
-                    intro1: 'El domo, estaba formado de plafones hexagonales, unidos entre sí' + 
+                    intro: 'El domo, estaba formado de plafones hexagonales, unidos entre sí' + 
                     ' mediante juntas selladas para garantizar la atmósfera interna. Adicionalmente,' +
-                    ' estos plafones serían los responsables de manejar las condiciones de luz de la colonia.',
-                    intro2: 'Para sostener cada plafón, es decir el domo, se utilizaría una estructura de' +
+                    ' estos plafones serían los responsables de manejar las condiciones de luz de la colonia.'
+                },
+                5: {
+                    intro: 'Para sostener cada plafón, es decir el domo, se utilizaría una estructura de' +
                     ' barras que unidas entre sí, conformarían un domo geodésico externo.'
                 }
             }

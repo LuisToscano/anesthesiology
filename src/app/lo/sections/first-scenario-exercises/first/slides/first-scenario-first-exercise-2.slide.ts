@@ -44,6 +44,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                 data: {
                     name: staticTxt.name,
                     variables: [{
+                        ref: 'L',
                         name: 'hexagonSide',
                         tag: staticTxt.variables.hexagonSide.tag,
                         value: 1,
@@ -64,6 +65,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         unit: AccelerationUnits.MeterPerSecondSquare,
                         mutable: false
                     }, {
+                        ref: 'h',
                         name: 'tieDownDistance',
                         tag: staticTxt.variables.tieDownDistance.tag,
                         value: 80,

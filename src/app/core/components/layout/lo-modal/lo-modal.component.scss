@@ -43,7 +43,7 @@ $modal-close-btn-active-color: rgb(107, 107, 1) !default;
             }
 
             .lo-modal-content-scroll{
-                overflow-y: scroll;
+                overflow-y: auto;
                 width: 100%;
             }
         }

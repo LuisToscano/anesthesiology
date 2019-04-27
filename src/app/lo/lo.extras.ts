@@ -318,6 +318,58 @@ export const LOExtras : LOExtrasContent = {
                                     }
                                 }
                             }
+                        },
+                        {
+                            text: '%(photo) de %(owner) / %(copyright)',
+                            args: {
+                                photo: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Russell Township-ASM Headquarters & Geodesic Dome (OHPTC)',
+                                        href: 'https://www.flickr.com/photos/63837784@N08/6035360487'
+                                    }
+                                },
+                                owner: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'ODSA',
+                                        href: 'https://www.flickr.com/photos/63837784@N08/'
+                                    }
+                                },
+                                copyright: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Licencia',
+                                        href: 'https://creativecommons.org/licenses/by/2.0/'
+                                    }
+                                }
+                            }
+                        },
+                        {
+                            text: '%(photo) de %(owner) / %(copyright)',
+                            args: {
+                                photo: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Dome at the South Pole',
+                                        href: 'https://www.flickr.com/photos/usnavyseabeemuseum/6887360473'
+                                    }
+                                },
+                                owner: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'U.S. Navy Seabee Museum',
+                                        href: 'https://www.flickr.com/photos/usnavyseabeemuseum/'
+                                    }
+                                },
+                                copyright: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Licencia',
+                                        href: 'https://creativecommons.org/licenses/by/2.0/'
+                                    }
+                                }
+                            }
                         }, {
                             text: '%(photo) de %(owner) / %(copyright)',
                             args: {

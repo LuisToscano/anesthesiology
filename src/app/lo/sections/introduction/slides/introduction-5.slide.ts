@@ -5,22 +5,12 @@ import { VoidComponent } from '../../../../core/components/basic/void/void.compo
 import { ComponentType } from '../../../../core/enums/component-type.enum';
 import { LOi18n } from '../../../i18n/lo.i18n';
 
-const staticTxt = LOi18n.sections.introduction.slides[4];
+const staticTxt = LOi18n.sections.introduction.slides[5];
 
-export const introductionSectionSlide4 : Slide = {
-    name: 'Introducción - 4',
+export const introductionSectionSlide5 : Slide = {
+    name: 'Introducción - 5',
     rows: [{
         cols: [{
-            type: ComponentType.Basic,
-            component: VoidComponent,
-            data: {},
-            classes: ['img-intro'],
-            style: {
-                background: 'url("assets/img/dome.jpg") no-repeat'
-            },
-            flex: 2
-        },
-        {
             type: ComponentType.ContentOrganizer,
             component: IntroSlideShowComponent,
             data: [{
@@ -39,6 +29,15 @@ export const introductionSectionSlide4 : Slide = {
             }],
             classes: ['space-intro'],
             flex: 3
+        },{
+            type: ComponentType.Basic,
+            component: VoidComponent,
+            data: {},
+            classes: ['img-intro'],
+            style: {
+                background: 'url("assets/img/dome-3.jpg") no-repeat'
+            },
+            flex: 2
         }]
     }]
 };

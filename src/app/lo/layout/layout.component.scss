@@ -82,18 +82,6 @@
 
             /*********************************************************/
 
-            lo-button{
-                button{
-                    &.is-active{
-                        background: greenyellow;
-                    }
-
-                    &:not(.is-active){
-                        background: red;
-                    }
-                }
-            }
-
             course-column{
                 &.space-intro{
                     background: url('../../../assets/img/space.gif') no-repeat;
@@ -106,8 +94,8 @@
                                 margin: 0 auto;
                                 p{
                                     color: #351C75;
-                                    font-size: 1.4rem;
-                                    text-align: center;
+                                    font-size: 1.7rem;
+                                    text-align: justify;
                                     line-height: 1.5;
                                     width: 80%;
                                     margin: 0 auto;
