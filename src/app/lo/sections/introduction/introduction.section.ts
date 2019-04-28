@@ -4,6 +4,7 @@ import { introductionSectionSlide2 } from './slides/introduction-2.slide';
 import { introductionSectionSlide3 } from './slides/introduction-3.slide';
 import { introductionSectionSlide4 } from './slides/introduction-4.slide';
 import { introductionSectionSlide5 } from './slides/introduction-5.slide';
+import { introductionSectionSlide6 } from './slides/introduction-6.slide';
 
 export const introductionSection : Sections = {
     id: 'intro',
@@ -13,6 +14,7 @@ export const introductionSection : Sections = {
         introductionSectionSlide2,
         introductionSectionSlide3,
         introductionSectionSlide4,
-        introductionSectionSlide5
+        introductionSectionSlide5,
+        introductionSectionSlide6
     ]
 };

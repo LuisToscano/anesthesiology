@@ -106,6 +106,38 @@
                             }
                         }
                     }
+
+                    &.no-img{
+                        intro-slideshow{
+                            div.intro-slideshow-content{
+                                width: 40% !important;
+                                flex-direction: column;
+
+                                .return-to-menu{
+                                    margin-top: 20px;
+                                    button{
+                                        border-radius: 10px;
+                                        height: 50px;
+                                        width: 150px;
+                                        font-size: 1.2rem;
+                                        border: 3px solid $color-scheme-3;
+                                        background: white;
+                                        color: $color-scheme-3;
+                                        &:hover{
+                                            border-color: white;
+                                            background: $color-scheme-3;
+                                            color: white;
+                                        }
+                                        &:disabled{
+                                            border-color: dimgray;
+                                            background: lightgray;
+                                            color: gray;
+                                        }
+                                    }
+                                }
+                            }
+                        }    
+                    }
                 }
 
                 &.img-intro{
@@ -151,6 +183,26 @@
                     margin: 10px 0;
                     font-size: 0.9rem;
                 }
+            }
+
+            .help-title{
+                p {
+                    font-size: 2rem;
+                    font-weight: bold;
+                    text-align: center;
+                    margin: 10px 0;
+                    color: $color-scheme-3;
+                    border-bottom: 5px solid $color-scheme-3;
+                    padding: 10px;
+                }
+            }
+
+            .help-item{
+                border-bottom: solid 1px gray;
+            }
+
+            .simple-container{
+                flex-direction: column;
             }
         }
     }

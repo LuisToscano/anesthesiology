@@ -1,9 +1,7 @@
-/*import { basicComponentsSection } from './sections/basic-components/basic-components.section';
-import { ElementAction } from '../core/enums/lo-extras.enum';
-import { LOHelper } from './lo.helper';*/
-
 import { TabOrganizerComponent } from '../core/components/content-organizers/tab-organizer/tab-organizer.component';
+import { SimpleContainerComponent } from '../core/components/content-organizers/simple-container/simple-container.component';
 import { ParagraphComponent } from '../core/components/basic/paragraph/paragraph.component';
+import { ImgComponent } from '../core/components/basic/img/img.component';
 import { ComponentType } from '../core/enums/component-type.enum';
 import { ParagraphArgumentType } from '../core/components/basic/paragraph/paragraph.enum';
 
@@ -203,6 +201,24 @@ export const LOExtras : LOExtrasContent = {
                                     }
                                 }
                             }
+                        },{
+                            text: '%(photo) / %(copyright)',
+                            args: {
+                                photo: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Radio Transmitter Dish',
+                                        href: 'https://www.goodfreephotos.com/business-and-technology/radio-transmitter-dish.jpg.php'
+                                    }
+                                },
+                                copyright: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Licencia',
+                                        href: 'https://creativecommons.org/licenses/publicdomain/'
+                                    }
+                                }
+                            }
                         },
                         {
                             text: '%(photo) / %(copyright)',
@@ -395,6 +411,31 @@ export const LOExtras : LOExtrasContent = {
                                     }
                                 }
                             }
+                        }, {
+                            text: '%(photo) de %(owner) / %(copyright)',
+                            args: {
+                                photo: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Estadio Olímpico Luzhnikí',
+                                        href: 'https://commons.wikimedia.org/wiki/File:%D0%A1%D1%82%D0%B0%D0%B4%D0%B8%D0%BE%D0%BD_%D0%9B%D1%83%D0%B6%D0%BD%D0%B8%D0%BA%D0%B8_(29_%D0%BC%D0%B0%D1%80%D1%82%D0%B0_2017)_%C2%B7_23.jpg'
+                                    }
+                                },
+                                owner: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Government of Moscow',
+                                        href: 'https://en.wikipedia.org/wiki/Government_of_Moscow'
+                                    }
+                                },
+                                copyright: {
+                                    type: ParagraphArgumentType.Link,
+                                    data: {
+                                        innerText: 'Licencia',
+                                        href: 'https://creativecommons.org/licenses/by/4.0/'
+                                    }
+                                }
+                            }
                         },{
                             text: '%(photo) de %(owner) / %(copyright)',
                             args: {
@@ -453,7 +494,165 @@ export const LOExtras : LOExtrasContent = {
         }
     }, {
         tag: 'Ayuda',
-        icon: 'question'
+        icon: 'question',
+        action: 'modal',
+        data: {
+            component: SimpleContainerComponent,
+            data: [{
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Ayuda',
+                            args: {}
+                        }],
+                        classes: ['help-title']
+                    }]
+                },
+                {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'No avances o retrocedas entre páginas haciendo uso de tu navegador web.' + 
+                            ' Al hacerlo perderías tu progreso actual.',
+                            args: {}
+                        }],
+                        flex: 3
+                    }, {
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: './assets/img/browser-navbar.PNG',
+                            style: {
+                                width: '120px',
+                                margin: '0 auto'
+                            }
+                        },
+                        flex: 1,
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center'
+                        }
+                    }],
+                    classes: ['help-item']
+                },
+                {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Usa los botones de navegación ubicados en los extremos laterales del objeto para dirigirte a la anterior o siguiente diapositiva.',
+                            args: {}
+                        }],
+                        flex: 3
+                    }, {
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: './assets/img/navbtns.PNG',
+                            style: {
+                                width: '100px',
+                                margin: '0 auto'
+                            }
+                        },
+                        flex: 1,
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center'
+                        }
+                    }],
+                    classes: ['help-item']
+                },
+                {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Accede a los elementos del menú principal que se encuentran a color y se iluminan al contacto del cursor, recorre las actividades y desbloquea asi nuevos caminos.',
+                            args: {}
+                        }],
+                        flex: 3
+                    }, {
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: './assets/img/asteroid-city.png',
+                            style: {
+                                width: '150px',
+                                margin: '0 auto'
+                            }
+                        },
+                        flex: 1,
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center'
+                        }
+                    }],
+                    classes: ['help-item']
+                },
+                {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Elementos del menú principal que se encuentren en blanco y negro se activarán mediante el progreso del estudiante en el objeto.',
+                            args: {}
+                        }],
+                        flex: 3
+                    }, {
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: './assets/img/asteroid-city-disabled.png',
+                            style: {
+                                width: '150px',
+                                margin: '0 auto'
+                            }
+                        },
+                        flex: 1,
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center'
+                        }
+                    }],
+                    classes: ['help-item']
+                },
+                {
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: 'Usa el botón ubicado en la parte inferior derecha cuando se encuentre visible para regresar al menú principal.',
+                            args: {}
+                        }],
+                        flex: 3
+                    }, {
+                        type: ComponentType.Basic,
+                        component: ImgComponent,
+                        data: {
+                            source: './assets/img/menubtn.PNG',
+                            style: {
+                                width: '80px',
+                                margin: '0 auto'
+                            }
+                        },
+                        flex: 1,
+                        style: {
+                            'display': 'flex',
+                            'flex-direction': 'row',
+                            'align-items': 'center'
+                        }
+                    }],
+                    classes: ['help-item']
+                }]
+            }]
+        }
     }]
 };
 

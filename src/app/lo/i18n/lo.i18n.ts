@@ -24,6 +24,10 @@ export const LOi18n = {
                 5: {
                     intro: 'Para sostener cada plafón, es decir el domo, se utilizaría una estructura de' +
                     ' barras que unidas entre sí, conformarían un domo geodésico externo.'
+                },
+                6: {
+                    intro: 'Es tu momento de ser parte de esta historia. Regresa al menú principal y ayuda' +
+                    ' a los seres humanos a establecer la colonia del asteroide XXC1.'
                 }
             }
         },

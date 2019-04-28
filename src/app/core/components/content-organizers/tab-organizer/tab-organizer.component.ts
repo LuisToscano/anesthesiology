@@ -42,7 +42,7 @@ export class TabOrganizerComponent implements OnInit {
               mapcol.setClasses(col.classes);
             }
             if (col.style) {
-              mapcol.setStyle(row.style);
+              mapcol.setStyle(col.style);
             }
             return mapcol;
           }));
