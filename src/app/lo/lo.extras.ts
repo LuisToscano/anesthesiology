@@ -80,7 +80,7 @@ export const LOExtras : LOExtrasContent = {
                                 name: {
                                     type: ParagraphArgumentType.Class,
                                     data: {
-                                        innerText: 'Caori Patricia Takeuchi Pam',
+                                        innerText: 'Caori Patricia Takeuchi',
                                         class: 'credits-professional'
                                     }
                                 }

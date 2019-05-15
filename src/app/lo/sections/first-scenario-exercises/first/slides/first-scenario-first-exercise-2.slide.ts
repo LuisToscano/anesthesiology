@@ -51,7 +51,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         unit: LengthUnits.Meter,
                         mutable: true,
                         min: 1,
-                        max: 10
+                        max: 5
                     }, {
                         name: 'hexagonWeight',
                         tag: staticTxt.variables.hexagonWeight.tag,
@@ -84,7 +84,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         },
                         options: {
                             type: 'number',
-                            placeholder: '14.37',
+                            placeholder: '0.0',
                             pattern: /\d+(\.\d{1,2})*/
                         }
                     }, {
@@ -96,7 +96,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         },
                         options: {
                             type: 'text',
-                            placeholder: '0i+0j+0k',
+                            placeholder: '0i+0j-0k',
                             pattern: /\d+(\.\d{1,2})*[i][+-]\d+(\.\d{1,2})*[j][+-]\d+(\.\d{1,2})*[k]/
                         }
                     }, {
@@ -108,7 +108,7 @@ export const firstScenarioFirstExerciseSlide2 : Slide = {
                         },
                         options: {
                             type: 'text',
-                            placeholder: '0i+0j+0k',
+                            placeholder: '0i+0j-0k',
                             pattern: /\d+(\.\d{1,2})*[i][+-]\d+(\.\d{1,2})*[j][+-]\d+(\.\d{1,2})*[k]/
                         }
                     }],

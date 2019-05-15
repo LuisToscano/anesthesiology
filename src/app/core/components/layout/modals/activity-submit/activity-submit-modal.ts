@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { ModalProvider } from '../../../../providers/modal-provider';
+import { NavigationProvider } from '../../../../providers/navigation.provider';
 import { activitySubmitModali18n } from '../i18n/activity-submit.i18n';
 import * as _ from "lodash";
 
@@ -16,19 +17,22 @@ export class ActivitySubmitModal implements OnInit {
   correct : boolean;
   i18n : any;
 
-  constructor(private modal : ModalProvider) {}
+  constructor(private modal : ModalProvider, private navigation : NavigationProvider) {}
 
   ngOnInit() {
     this.currentInteraction = this.data.LOCurrentState.interactions[this.data.interactionId];
     this.correct = this.data.correct ? this.data.correct : false;
     this.i18n = this.correct ? activitySubmitModali18n.success : activitySubmitModali18n.error;
-    console.log('modal data', this.data);
     this.remainingAttempts = _.isNumber(this.data.remainingAttempts) ? this.data.remainingAttempts : -1;
-    console.log('remainingAttempts', this.remainingAttempts);
   }
 
   close() {
     this.modal.hideModal();
+  }
+
+  backToMenu() {
+    this.modal.hideModal();
+    this.navigation.goToSectionSlide('scenarios', 0)
   }
 }
 

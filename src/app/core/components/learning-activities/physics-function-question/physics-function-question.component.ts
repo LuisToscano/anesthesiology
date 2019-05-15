@@ -174,6 +174,7 @@ export class PhysicsFunctionQuestionComponent implements OnInit, LearningActivit
         let replaceVal = '';
         if (_.has(replaceFrom, key)) {
           replaceVal = pickValue ? pickValue(replaceFrom[key]) : replaceFrom[key];
+          replaceVal = replaceFrom[key].mutable ? '<strong>' + replaceVal + '</strong>' : replaceVal;
         }
         _txt = _txt.replace(match, replaceVal);
       });

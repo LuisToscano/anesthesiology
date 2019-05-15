@@ -9,6 +9,7 @@ export class DynamicOverlapMenuComponent implements OnInit {
 
   data : DynamicOverlapMenuData;
   selectionTxt : string;
+  enabledAmount : number = 0;
 
   constructor() {}
 
@@ -39,7 +40,6 @@ export class DynamicOverlapMenuComponent implements OnInit {
   onItemHover(hoveredTag) {
     this.selectionTxt = hoveredTag ? hoveredTag : this.data.defaultSelection;
   }
-
 }
 
 interface DynamicOverlapMenuData{

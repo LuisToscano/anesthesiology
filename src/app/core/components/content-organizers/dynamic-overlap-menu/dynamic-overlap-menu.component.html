@@ -3,6 +3,7 @@
         <img class="overlap-menu-bg" *ngIf="data.bgImage" [src]="data.bgImage">
         <div *ngFor="let btn of data.btns" dynamicOverlapMenuItem
             (hover)="onItemHover($event)"
+            (itemEnabled)="itemEnabledCallback($event)"
             omi-width-perc="{{btn.width}}"
             omi-left-perc="{{btn.left}}"
             omi-top-perc="{{btn.top}}"

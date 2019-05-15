@@ -76,7 +76,10 @@ export const firstScenarioThirdExerciseSlide2 : Slide = {
                     tag: staticTxt.variables.obDistance.tag,
                     value: 3,
                     unit: LengthUnits.Meter,
-                    mutable: true
+                    mutable: true,
+                    ref: 'd',
+                    min: 1,
+                    max: 8
                 }],
                 statement : staticTxt.statement,
                 questions: [{

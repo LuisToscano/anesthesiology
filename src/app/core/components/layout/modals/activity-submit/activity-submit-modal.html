@@ -21,4 +21,7 @@
             {{i18n.reminder.noAttemptsRemaining}}
         </span>
     </p>
+    <div class="back-to-menu-container">
+        <button class="back-to-menu" *ngIf="correct" (click)="backToMenu()">Regresar al menú</button>
+    </div>
 </div>

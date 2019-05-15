@@ -21,15 +21,18 @@
                 <label for="variable-{{i}}">{{ variable.tag }} ({{ variable.ref }}): </label>
                 <input type="number" id="variable-{{i}}" [(ngModel)]="variable.value">
                 <div class="unit">{{ variable.unit }}</div>
-                <p *ngIf="variablesErrArray[i]"> El valor debe estar entre {{ variable.min }} y {{ variable.max }}. </p>
+                <p class="invalid-value" *ngIf="variablesErrArray[i]"> El valor debe estar entre {{ variable.min }} y {{ variable.max }}. </p>
             </div>
             <button (click)="validateVariableValues()"> Aceptar </button>
         </div>
     </div>
-    <p class="physics-fn-question-statement">{{ getStatement() }}</p>
+    <p class="physics-fn-question-statement">
+        <span class="inner-statement" [innerHTML]="getStatement()"></span>
+    </p>
     <div class="question" *ngFor="let question of questions; let i = index">
         <p class="question-statement">
-            <span class="question-number">{{i + 1}}.</span> {{question.getStatement()}}
+            <span class="question-number">{{i + 1}}.</span>
+            <span class="inner-statement" [innerHTML]="question.getStatement()"></span>
         </p>
         <div class="input-container">
             <input type="{{question.options.type}}"

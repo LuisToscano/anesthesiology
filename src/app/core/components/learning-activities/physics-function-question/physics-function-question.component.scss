@@ -27,6 +27,7 @@ $answerColor: #5e32cd;
                 width: 40%;
                 height: 40%;
                 padding: 20px;
+                overflow-y: auto;
 
                 h2.change-variables-title{
                     font-weight: bolder;
@@ -52,6 +53,9 @@ $answerColor: #5e32cd;
                         font-size: 1.5rem;
                         margin-left: 10px;
                         text-align: center;
+                    }
+                    .invalid-value{
+                        color: red;
                     }
                 }
 
@@ -104,6 +108,26 @@ $answerColor: #5e32cd;
                     font-size: $questionFontSize;
                     color: $answerColor;
                     text-align: center;
+
+                    &::placeholder{
+                        color: lightgray;
+                    }
+
+                    &::-webkit-input-placeholder{
+                        color: lightgray;
+                    }
+
+                    &::-moz-placeholder{
+                        color: lightgray;
+                    }
+
+                    &:-ms-input-placeholder{
+                        color: lightgray;
+                    }
+
+                    &:-moz-placeholder{
+                        color: lightgray;
+                    }
                 }
             }
         }

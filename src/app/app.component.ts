@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { NavPosition } from './core/interfaces/nav-position.interface';
 import { StateProvider } from './core/providers/state.provider';
+import { interval } from 'rxjs/observable/interval';
+import { Subscription } from 'rxjs/Subscription';
+import * as _ from "lodash";
 
 @Component({
   selector: 'app-root',
@@ -10,6 +12,9 @@ import { StateProvider } from './core/providers/state.provider';
 export class AppComponent implements OnInit{
   interactionsData : any;
   LOCurrentState : any;
+  readonly checkObjectStateInterval = interval(500);
+  private subscription : Subscription;
+
   readonly layoutConfig = {
     hide: {
       floatMenuBtn: ['cover', 'scenarios']
@@ -26,5 +31,8 @@ export class AppComponent implements OnInit{
   ngOnInit(){
     this.LOState.init();
     this.LOCurrentState = this.LOState.getCurrentState();
+    this.subscription = this.checkObjectStateInterval.subscribe(() => {
+      this.LOCurrentState = Object.assign({}, this.LOState.getCurrentState());
+    });
   }
 }

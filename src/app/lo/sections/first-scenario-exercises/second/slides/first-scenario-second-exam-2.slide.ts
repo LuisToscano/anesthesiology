@@ -49,13 +49,19 @@ export const firstScenarioSecondExerciseSlide2 : Slide = {
                         tag: staticTxt.variables.lampMass.tag,
                         value: 10,
                         unit: MassUnits.Kilogram,
-                        mutable: true
+                        mutable: true,
+                        ref: 'm1',
+                        min: 5,
+                        max: 30
                     }, {
                         name: 'maxMassBetweenBnC',
                         tag: staticTxt.variables.maxMassBetweenBnC.tag,
                         value: 4,
                         unit: MassUnits.Kilogram,
-                        mutable: true
+                        mutable: true,
+                        ref: 'm2',
+                        min: 2,
+                        max: 10
                     },
                     {
                         name: 'asteroidGravity',
@@ -76,7 +82,7 @@ export const firstScenarioSecondExerciseSlide2 : Slide = {
                         tag: staticTxt.variables.jdDistance.tag,
                         value: 2,
                         unit: LengthUnits.Meter,
-                        mutable: true
+                        mutable: false
                     },
                     {
                         name: 'efDistance',

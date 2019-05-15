@@ -79,27 +79,27 @@ export const LOi18n = {
                     },
                     2: {
                         name: 'Ejercicio 2',
-                        intro1: 'una vez instalado el domo, empieza el proceso de colonización del planeta, en dos' +
-                        ' sectores donde la superficie del planeta era relativamente plana. En el primer sector' +
-                        ' estaban las grandes construcciones para las colonias y en el segundo sector las grandes' +
+                        intro1: 'Una vez instalado el domo, empezó el proceso de colonización del planeta en dos' +
+                        ' sectores donde la superficie era relativamente plana. En el primer sector' +
+                        ' estaban las grandes construcciones para las colonias y en el segundo las' +
                         ' granjas para garantizar la seguridad alimentaria. En el interior del domo se mantiene una' +
                         ' gravedad artificial de 10m/s2.',
                         statement: 'En la figura se observa la estructura de la granja construida por el polímero xyz,' +
                         ' muy resistente y super liviano. Ningún elemento de la estructura es continuo y todas las uniones son' +
                         ' articuladas, para un fácil transporte y armado. La estructura se encuentra simplemente apoyada en un' +
-                        ' único punto (G) y estabilizada por un cable amarrado en K y anclado en L. La granja esta automatizada' +
+                        ' único punto (F) y estabilizada por un cable amarrado en K y anclado en L. La granja está automatizada' +
                         ' para garantizar las condiciones de humedad, temperatura y luz de las plantas.' +
                         ' B y C son los puntos de suministro de agua y A es uno de los dos puntos que' +
-                        ' sostienen la lampara. Si la masa de la lampara es de %(lampMass) (para repartir en dos) y los' +
-                        ' máximas masas que pueden haber en un momento dado en B y C es de %(maxMassBetweenBnC).' +
-                        ' Recordando que la gravedad artificial de %(asteroidGravity) y si la tensión en el cable KL es' +
+                        ' sostienen la lámpara. Si la masa de ésta es de %(lampMass) (para repartir en dos) y las' +
+                        ' máximas masas que puede haber en un momento dado en B y en C son de %(maxMassBetweenBnC).' +
+                        ' Recordando que la gravedad artificial en el asteroide es de %(asteroidGravity) y si la tensión en el cable KL es' +
                         ' de %(klCableTension):',
                         variables: {
                             lampMass: {
-                                tag: 'Peso de la lámpara'
+                                tag: 'Masa de la lámpara'
                             },
                             maxMassBetweenBnC: {
-                                tag: 'Máxima masa permitida entre B y C'
+                                tag: 'Máxima masa permitida en B y en C'
                             },
                             asteroidGravity: {
                                 tag: 'Gravedad del asteroide'
@@ -138,7 +138,9 @@ export const LOi18n = {
                         name: 'Ejercicio 3',
                         intro1: 'Para garantizar la comunicación en toda la colonia se instaló una torre de comunicación' +
                         ' localizada en la cima de una loma.',
-                        statement: 'Si la tension en el cable AD es de %(adCableTension):',
+                        statement: 'La torre está compuesta por un mástil de %(zDistance) de altura, simplemente apoyado en el punto O.' +
+                        ' Para estabilizarla se colocan 3 cables amarrados en la punta (A) y anclados en los puntos B, C y D' +
+                        ' como se muestra en la figura. Si la distancia entre O y B es de %(obDistance) y la tensión en el cable AD es de %(adCableTension):',
                         variables: {
                             adCableTension: {
                                 tag: 'Tensión en el cable AD'

@@ -1,3 +1,4 @@
+@import '../../../../../lo/layout/layout.mixin';
 $error-red: darkred;
 $success-green: green;
 
@@ -18,17 +19,43 @@ $success-green: green;
             flex-direction: column;
             align-items: center;
             .result-icon{
-                font-size: 10rem;
+                font-size: 8rem;
             }
         }
 
         .activity-submit-modal-msg{
             text-align: center;
+            margin-top: 0;
         }
 
         .activity-submit-modal-reminder{
             text-align: center;
             font-size: 1.2rem;
+        }
+
+        .back-to-menu-container{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            .back-to-menu{
+                border-radius: 10px;
+                height: 50px;
+                width: 250px;
+                font-size: 1.2rem;
+                border: 3px solid $color-scheme-2;
+                background: white;
+                color: $color-scheme-2;
+                &:hover{
+                    border-color: white;
+                    background: $color-scheme-2;
+                    color: white;
+                }
+                &:disabled{
+                    border-color: dimgray;
+                    background: lightgray;
+                    color: gray;
+                }
+            }
         }
 
         &.error{

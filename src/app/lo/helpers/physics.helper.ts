@@ -6,19 +6,23 @@ let validateRoundAndTruncate = (response : number, value : number, decimals : nu
 }
 
 let validateErrorMargin = (response : number, value : number, margin : number) => {
-    return response <= value + margin && response >= value - margin;
+    let _response = Math.abs(response);
+    let _value = Math.abs(value);
+    let _margin = Math.abs(margin);
+
+    return (_response <= (_value + _margin)) && (response >= (value - margin));
 }
 
 let getRectangularComponentsArr = (rectangularComponentsStr) => {
     let rectangularComponents = rectangularComponentsStr.split(/[ijk]/);
     rectangularComponents.pop();
-    return rectangularComponents.map(rectComp => parseInt(rectComp));
+    return rectangularComponents.map(rectComp => parseFloat(rectComp));
 }
 
-let validateRectangularComponents = (splittedComponents, correct) => {
-    return validateErrorMargin(splittedComponents[0], correct.i, 5) &&
-           validateErrorMargin(splittedComponents[1], correct.j, 5) &&
-           validateErrorMargin(splittedComponents[2], correct.k, 5);
+let validateRectangularComponents = (splittedComponents : Array<any>, correct : any, margin : number) => {
+    return validateErrorMargin(splittedComponents[0], correct.i, margin) &&
+           validateErrorMargin(splittedComponents[1], correct.j, margin) &&
+           validateErrorMargin(splittedComponents[2], correct.k, margin);
 }
 
 let sceneOneExerciseOneData = (variables) => {
@@ -127,39 +131,39 @@ export const physicsHelper = {
                 1: {
                     getEachCableTension: (response, variables) => {  
                         let data = sceneOneExerciseOneData(variables);
-                        return validateErrorMargin(response, data.tensions.GE, 5);
+                        return validateErrorMargin(response, data.tensions.GE, 0.8);
                     },
                     getTGETensionRectangularComponent: (response, variables) => {  
                         let data = sceneOneExerciseOneData(variables);
-                        return validateRectangularComponents(getRectangularComponentsArr(response), data.rectangularComponents.TGE);
+                        return validateRectangularComponents(getRectangularComponentsArr(response), data.rectangularComponents.TGE, 0.5);
                     },
                     getTGDTensionRectangularComponent: (response, variables) => {
                         let data = sceneOneExerciseOneData(variables);
-                        return validateRectangularComponents(getRectangularComponentsArr(response), data.rectangularComponents.TGD);
+                        return validateRectangularComponents(getRectangularComponentsArr(response), data.rectangularComponents.TGD, 0.5);
                     }
                 },
                 2: {
                     getABAxial: (response, variables) => {
                         let data = sceneOneExerciseTwoData(variables);
-                        return validateErrorMargin(response, data.tensions.pAB, 5);
+                        return validateErrorMargin(response, data.tensions.pAB, 8);
                     },
                     getGKAxial: (response, variables) => {
                         let data = sceneOneExerciseTwoData(variables);
-                        return validateErrorMargin(response, data.tensions.pGK, 5);
+                        return validateErrorMargin(response, data.tensions.pGK, 8);
                     },
                     getICAxial: (response, variables) => {
                         return response === 0;
-                    },
+                    }
                 },
                 3: {
                     getCableTensionAB: (response, variables) => {
                         let data = sceneOneExerciseThreeData(variables);
-                        return validateErrorMargin(response, data.tAB, 5);
+                        return validateErrorMargin(response, data.tAB, 10);
                     },
                     getCableTensionAC: (response, variables) => response === variables.adCableTension.value,
                     getVerticalReactionInB: (response, variables) => {
                         let data = sceneOneExerciseThreeData(variables);
-                        return validateErrorMargin(response, (2 * data.tADz) + data.tABz, 5);
+                        return validateErrorMargin(response, (2 * data.tADz) + data.tABz, 10);
                     }
                 }
             }

@@ -1,1 +1,3 @@
-<p *ngFor="let paragraph of paragraphs" [innerHtml]="paragraph.innerHtml | safeHtml"></p>
+<div class="paragraph-container">
+    <p *ngFor="let paragraph of paragraphs" [innerHtml]="paragraph.innerHtml | safeHtml"></p>
+</div>

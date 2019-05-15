@@ -1,6 +1,7 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { NavPosition } from '../../core/interfaces/nav-position.interface';
 import { LOExtras } from '../lo.extras';
+import { InteractionStatus } from '../../core/enums/interactions.enum';
 import * as _ from "lodash";
 
 @Component({
@@ -8,7 +9,7 @@ import * as _ from "lodash";
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit {
+export class LayoutComponent implements OnInit, OnChanges {
   
   @Input() LOCurrentState : LOState;
   @Input() layoutConfig : any;
@@ -31,6 +32,14 @@ export class LayoutComponent implements OnInit {
     this.helpBtns = LOExtras.helpBtns;
   }
 
+  ngOnChanges() {
+    let isMainMenu = this.LOCurrentState.position.section.getId() === 'scenarios';
+    let interactionsComplete = Object.keys(this.LOCurrentState.interactions).every(intKey => {
+      let int = this.LOCurrentState.interactions[intKey];
+      return int.status === InteractionStatus.Correct || int.previouslyCorrect === true;
+    });
+  }
+
   getSlideStyle() {
     return this.LOCurrentState.position.section.slide(
       this.LOCurrentState.position.slide
@@ -49,6 +58,7 @@ export class LayoutComponent implements OnInit {
   }
 }
 
-class LOState {
-  position : NavPosition
+interface LOState {
+  interactions : Array<any>;
+  position : NavPosition;
 }

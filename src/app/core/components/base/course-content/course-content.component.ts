@@ -17,4 +17,8 @@ export class CourseContentComponent implements OnInit{
       this.LOCurrentState.position.slide
     ).getRows();
   }
+
+  a() {
+    console.log('opened');
+  }
 }
