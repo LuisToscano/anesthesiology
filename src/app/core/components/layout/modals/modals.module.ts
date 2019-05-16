@@ -5,11 +5,13 @@ import { BrowserModule } from '@angular/platform-browser';
 
 //BASE
 import { ActivitySubmitModal } from './activity-submit/activity-submit-modal';
+import { LOCompletionModal } from './lo-completion-modal/lo-completion-modal';
 
 // @NgModule decorator with its metadata
 @NgModule({
   declarations: [
-    ActivitySubmitModal
+    ActivitySubmitModal,
+    LOCompletionModal
   ],
   imports: [
     CommonModule,
@@ -17,10 +19,12 @@ import { ActivitySubmitModal } from './activity-submit/activity-submit-modal';
   ],
   providers: [],
   exports: [
-    ActivitySubmitModal
+    ActivitySubmitModal,
+    LOCompletionModal
   ],
   entryComponents: [
-    ActivitySubmitModal
+    ActivitySubmitModal,
+    LOCompletionModal
   ]
 })
 export class ModalsModule { }

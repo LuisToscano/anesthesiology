@@ -68,6 +68,18 @@ export const coverSectionSlide1 : Slide = {
     },{
         cols: [{
             type: ComponentType.Basic,
+            component: VoidComponent,
+            data: {},
+            flex: 3
+        }],
+        flex: 1
+    }]
+};
+
+
+/*
+[{
+            type: ComponentType.Basic,
             component: ParagraphComponent,
             data: [{
                 text: 'Dirección Nacional de Innovación Académica',
@@ -93,8 +105,5 @@ export const coverSectionSlide1 : Slide = {
                     'max-width': '100%'
                 } 
             }
-        }],
-        flex: 1,
-        classes: ['cover-bottom'] 
-    }]
-};
+        }]
+*/

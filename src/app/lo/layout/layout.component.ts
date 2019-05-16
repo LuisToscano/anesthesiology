@@ -2,6 +2,8 @@ import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { NavPosition } from '../../core/interfaces/nav-position.interface';
 import { LOExtras } from '../lo.extras';
 import { InteractionStatus } from '../../core/enums/interactions.enum';
+import { ModalProvider } from '../../core/providers/modal-provider';
+import { LOCompletionModal } from '../../core/components/layout/modals/lo-completion-modal/lo-completion-modal';
 import * as _ from "lodash";
 
 @Component({
@@ -19,8 +21,9 @@ export class LayoutComponent implements OnInit, OnChanges {
   helpBtns : Array<any>;
   hideInFloatingBtn : Array<string>;
   showHelpBtns : Array<string>;
+  isLOCompleted : boolean = false;
 
-  constructor() {}
+  constructor(private modal : ModalProvider) {}
 
   ngOnInit() {
     this.menuElements = LOExtras.menuBars.top;
@@ -38,6 +41,14 @@ export class LayoutComponent implements OnInit, OnChanges {
       let int = this.LOCurrentState.interactions[intKey];
       return int.status === InteractionStatus.Correct || int.previouslyCorrect === true;
     });
+
+    if (!this.isLOCompleted && isMainMenu && interactionsComplete) {
+      this.isLOCompleted = true;
+      this.modal.showModal({
+        component: LOCompletionModal,
+        data: {}
+      });
+    }
   }
 
   getSlideStyle() {

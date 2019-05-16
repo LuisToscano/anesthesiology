@@ -1,0 +1,33 @@
+@import '../../../../../lo/layout/layout.mixin';
+
+:host {
+    .lo-completion-modal{
+        padding: 20px;
+
+        .lo-completion-modal-title{
+            font-weight: bolder;
+            text-align: center;
+            border-bottom: solid 5px;
+            padding-bottom: 20px;
+            margin-bottom: 0;
+            color: $color-scheme-3;
+        }
+
+        .icon-container{
+            padding: 25px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            margin: 10px 0;
+            i{
+                font-size: 8rem;
+                color: $color-scheme-4;
+            }
+        }
+
+        .lo-completion-modal-msg{
+            text-align: center;
+            margin-top: 0;
+        }
+    }
+}
