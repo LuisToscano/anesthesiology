@@ -42,7 +42,7 @@ export class LayoutComponent implements OnInit, OnChanges {
       return int.status === InteractionStatus.Correct || int.previouslyCorrect === true;
     });
 
-    if (!this.isLOCompleted && isMainMenu && !interactionsComplete) {
+    if (!this.isLOCompleted && isMainMenu && interactionsComplete) {
       this.isLOCompleted = true;
       this.modal.showModal({
         component: LOCompletionModal,

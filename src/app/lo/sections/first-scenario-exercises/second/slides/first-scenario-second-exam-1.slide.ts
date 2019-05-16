@@ -20,7 +20,8 @@ export const firstScenarioSecondExerciseSlide1 : Slide = {
                             component: ParagraphComponent,
                             data: [{
                                 text: staticTxt.intro1
-                            }]
+                            }],
+                            classes: ['padding-top-small']
                         }]
                     }]
                 }],
