@@ -20,7 +20,7 @@
             align-items: center;
             margin: 10px 0;
             i{
-                font-size: 8rem;
+                font-size: 6.5rem;
                 color: $color-scheme-4;
             }
         }
@@ -28,6 +28,7 @@
         .lo-completion-modal-msg{
             text-align: center;
             margin-top: 0;
+            font-size: 1.3rem;
         }
     }
 }

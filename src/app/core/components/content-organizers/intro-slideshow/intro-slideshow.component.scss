@@ -20,6 +20,11 @@
                 height: 100%;
                 &::ng-deep{
                     course-column{
+
+                        &.padding-top-small{
+                            padding-top: 20px;
+                        }
+
                         paragraph{
                             height: 100%;
                             display: flex;
@@ -28,6 +33,7 @@
 
                             .paragraph-container{
                                 max-height: 100%;
+                                margin-bottom: 20px;
                             }
                         }
                     }

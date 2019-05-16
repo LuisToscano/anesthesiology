@@ -22,7 +22,8 @@ export const firstScenarioFirstExerciseSlide1 : Slide = {
                                 text: staticTxt.intro1
                             },{
                                 text: staticTxt.intro2
-                            }]
+                            }],
+                            classes: ['padding-top-small']
                         }]
                     }]
                 }],
