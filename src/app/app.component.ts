@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { StateProvider } from './core/providers/state.provider';
 import { interval } from 'rxjs/observable/interval';
 import { Subscription } from 'rxjs/Subscription';
+import { LOi18n } from "./lo/i18n/lo.i18n";
 import * as _ from "lodash";
 
 @Component({
@@ -16,12 +17,8 @@ export class AppComponent implements OnInit{
   private subscription : Subscription;
 
   readonly layoutConfig = {
-    hide: {
-      floatMenuBtn: ['cover', 'scenarios']
-    },
-    show: {
-      helpBtns: ['scenarios']
-    }
+    title: LOi18n.title,
+    subtitle: LOi18n.mainHeader.subtitle.prefix + ' ' + LOi18n.teacher
   };
 
   constructor(

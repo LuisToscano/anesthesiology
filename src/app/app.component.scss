@@ -3,23 +3,5 @@
 :host{
     display: flex;
     flex: 1;
-    font-family: 'montserrat', Arial, sans-serif;
-    &::ng-deep{
-        a{
-            text-decoration: none;
-            &:hover{
-                text-decoration: underline;
-            }
-        }
-    }
-}
-
-@font-face {
-    font-family: 'montserrat';
-    src: url('../assets/fonts/montserrat/Montserrat-Regular.eot'); /* IE9 Compat Modes */
-    src: url('../assets/fonts/montserrat/Montserrat-Regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
-         url('../assets/fonts/montserrat/Montserrat-Regular.woff2') format('woff2'), /* Super Modern Browsers */
-         url('../assets/fonts/montserrat/Montserrat-Regular.woff') format('woff'), /* Pretty Modern Browsers */
-         url('../assets/fonts/montserrat/Montserrat-Regular.ttf')  format('truetype'), /* Safari, Android, iOS */
-         url('../assets/fonts/montserrat/Montserrat-Regular.svg#svgFontName') format('svg'); /* Legacy iOS */
+    font-family: "Ancizar sans", Tahoma, Geneva, sans-serif;
 }
