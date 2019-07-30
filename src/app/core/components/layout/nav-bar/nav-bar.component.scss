@@ -1,0 +1,48 @@
+:host{
+    .nav-bar-container{
+        width: 48%;
+        left: 26%;
+        min-height: 24px; 
+        position: relative;
+        background: url('/assets/img/fondo_navegacion.jpg');
+        .menu-element {
+            min-height: 20px;
+            background: #F0B31C;
+            display: inline-table;
+            border-radius: 5px;
+            padding: 8px 10px 8px 5px;
+            cursor: pointer;
+            &:not(:last-of-type){
+                margin-right: 10px;
+            }
+            &.is-active{
+                background: #79A088;
+                .menu-element-content{
+                    span{
+                        color: white;
+                    }
+                }
+            }
+            &:hover{
+                &:not(.is-active){
+                    background: #D5D11F;
+                }
+            }
+            
+            .menu-element-content{
+                display: table-cell;
+                vertical-align: middle;
+                color:white;
+
+                span {
+                    color: #558265;
+                    text-transform: uppercase;
+                    font-weight: bold;
+                    font-family: sans-serif;
+                    margin-left: 10px; 
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

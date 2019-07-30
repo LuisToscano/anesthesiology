@@ -5,10 +5,15 @@
     flex-direction: column;
     flex: 1;
     background: #D9EDE0;
-    .layout-demo{
-        display: flex;
-        flex-direction: column;
-        height: 100%;
-        flex: 1;
+    .layout{
+        &::ng-deep{
+            .breadcrumb-container{
+                margin-top: 20px;
+            }
+
+            .nav-bar-container{
+                margin-top: 15px;
+            }
+        }
     }
 }

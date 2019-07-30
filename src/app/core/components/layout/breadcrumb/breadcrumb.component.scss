@@ -1,0 +1,36 @@
+:host{
+    .breadcrumb-container{
+        width: 100%;
+        min-height: 24px; 
+        flex: 1;
+        background: #F0EDC8;
+        position: relative;
+        .content{
+            position: absolute;
+            width: 48%;
+            height: 38px;
+            background: #FCFAE0;
+            left: 26%;
+            top: -7px;
+
+            .breadcrumb{
+                padding: 11px 20px;
+                color: #558265;
+                font-family: sans-serif;
+                font-size: 16px;
+            }
+
+            .volume-shadow{
+                position: absolute;
+                border-bottom: 12px solid #dcdab1;
+                border-left: 6px solid transparent;
+                border-right: 6px solid transparent;
+                height: 0;
+                top: 12px;
+                width: 28px;
+                right: -26px;
+                transform: rotate(90deg);
+            }
+        }
+    }
+}

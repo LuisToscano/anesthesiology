@@ -3,18 +3,47 @@ export const LOi18n = {
     teacher: 'Pedro Herrera',
     unit: 'Bienvenida',
     sections: {
-       start: {
-           name: 'Inicio',
-           slides: {
-               0: {
-                   name: 'Bienvenida'
-               }
-           }
-       }
+        start: {
+            name: 'Inicio',
+            slides: {
+                0: {
+                    name: 'Bienvenida'
+                }
+            }
+        },
+        objectives: {
+            name: 'Objetivos',
+            slides: {
+                0: {
+                    name: 'Objetivo General'
+                }
+            }
+        },
+        introduction: {
+            name: 'Introducción',
+            slides: {
+                0: {
+                    name: 'Justificación'
+                }
+            }
+        },
+        tableOfContents: {
+            name: 'Tabla de Contenidos',
+            slides: {
+                0: {
+                    name: 'Tabla de Contenido'
+                }
+            }
+        }
     },
-    mainHeader: {
-        subtitle: {
-            prefix: 'Docente:'
+    layout: {
+        mainHeader: {
+            subtitle: {
+                prefix: 'Docente:'
+            }
+        },
+        breadcrumb : {
+            prefix: 'Unidad'
         }
     }
 };

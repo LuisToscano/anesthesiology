@@ -20,9 +20,9 @@ export class ActionsProvider {
 
     prepareMenuBarElements(elems : Array<any>) {
         return _.map(elems, el => {
-            return this.extendObjectUsingDataActions({
-                text: el.text
-            }, el.data, el.actions)
+            return this.extendObjectUsingDataActions(
+                _.pick(el, ["text", "icon"]), el.data, el.actions
+            );
         });
     }
 

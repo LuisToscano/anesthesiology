@@ -1,6 +1,7 @@
 import { Component, OnInit, OnChanges, Input } from '@angular/core';
 import { NavPosition } from '../../core/interfaces/nav-position.interface';
-import { LOExtras } from '../lo.extras';
+import { LOUnit } from "../../core/interfaces/lo-unit.interface";
+import { ActionsProvider } from '../../core/providers/actions.provider';
 import * as _ from "lodash";
 
 @Component({
@@ -15,8 +16,10 @@ export class LayoutComponent implements OnInit, OnChanges {
 
   title : string = '';
   subtitle : string = '';
+  unit : LOUnit;
+  menuBars : any;
 
-  constructor() {}
+  constructor(private actions : ActionsProvider) {}
 
   ngOnInit() {
   }
@@ -25,6 +28,11 @@ export class LayoutComponent implements OnInit, OnChanges {
     if (changes && changes.layoutConfig && changes.layoutConfig.currentValue) {
       this.title = this.layoutConfig.title;
       this.subtitle = this.layoutConfig.subtitle;
+      this.unit = this.layoutConfig.unit;
+      this.menuBars = {
+        top: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.top)
+      };
+      console.log(this.menuBars);
     }
   }
 
