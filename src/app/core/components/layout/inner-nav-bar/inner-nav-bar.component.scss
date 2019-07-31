@@ -62,6 +62,7 @@
 
                 .before{
                     .wrapper{
+                        cursor: pointer;
                         flex-direction: column;
                         align-items: flex-end;
                         flex: 1;
@@ -75,6 +76,7 @@
 
                 .after{
                     .wrapper{
+                        cursor: pointer;
                         flex-direction: column;
                         align-items: flex-start;
                         flex: 1;

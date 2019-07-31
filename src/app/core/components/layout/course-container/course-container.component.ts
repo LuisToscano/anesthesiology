@@ -1,5 +1,4 @@
 import { Component, Input } from '@angular/core';
-import { NavPosition } from '../../../interfaces/nav-position.interface';
 
 @Component({
   selector: 'lo-course-container',

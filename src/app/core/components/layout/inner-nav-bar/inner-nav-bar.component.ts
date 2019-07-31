@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
 import { NavigationProvider } from '../../../providers/navigation.provider';
 
 @Component({
@@ -6,40 +6,38 @@ import { NavigationProvider } from '../../../providers/navigation.provider';
   templateUrl: './inner-nav-bar.component.html',
   styleUrls: ['./inner-nav-bar.component.scss']
 })
-export class InnerNavBarComponent {
+export class InnerNavBarComponent implements OnInit{
+  shouldDisplayBothBtn : boolean;
+  shouldDisplayRightBtn : boolean;
+  shouldDisplayLeftBtn : boolean;
+  position : string;
+  section = {
+    name: "",
+    icon: "",
+  };
   
-  @Input() LOCurrentState : any;
   constructor(private navigation : NavigationProvider) {}
+
+  ngOnInit() {
+    this.updateDisplay();
+    this.navigation.getSlideChangedObservable().subscribe(this.updateDisplay.bind(this));
+  }
 
   next() {
     this.navigation.nextSlide();
-  }
-
-  getSectionName() {
-    return this.LOCurrentState.position.section.getName();
-  }
-
-  getSectionIcon() {
-    return this.LOCurrentState.position.section.getIcon();
-  }
-
-  getPositionStr() {
-    return this.LOCurrentState.position.slide + 1 + " / " + this.LOCurrentState.position.totalSlides;
   }
 
   previous() {
     this.navigation.previousSlide();
   }
 
-  isFirstSlide() {
-    return this.navigation.isFirstSlide();
-  }
-
-  isLastSlide() {
-    return this.navigation.isLastSlide();
-  }
-
-  hasOnlyOneSlide() {
-    return this.navigation.hasOnlyOneSlide();
+  private updateDisplay() {
+    const position = this.navigation.getCurrentPosition();
+    this.position = position.slide + 1 + " / " + position.totalSlides;
+    this.section.icon = position.section.getIcon();
+    this.section.name = position.section.getName();
+    this.shouldDisplayBothBtn = !this.navigation.hasOnlyOneSlide();
+    this.shouldDisplayLeftBtn = !this.navigation.isFirstSlide();
+    this.shouldDisplayRightBtn = !this.navigation.isLastSlide();
   }
 }
