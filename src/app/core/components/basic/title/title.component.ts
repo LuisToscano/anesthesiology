@@ -15,8 +15,8 @@ export class TitleComponent implements OnInit {
   constructor() {}
 
   ngOnInit() {
-    this.title = this.data.title ? this.data.title : this.title;
-    this.iconClass = this.data.iconClass ? this.data.iconClass : this.iconClass;
+    this.title = this.data && this.data.title ? this.data.title : this.title;
+    this.iconClass = this.data && this.data.iconClass ? this.data.iconClass : this.iconClass;
   }
 
   getInnerHtml() {

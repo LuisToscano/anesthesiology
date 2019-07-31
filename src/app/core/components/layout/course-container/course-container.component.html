@@ -1,0 +1,9 @@
+<div class="container">
+  <div class="content">
+    <lo-inner-nav-bar [LOCurrentState]="LOCurrentState"></lo-inner-nav-bar>
+    <course-content
+    [LOCurrentState]="LOCurrentState"
+    [ngStyle]="getSlideStyle()"
+    ></course-content>
+  </div>
+</div>

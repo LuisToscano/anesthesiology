@@ -19,7 +19,9 @@ export class NavigationProvider {
   constructor(
     private LOStructure : LOStructureProvider,
     private scorm : SCORMProvider
-  ) {}
+  ) {
+    console.log('initialized');
+  }
 
   init() : void {
     let sections = this.LOStructure.getSections();
@@ -72,9 +74,11 @@ export class NavigationProvider {
   }
 
   nextSlide() {
+    console.log('hi');
     if (this.current.slide < (this.current.totalSlides - 1)) {
       this.current.slide = this.current.slide + 1;
       this.current.name = this.getCurrentSlide().getName();
+      console.log('hi again', this.current);
     }
   }
 
@@ -93,6 +97,9 @@ export class NavigationProvider {
   }
 
   private validateLastChecked() {
+    console.log("validateLastChecked");
+    console.log(this.current.section.getId(), this.lastCheckedPosition.section);
+    console.log(this.current.slide, this.lastCheckedPosition.slide);
     return this.current.section.getId() == this.lastCheckedPosition.section &&
            this.current.slide === this.lastCheckedPosition.slide;
   }

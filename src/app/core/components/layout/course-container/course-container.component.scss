@@ -1,0 +1,25 @@
+:host{
+    display: flex;
+    flex-direction: column;
+
+    .container{
+        width: 100%;
+        min-height: 24px; 
+        flex: 1;
+        position: relative;
+        flex-direction: column;
+        .content{
+            flex-direction: column;
+            position: absolute;
+            width: 49%;
+            height: 38px;
+            background: white;
+            left: 25.5%;
+            border: 3px solid #77BB9E;
+            border-radius: 10px;
+            display: flex;
+            flex: 1;
+            height: 100%;
+        }
+    }
+}

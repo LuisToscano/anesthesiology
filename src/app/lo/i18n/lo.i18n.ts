@@ -8,6 +8,15 @@ export const LOi18n = {
             slides: {
                 0: {
                     name: 'Bienvenida'
+                },
+                1: {
+                    name: 'Instrucción'
+                },
+                2: {
+                    name: 'Sugerencia de navegación'
+                },
+                3: {
+                    name: 'Información del curso'
                 }
             }
         },

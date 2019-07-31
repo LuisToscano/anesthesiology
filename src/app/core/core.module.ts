@@ -38,6 +38,8 @@ import { ModalProvider } from './providers/modal-provider';
 import { MainHeaderComponent } from "./components/layout/main-header/main-header.component";
 import { BreadcrumbComponent } from "./components/layout/breadcrumb/breadcrumb.component";
 import { NavBarComponent } from "./components/layout/nav-bar/nav-bar.component";
+import { CourseContainerComponent } from "./components/layout/course-container/course-container.component";
+import { InnerNavBarComponent } from "./components/layout/inner-nav-bar/inner-nav-bar.component";
 
 //DIRECTIVES
 
@@ -59,7 +61,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     VoidComponent,
     MainHeaderComponent,
     BreadcrumbComponent,
-    NavBarComponent
+    NavBarComponent,
+    InnerNavBarComponent,
+    CourseContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -91,7 +95,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     VoidComponent,
     MainHeaderComponent,
     BreadcrumbComponent,
-    NavBarComponent
+    NavBarComponent,
+    InnerNavBarComponent,
+    CourseContainerComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -101,7 +107,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     VoidComponent,
     MainHeaderComponent,
     BreadcrumbComponent,
-    NavBarComponent
+    NavBarComponent,
+    InnerNavBarComponent,
+    CourseContainerComponent
   ]
 })
 export class CoreModule { }
