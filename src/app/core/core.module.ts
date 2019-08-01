@@ -40,7 +40,7 @@ import { BreadcrumbComponent } from "./components/layout/breadcrumb/breadcrumb.c
 import { NavBarComponent } from "./components/layout/nav-bar/nav-bar.component";
 import { CourseContainerComponent } from "./components/layout/course-container/course-container.component";
 import { InnerNavBarComponent } from "./components/layout/inner-nav-bar/inner-nav-bar.component";
-import { NavigationSideBtnsComponent } from "./components/layout/navigations-side-btns/navigation-side-btns.component";
+import { SecondaryNavBarComponent } from "./components/layout/secondary-nav-bar/secondary-nav-bar.component";
 
 //DIRECTIVES
 
@@ -65,7 +65,7 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     NavBarComponent,
     InnerNavBarComponent,
     CourseContainerComponent,
-    NavigationSideBtnsComponent
+    SecondaryNavBarComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +100,7 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     NavBarComponent,
     InnerNavBarComponent,
     CourseContainerComponent,
-    NavigationSideBtnsComponent
+    SecondaryNavBarComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -113,7 +113,7 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     NavBarComponent,
     InnerNavBarComponent,
     CourseContainerComponent,
-    NavigationSideBtnsComponent
+    SecondaryNavBarComponent
   ]
 })
 export class CoreModule { }

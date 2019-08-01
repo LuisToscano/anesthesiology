@@ -17,9 +17,14 @@
 
             .course-container{
                 display: flex;
-                margin-top: 20px;
-                flex: 20;
-                height: 620px;
+                margin-top: 10px;
+                height: 600px;
+            }
+
+            .secondary-nav-bar{
+                display: flex;
+                margin-top: 13px;
+                height: 40px;
             }
         }
     }

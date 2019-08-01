@@ -1,0 +1,58 @@
+:host{
+    .container{
+        width: 49%;
+        min-height: 24px; 
+        margin: 0 auto;
+        background: #AAA9A9;
+        border-radius: 5px;
+        padding: 0 20px;
+        -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+        -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+        box-sizing: border-box;
+        position: relative;
+        .menu-element {
+            min-height: 20px;
+            display: inline-table;
+            -webkit-box-sizing: border-box; /* Safari/Chrome, other WebKit */
+            -moz-box-sizing: border-box;    /* Firefox, other Gecko */
+            box-sizing: border-box;
+            cursor: pointer;
+            &:not(:last-of-type){
+                margin-right: 0px;
+            }
+            padding: 0 10px;
+            height: 100%;
+            &.is-active{
+                background: #E7E7E7;
+                .menu-element-content{
+                    span{
+                        color: #698373;
+                    }
+                }
+            }
+            &:hover{
+                &:not(.is-active){
+                    background: #666666;
+                }
+            }
+            
+            &:last-of-type{
+                position: absolute;
+                right: 10px;
+            }
+            
+            .menu-element-content{
+                display: table-cell;
+                vertical-align: middle;
+                color:white;
+
+                span {
+                    color: white;
+                    font-weight: bold;
+                    font-family: sans-serif;
+                    font-size: 12px;
+                }
+            }
+        }
+    }
+}

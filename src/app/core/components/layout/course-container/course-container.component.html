@@ -1,9 +1,13 @@
 <div class="container">
   <div class="content">
-    <lo-inner-nav-bar></lo-inner-nav-bar>
+    <lo-inner-nav-bar
+      [prefix]="innerNavBarData.section.prefix"
+      [nextBtnTag]="innerNavBarData.btns.next.tag"
+      [previousBtnTag]="innerNavBarData.btns.previous.tag"></lo-inner-nav-bar>
     <course-content
-    [LOCurrentState]="LOCurrentState"
-    [ngStyle]="getSlideStyle()"
+        [ngClass]="getContentClasses()"
+        [ngStyle]="getSlideStyle()"
+        [LOCurrentState]="LOCurrentState"
     ></course-content>
   </div>
 </div>

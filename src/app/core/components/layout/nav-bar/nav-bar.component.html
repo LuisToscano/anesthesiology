@@ -1,12 +1,11 @@
 <div class="nav-bar-container">
-    <div class="menu-element"
-    [ngClass]="element.isActive() ? 'is-active' : ''"
-    *ngFor="let element of elements;"
-    (click)="element.onClick()">
+        <div class="menu-element"
+        *ngFor="let element of elements"
+        [ngClass]="getElementClass(element)"
+        (click)="elementClick(element)">
         <div class="menu-element-content">
             <i class="fas fa-lg" [ngClass]="'fas fa-' + element.icon"></i>
             <span>{{element.text}}</span>
         </div>
     </div>
 </div>
-

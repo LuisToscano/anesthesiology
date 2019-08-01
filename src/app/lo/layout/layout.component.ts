@@ -18,6 +18,7 @@ export class LayoutComponent implements OnInit, OnChanges {
   subtitle : string = '';
   unit : LOUnit;
   menuBars : any;
+  innerNavBarData : any;
 
   constructor(private actions : ActionsProvider) {}
 
@@ -30,9 +31,10 @@ export class LayoutComponent implements OnInit, OnChanges {
       this.subtitle = this.layoutConfig.subtitle;
       this.unit = this.layoutConfig.unit;
       this.menuBars = {
-        top: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.top)
+        top: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.top),
+        bottom: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.bottom)
       };
-      console.log(this.menuBars);
+      this.innerNavBarData = this.layoutConfig.navBars.inner;
     }
   }
 

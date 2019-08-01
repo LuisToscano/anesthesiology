@@ -1,4 +1,4 @@
-import { Component, Input, AfterViewInit, ViewChild, ComponentFactoryResolver } from '@angular/core';
+import { Component, Input, AfterContentChecked, ViewChild, ComponentFactoryResolver } from '@angular/core';
 import { ColumnContentComponent } from './column-content.component';
 import { ColumnContent } from '../../../interfaces/column-content.interface';
 import * as _ from "lodash";
@@ -8,14 +8,14 @@ import * as _ from "lodash";
   templateUrl: './course-column.component.html',
   styleUrls: ['./course-column.component.scss']
 })
-export class CourseColumnComponent implements AfterViewInit {
+export class CourseColumnComponent implements AfterContentChecked {
   @Input() LOCurrentState : any;
   @Input() componentInner: any;
   @ViewChild(ColumnContentComponent) columnContent: ColumnContentComponent;
 
   constructor(private componentFactoryResolver: ComponentFactoryResolver) {}
 
-  ngAfterViewInit() {
+  ngAfterContentChecked() {
     this.loadComponent();
   }
 

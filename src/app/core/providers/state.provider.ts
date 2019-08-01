@@ -49,7 +49,6 @@ export class StateProvider {
     }
 
     private currentSlideChanged(navPos : NavPosition) {
-        console.log('CHANGED!!!');
         this.scorm.setLocation(navPos);
         this.updateNavigationState(navPos);
     }

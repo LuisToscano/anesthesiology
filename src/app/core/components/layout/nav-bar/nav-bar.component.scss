@@ -1,9 +1,8 @@
 :host{
     .nav-bar-container{
         width: 48%;
-        left: 26%;
+        margin: 0 auto;
         min-height: 24px; 
-        position: relative;
         background: url('/assets/img/fondo_navegacion.jpg');
         .menu-element {
             min-height: 20px;

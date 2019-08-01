@@ -1,16 +1,16 @@
 <div class="where">
-   <span class="prefix">Está en: </span> {{section.name}}
+   <span class="prefix">{{prefix}} </span> {{section.name}}
 </div>
 <div class="navigation">
     <title [title]="section.name" [iconClass]="section.icon"></title>
     <div class="nav" *ngIf="shouldDisplayBothBtn">
         <div class="nav-container">
             <div class="before" *ngIf="shouldDisplayLeftBtn">
-                <div class="wrapper" (click)="previous()"><div><i class="fas fa-4x fa-angle-left"></i> <span>Anterior</span></div></div>
+                <div class="wrapper" (click)="previous()"><div><i class="fas fa-3x fa-angle-left"></i> <span>{{previousBtnTag}}</span></div></div>
             </div>
             <div class="position"> <div class="inner"> {{position}} </div> </div>
             <div class="after" *ngIf="shouldDisplayRightBtn">
-                <div class="wrapper" (click)="next()"><div><span>Siguiente</span><i class="fas fa-4x fa-angle-right"></i></div></div>
+                <div class="wrapper" (click)="next()"><div><span>{{nextBtnTag}}</span><i class="fas fa-3x fa-angle-right"></i></div></div>
             </div>
         </div>
     </div>

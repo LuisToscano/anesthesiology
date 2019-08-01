@@ -43,6 +43,30 @@ export const LOi18n = {
                     name: 'Tabla de Contenido'
                 }
             }
+        },
+        bibliography: {
+            name: 'Bibliografía',
+            slides: {
+                0: {
+                    name: 'Referencias'
+                }
+            }
+        },
+        techRequirements: {
+            name: 'Requerimientos técnicos',
+            slides: {
+                0: {
+                    name: 'Requerimientos'
+                }
+            }
+        },
+        credits: {
+            name: 'Créditos',
+            slides: {
+                0: {
+                    name: 'Créditos'
+                }
+            }
         }
     },
     layout: {
@@ -53,6 +77,28 @@ export const LOi18n = {
         },
         breadcrumb : {
             prefix: 'Unidad'
+        },
+        navBars: {
+            inner: {
+                section: {
+                    prefix: "Está en:"
+                },
+                btns: {
+                    previous: {
+                        tag: "Anterior"
+                    },
+                    next: {
+                        tag: "Siguiente"
+                    }
+                }
+            },
+            bottom: {
+                items: {
+                    navigationGuide: {
+                        tag: "Guía de navegación"
+                    }
+                }
+            }
         }
     }
 };

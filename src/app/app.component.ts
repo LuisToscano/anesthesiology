@@ -24,7 +24,10 @@ export class AppComponent implements OnInit, OnDestroy{
       number: LOi18n.layout.breadcrumb.prefix + ' ' + 0,
       name: LOi18n.unit
     },
-    menuBars : LOExtras.menuBars
+    menuBars : LOExtras.menuBars,
+    navBars : {
+      inner: LOi18n.layout.navBars.inner
+    }
   };
 
   constructor(

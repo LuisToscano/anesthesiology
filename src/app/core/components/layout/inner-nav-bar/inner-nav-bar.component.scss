@@ -44,6 +44,7 @@
             align-items: flex-end;
             .nav-container{
                 flex-direction: row;
+                align-items: center;
                 flex: 1;
                 .before, .after{
                     align-items: center;
@@ -70,6 +71,9 @@
                             flex-direction: row;
                             flex: 1;
                             align-items: center;
+                            i{
+                                margin-right: 5px;
+                            }
                         }
                     }
                 }
@@ -84,6 +88,9 @@
                             flex-direction: row;
                             flex: 1;
                             align-items: center;
+                            i{
+                                margin-left: 5px;
+                            }
                         }
                     }
                 }
@@ -91,6 +98,7 @@
                 .position{
                     margin: 0 8px;
                     max-width: 70px;
+                    height: 30px;
                     .inner{
                         font-size: 13px;
                         background: #EFEFEF;

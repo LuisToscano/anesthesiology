@@ -1,15 +1,16 @@
 import { Component, Input } from '@angular/core';
+import { MenuBarElement } from '../../../interfaces/menu-bar-element.interface';
+import * as _ from "lodash";
 
 @Component({
-  selector: 'lo-nav-bar',
-  templateUrl: './nav-bar.component.html',
-  styleUrls: ['./nav-bar.component.scss']
+  selector: 'lo-secondary-nav-bar',
+  templateUrl: './secondary-nav-bar.component.html',
+  styleUrls: ['./secondary-nav-bar.component.scss']
 })
-export class NavBarComponent {
+export class SecondaryNavBarComponent {
   
   @Input() elements : Array<MenuBarElement>;
-  constructor() {}
-
+  
   getElementClass(el : MenuBarElement) {
     return el.isActive && el.isActive() ? 'is-active' : '';
   }
@@ -19,11 +20,4 @@ export class NavBarComponent {
       el.onClick()
     }
   }
-}
-
-interface MenuBarElement{
-  icon ?: string;
-  text: string;
-  isActive : () => boolean;
-  onClick : () => void;
 }

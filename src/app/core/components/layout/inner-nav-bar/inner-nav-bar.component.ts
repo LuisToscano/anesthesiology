@@ -7,6 +7,11 @@ import { NavigationProvider } from '../../../providers/navigation.provider';
   styleUrls: ['./inner-nav-bar.component.scss']
 })
 export class InnerNavBarComponent implements OnInit{
+  
+  @Input() prefix : string;
+  @Input() previousBtnTag : string;
+  @Input() nextBtnTag : string;
+
   shouldDisplayBothBtn : boolean;
   shouldDisplayRightBtn : boolean;
   shouldDisplayLeftBtn : boolean;
