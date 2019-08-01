@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges } from '@angular/core';
 import { CourseColumn } from '../../../classes/course-column.class';
 
 @Component({
@@ -6,9 +6,20 @@ import { CourseColumn } from '../../../classes/course-column.class';
   templateUrl: './course-row.component.html',
   styleUrls: ['./course-row.component.scss']
 })
-export class CourseRowComponent{
+export class CourseRowComponent implements OnChanges{
   @Input() LOCurrentState : any;
   @Input() cols: CourseColumn[];
-  constructor() {}
+
+  colArray : CourseColumn[];
+
+  constructor() {
+
+  }
+
+  ngOnChanges(changes : any) {
+    if (changes && changes.cols && changes.cols.currentValue) {
+      this.colArray = this.cols;
+    }
+  }
 
 }

@@ -55,4 +55,12 @@ elementActions[ElementAction.ActiveIfSectionInteractionsDone] = (data, providers
     };
 };
 
+elementActions[ElementAction.DisplayModal] = (data, providers) => {
+    return {
+        onClick: () => {
+            return providers.modal.showModal(data);
+        }
+    };
+};
+
 export const ElementActions = elementActions;

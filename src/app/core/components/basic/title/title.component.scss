@@ -7,11 +7,11 @@
         flex-direction: row;
         align-items: center;
         color: #6b8375;
-        &::ng-deep svg ~ h1{
-            margin-left: 10px;
+        ::ng-deep{
+            i{
+                margin-right: 20px;
+            }
         }
-        i, h1{
-            flex: 1;
-        }
+        
     }
 }

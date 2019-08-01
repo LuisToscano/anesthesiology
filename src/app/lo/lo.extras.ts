@@ -8,6 +8,10 @@ import { techRequirementsSection } from "./sections/techRequirements/techRequire
 import { creditsSection } from "./sections/credits/credits.section";
 import { LOi18n } from "./i18n/lo.i18n";
 import { ParagraphArgumentType } from "../core/components/basic/paragraph/paragraph.enum";
+import { SimpleContainerComponent } from "../core/components/content-organizers/simple-container/simple-container.component";
+import { ComponentType } from "../core/enums/component-type.enum";
+import { ParagraphComponent } from "../core/components/basic/paragraph/paragraph.component";
+import { TitleComponent } from "../core/components/basic/title/title.component";
 
 export const LOExtras : LOExtrasContent = {
     menuBars: {
@@ -67,8 +71,23 @@ export const LOExtras : LOExtrasContent = {
         },
         {
             text: LOi18n.layout.navBars.bottom.items.navigationGuide.tag,
-            actions: [],
-            data: {}
+            actions: [ ElementAction.DisplayModal ],
+            data: {
+                component: SimpleContainerComponent,
+                data: [{
+                    rows: [{
+                        cols: [{
+                            type: ComponentType.Basic,
+                            component: TitleComponent,
+                            data: {
+                                title: LOi18n.modals.navigationGuide.title,
+                                iconClass: 'sitemap'
+                            },
+                            classes: ['help-title']
+                        }]
+                    }]
+                }]
+            }
         },
         {
             text: techRequirementsSection.name,

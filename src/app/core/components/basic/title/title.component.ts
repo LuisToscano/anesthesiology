@@ -22,7 +22,7 @@ export class TitleComponent implements OnInit {
   getInnerHtml() {
     let title = '<h1>' + this.title + '</h1>';
     return this.iconClass ?
-    '<i class="fas fa-2x '+ this.iconClass +'"></i>' + title : title;
+    '<i class="fas fa-2x fa-'+ this.iconClass +'"></i>' + title : title;
   }
 
   getIcon() {

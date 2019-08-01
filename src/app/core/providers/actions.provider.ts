@@ -68,11 +68,13 @@ export class ActionsProvider {
     private retrieveActionsObj(data, actions : Array<ElementAction>){
         let _navigation = this.navigation;
         let _interactions = this.interactions;
+        let _modal = this.modal;
         return _.reduce(actions, function(acum, action) {
             return _.extend(acum, ElementActions.hasOwnProperty(action) ?
             ElementActions[action](data, {
                 navigation: _navigation,
-                interactions: _interactions
+                interactions: _interactions,
+                modal: _modal
             }) : {});
         }, {});
     }

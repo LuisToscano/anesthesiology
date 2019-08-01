@@ -5,6 +5,7 @@ import { CourseContentProvider } from './course-content.provider';
 import { NavPosition } from '../interfaces/nav-position.interface';
 import { InteractionsProvider } from '../providers/interactions.provider';
 import * as _ from "lodash";
+import { Subject } from 'rxjs';
 
 @Injectable()
 export class StateProvider {
@@ -13,13 +14,16 @@ export class StateProvider {
         sections: {}
     };
     private currentPosition : NavPosition;
+    LOStateChanged : Subject<any>;
 
     constructor(
         private navigation : NavigationProvider,
         private scorm : SCORMProvider,
         private content : CourseContentProvider,
         private interactions : InteractionsProvider
-    ) {}
+    ) {
+        this.LOStateChanged = new Subject<any>();
+    }
 
     init() {
         this.scorm.init();
@@ -51,6 +55,7 @@ export class StateProvider {
     private currentSlideChanged(navPos : NavPosition) {
         this.scorm.setLocation(navPos);
         this.updateNavigationState(navPos);
+        this.LOStateChanged.next(this.getCurrentState());
     }
 
     private updateNavigationState(navPos : NavPosition) {

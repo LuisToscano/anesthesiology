@@ -109,5 +109,20 @@ export const LOi18n = {
                 link: ''
             }]
         }
+    },
+    modals: {
+        navigationGuide: {
+            title: 'Guia de Navegación',
+            list: [
+                'Título recurso / Docente',
+                'Título unidad',
+                'Menú principal',
+                'Ubicación actual',
+                'Botones para desplazamiento entre contenidos',
+                'Información recurso',
+                'Licencia',
+                'Información contactos'
+            ]
+        }
     }
 };

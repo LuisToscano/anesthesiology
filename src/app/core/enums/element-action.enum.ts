@@ -4,5 +4,6 @@ export enum ElementAction{
     GoToSlide = 'goToSlide',
     ActiveIfCurrentSection = 'activeIfCurrentSection',
     ActiveIfSlideInteractionsDone = 'activeIfSlideInteractionsDone',
-    ActiveIfSectionInteractionsDone = 'activeIfSectionInteractionsDone'
+    ActiveIfSectionInteractionsDone = 'activeIfSectionInteractionsDone',
+    DisplayModal = 'displayModal'
 }

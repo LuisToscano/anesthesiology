@@ -1,10 +1,10 @@
-<div class="lo-modal-container" *ngIf="modal.getVisible()">
+<div class="lo-modal-container" *ngIf="shouldDisplayModal">
     <div class="lo-modal-content">
         <div (click)="close()" class="lo-modal-close-icon"><i class="fas fa-times-circle"></i></div>
         <div class="lo-modal-content-scroll">
             <course-column
                 [LOCurrentState]="LOCurrentState"
-                [componentInner]="modal.getInnerComponent()">
+                [componentInner]="innerComponent">
             </course-column>
         </div>
     </div>

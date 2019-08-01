@@ -1,5 +1,5 @@
 <course-row
-*ngFor='let row of getRows(); trackBy: index;'
+*ngFor='let row of rows; trackBy: index;'
 [style.flex]="row.flex"
 [cols]="row.cols"
 [LOCurrentState]="LOCurrentState"

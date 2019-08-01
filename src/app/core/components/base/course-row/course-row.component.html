@@ -1,5 +1,5 @@
 <course-column
-*ngFor='let col of cols; trackBy: index;'
+*ngFor='let col of colArray; trackBy: index;'
 [componentInner]="col.getContent()"
 [style.flex]="col.flex"
 [LOCurrentState]="LOCurrentState"

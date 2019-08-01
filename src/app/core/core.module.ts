@@ -33,6 +33,7 @@ import { ModalProvider } from './providers/modal-provider';
 //LEARNING ACTIVITIES
 
 //CONTENT ORGANIZERS
+import { SimpleContainerComponent } from "./components/content-organizers/simple-container/simple-container.component";
 
 //LAYOUT
 import { MainHeaderComponent } from "./components/layout/main-header/main-header.component";
@@ -42,6 +43,7 @@ import { CourseContainerComponent } from "./components/layout/course-container/c
 import { InnerNavBarComponent } from "./components/layout/inner-nav-bar/inner-nav-bar.component";
 import { SecondaryNavBarComponent } from "./components/layout/secondary-nav-bar/secondary-nav-bar.component";
 import { CopyrightComponent } from "./components/layout/copyright/copyright.component";
+import { LOModalComponent } from "./components/layout/lo-modal/lo-modal.component";
 
 //DIRECTIVES
 
@@ -67,7 +69,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     InnerNavBarComponent,
     CourseContainerComponent,
     SecondaryNavBarComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    LOModalComponent,
+    SimpleContainerComponent
   ],
   imports: [
     BrowserModule,
@@ -103,7 +107,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     InnerNavBarComponent,
     CourseContainerComponent,
     SecondaryNavBarComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    LOModalComponent,
+    SimpleContainerComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -117,7 +123,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     InnerNavBarComponent,
     CourseContainerComponent,
     SecondaryNavBarComponent,
-    CopyrightComponent
+    CopyrightComponent,
+    LOModalComponent,
+    SimpleContainerComponent
   ]
 })
 export class CoreModule { }
