@@ -7,6 +7,7 @@ import { bibliographySection } from "./sections/bibliography/bibliography.sectio
 import { techRequirementsSection } from "./sections/techRequirements/techRequirements.section";
 import { creditsSection } from "./sections/credits/credits.section";
 import { LOi18n } from "./i18n/lo.i18n";
+import { ParagraphArgumentType } from "../core/components/basic/paragraph/paragraph.enum";
 
 export const LOExtras : LOExtrasContent = {
     menuBars: {
@@ -89,7 +90,22 @@ export const LOExtras : LOExtrasContent = {
                 target: creditsSection.id
             }
         }]
-    }
+    },
+    copyright: [{
+        text: LOi18n.layout.copyright.p[0].text,
+        args: {
+            copyright: {
+                type: ParagraphArgumentType.Link,
+                data: {
+                    innerText: LOi18n.layout.copyright.p[0].link,
+                    href: 'https://creativecommons.org/licenses/by-nc-nd/2.5/co/deed.es_ES'
+                }
+            }
+        }
+    },{
+        text: LOi18n.layout.copyright.p[1].text,
+        args: {}
+    }]
 };
 
 interface LOExtrasContent{
@@ -97,6 +113,7 @@ interface LOExtrasContent{
         top ?: Array<any>,
         bottom ?: Array<any>
     },
+    copyright: any
     footer ?: Array<any>,
     helpBtns ?: Array<any>
 }

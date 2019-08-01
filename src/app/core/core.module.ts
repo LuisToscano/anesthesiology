@@ -41,6 +41,7 @@ import { NavBarComponent } from "./components/layout/nav-bar/nav-bar.component";
 import { CourseContainerComponent } from "./components/layout/course-container/course-container.component";
 import { InnerNavBarComponent } from "./components/layout/inner-nav-bar/inner-nav-bar.component";
 import { SecondaryNavBarComponent } from "./components/layout/secondary-nav-bar/secondary-nav-bar.component";
+import { CopyrightComponent } from "./components/layout/copyright/copyright.component";
 
 //DIRECTIVES
 
@@ -65,7 +66,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     NavBarComponent,
     InnerNavBarComponent,
     CourseContainerComponent,
-    SecondaryNavBarComponent
+    SecondaryNavBarComponent,
+    CopyrightComponent
   ],
   imports: [
     BrowserModule,
@@ -100,7 +102,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     NavBarComponent,
     InnerNavBarComponent,
     CourseContainerComponent,
-    SecondaryNavBarComponent
+    SecondaryNavBarComponent,
+    CopyrightComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -113,7 +116,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     NavBarComponent,
     InnerNavBarComponent,
     CourseContainerComponent,
-    SecondaryNavBarComponent
+    SecondaryNavBarComponent,
+    CopyrightComponent
   ]
 })
 export class CoreModule { }

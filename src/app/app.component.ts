@@ -27,7 +27,8 @@ export class AppComponent implements OnInit, OnDestroy{
     menuBars : LOExtras.menuBars,
     navBars : {
       inner: LOi18n.layout.navBars.inner
-    }
+    },
+    copyright : LOExtras.copyright
   };
 
   constructor(

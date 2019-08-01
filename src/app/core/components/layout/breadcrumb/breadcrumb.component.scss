@@ -7,10 +7,10 @@
         position: relative;
         .content{
             position: absolute;
-            width: 48%;
+            width: 960px;
             height: 38px;
             background: #FCFAE0;
-            left: 26%;
+            left: calc(50% - 480px - 10px);
             top: -7px;
 
             .breadcrumb{

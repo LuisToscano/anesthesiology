@@ -9,7 +9,7 @@ import * as _ from "lodash";
   templateUrl: './layout.component.html',
   styleUrls: ['./layout.component.scss']
 })
-export class LayoutComponent implements OnInit, OnChanges {
+export class LayoutComponent implements OnChanges {
   
   @Input() LOCurrentState : LOState;
   @Input() layoutConfig : any;
@@ -19,11 +19,9 @@ export class LayoutComponent implements OnInit, OnChanges {
   unit : LOUnit;
   menuBars : any;
   innerNavBarData : any;
+  copyright : any;
 
   constructor(private actions : ActionsProvider) {}
-
-  ngOnInit() {
-  }
 
   ngOnChanges(changes : any) {
     if (changes && changes.layoutConfig && changes.layoutConfig.currentValue) {
@@ -35,6 +33,7 @@ export class LayoutComponent implements OnInit, OnChanges {
         bottom: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.bottom)
       };
       this.innerNavBarData = this.layoutConfig.navBars.inner;
+      this.copyright = this.layoutConfig.copyright;
     }
   }
 

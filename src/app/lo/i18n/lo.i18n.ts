@@ -99,6 +99,15 @@ export const LOi18n = {
                     }
                 }
             }
+        },
+        copyright: {
+            p: [{
+                text: 'Este recurso educativo digital está bajo una %(copyright)',
+                link: 'licencia de Creative Commons Reconocimiento-NoComercial-SinObraDerivada 2.5 Colombia'
+            }, {
+                text: 'Además, tiene algunos derechos reservados a sus autores y colaboradores.',
+                link: ''
+            }]
         }
     }
 };
