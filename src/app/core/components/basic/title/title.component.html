@@ -1,1 +1,4 @@
-<div [innerHtml]="getInnerHtml()"></div>
+<div class="lo-title">
+    <i *ngIf="iconClass" class="fas fa-2x" [ngClass]="'fa-' + iconClass"></i>
+    <h1> {{ title }} </h1>
+</div>

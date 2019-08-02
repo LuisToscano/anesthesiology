@@ -1,5 +1,4 @@
 import { Component, OnInit, Input } from '@angular/core';
-import * as _ from "lodash";
 
 @Component({
   selector: 'title',
@@ -17,16 +16,6 @@ export class TitleComponent implements OnInit {
   ngOnInit() {
     this.title = this.data && this.data.title ? this.data.title : this.title;
     this.iconClass = this.data && this.data.iconClass ? this.data.iconClass : this.iconClass;
-  }
-
-  getInnerHtml() {
-    let title = '<h1>' + this.title + '</h1>';
-    return this.iconClass ?
-    '<i class="fas fa-2x fa-'+ this.iconClass +'"></i>' + title : title;
-  }
-
-  getIcon() {
-    return this.iconClass;
   }
 }
 

@@ -1,0 +1,21 @@
+.lo-list{
+    ul{
+        font-size: 16px;
+        margin: 5px 0;
+        &.numbered {
+            list-style: none;
+            li{
+                margin-bottom: 10px;
+                .idx-number{
+                    border-radius: 100%;
+                    background: red;
+                    color: white;
+                    padding: 5px 10px;
+                    margin-right: 10px;
+                    display: inline-block;
+                    font-size: 14px;
+                }
+            }
+        }
+    }
+}

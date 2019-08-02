@@ -1,0 +1,18 @@
+<div class="lo-list">
+    <ng-container *ngIf="numbered; then numbered else regular"></ng-container>  
+</div>
+
+<ng-template #numbered>
+    <ul class="numbered">
+        <li *ngFor="let el of elements; let i = index"> 
+            <div class="idx-number">{{i}}</div>
+            <span>{{el}}</span>
+        </li>
+    </ul>
+</ng-template>
+
+<ng-template #regular>
+    <ul class="regular">
+        <li *ngFor="let el of elements">{{el}}</li>
+    </ul>
+</ng-template>

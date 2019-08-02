@@ -12,6 +12,8 @@ import { SimpleContainerComponent } from "../core/components/content-organizers/
 import { ComponentType } from "../core/enums/component-type.enum";
 import { ParagraphComponent } from "../core/components/basic/paragraph/paragraph.component";
 import { TitleComponent } from "../core/components/basic/title/title.component";
+import { ImgComponent } from "../core/components/basic/img/img.component";
+import { ListComponent } from "../core/components/basic/list/list.component";
 
 export const LOExtras : LOExtrasContent = {
     menuBars: {
@@ -82,9 +84,33 @@ export const LOExtras : LOExtrasContent = {
                             data: {
                                 title: LOi18n.modals.navigationGuide.title,
                                 iconClass: 'sitemap'
-                            },
-                            classes: ['help-title']
-                        }]
+                            }
+                        }],
+                        style: {
+                            padding: '10px 0 20px 10px',
+                            borderBottom: 'solid 1px #D3D3D3'
+                        },
+                        flex: 1
+                    },
+                    {
+                        cols: [{
+                            type: ComponentType.Basic,
+                            component: ImgComponent,
+                            data: {
+                                source: './assets/img/ayuda.jpg'
+                            }
+                        }, {
+                            type: ComponentType.Basic,
+                            component: ListComponent,
+                            data: {
+                                elements: LOi18n.modals.navigationGuide.list
+                            }
+                        }],
+                        style: {
+                            padding: '20px 0',
+                            borderBottom: 'solid 1px #D3D3D3'
+                        },
+                        flex: 2
                     }]
                 }]
             }

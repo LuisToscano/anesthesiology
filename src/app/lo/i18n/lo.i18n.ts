@@ -112,7 +112,7 @@ export const LOi18n = {
     },
     modals: {
         navigationGuide: {
-            title: 'Guia de Navegación',
+            title: 'Guía de Navegación',
             list: [
                 'Título recurso / Docente',
                 'Título unidad',

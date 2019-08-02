@@ -14,6 +14,7 @@ import { CourseRowComponent } from './components/base/course-row/course-row.comp
 //BASIC
 import { ParagraphComponent } from './components/basic/paragraph/paragraph.component';
 import { TitleComponent } from './components/basic/title/title.component';
+import { ListComponent } from './components/basic/list/list.component';
 import { ImgComponent } from './components/basic/img/img.component';
 import { ButtonComponent } from './components/basic/button/button.component';
 import { VoidComponent } from './components/basic/void/void.component';
@@ -60,6 +61,7 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     BaseCourseContainerComponent,
     SafeHtmlPipe,
     TitleComponent,
+    ListComponent,
     ImgComponent,
     ButtonComponent,
     VoidComponent,
@@ -98,6 +100,7 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     ParagraphComponent,
     BaseCourseContainerComponent,
     TitleComponent,
+    ListComponent,
     ImgComponent,
     ButtonComponent,
     VoidComponent,
@@ -114,6 +117,7 @@ import { ModalsModule } from './components/layout/modals/modals.module';
   entryComponents: [
     ParagraphComponent,
     TitleComponent,
+    ListComponent,
     ImgComponent,
     ButtonComponent,
     VoidComponent,
