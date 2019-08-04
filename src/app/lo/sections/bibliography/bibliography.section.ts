@@ -5,6 +5,7 @@ import { LOi18n } from "../../i18n/lo.i18n";
 export const bibliographySection : Sections = {
     id: 'bibliography',
     name: LOi18n.sections.bibliography.name,
+    icon: 'book',
     slides: [
         bibliographySectionSlide1
     ]

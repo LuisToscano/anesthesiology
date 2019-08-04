@@ -17,5 +17,9 @@
                 }
             }
         }
+
+        &.regular {
+            list-style: circle;
+        }
     }
 }

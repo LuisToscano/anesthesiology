@@ -10,6 +10,7 @@ import { Subscription } from "rxjs";
 export class LOModalComponent implements OnInit, OnDestroy{
 
   @Input() LOCurrentState : any;
+  @Input() hideCloseIcon : boolean = false;
   innerComponent : any;
   shouldDisplayModal : boolean = false;
   private checkChangesSubscription : Subscription;

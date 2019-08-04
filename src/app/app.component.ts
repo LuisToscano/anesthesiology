@@ -33,14 +33,14 @@ export class AppComponent implements OnInit, OnDestroy{
 
   constructor(
     private LOState : StateProvider
-  ) { }
+  ) { 
+  }
 
   ngOnInit(){
     this.LOState.init();
     this.LOCurrentState = this.LOState.getCurrentState();
 
     this.subscription = this.LOState.LOStateChanged.subscribe( (state) => {
-        console.log('LO State changed', state);
         this.LOCurrentState = Object.assign({}, state);
     });
   }

@@ -63,4 +63,12 @@ elementActions[ElementAction.DisplayModal] = (data, providers) => {
     };
 };
 
+elementActions[ElementAction.HideModal] = (data, providers) => {
+    return {
+        onClick: () => {
+            return providers.modal.hideModal(data);
+        }
+    };
+};
+
 export const ElementActions = elementActions;

@@ -28,6 +28,9 @@ export class LayoutComponent implements OnChanges {
       this.title = this.layoutConfig.title;
       this.subtitle = this.layoutConfig.subtitle;
       this.unit = this.layoutConfig.unit;
+      this.layoutConfig.menuBars.bottom[1].data.data[0].rows[2].cols[0].data = this.actions.prepareElementAction(
+        this.layoutConfig.menuBars.bottom[1].data.data[0].rows[2].cols[0]
+      );
       this.menuBars = {
         top: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.top),
         bottom: this.actions.prepareMenuBarElements(this.layoutConfig.menuBars.bottom)

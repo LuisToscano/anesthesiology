@@ -5,5 +5,6 @@ export enum ElementAction{
     ActiveIfCurrentSection = 'activeIfCurrentSection',
     ActiveIfSlideInteractionsDone = 'activeIfSlideInteractionsDone',
     ActiveIfSectionInteractionsDone = 'activeIfSectionInteractionsDone',
-    DisplayModal = 'displayModal'
+    DisplayModal = 'displayModal',
+    HideModal = 'hideModal'
 }

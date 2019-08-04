@@ -19,6 +19,31 @@
                 display: flex;
                 margin-top: 10px;
                 height: 600px;
+
+                course-content{
+                    margin-top: 10px;
+                    &.primary-section{
+                        background: url("/assets/img/fondo_general.png") no-repeat;
+                    }
+
+                    &.secondary-section{
+                        padding: 0 20px;
+                    }
+
+                    &.hide-overflow{
+                        overflow: hidden;
+                    }
+
+                    .center-img{
+                        lo-img{
+                            flex-direction: row;
+                            align-items: center;
+                            img{
+                                margin: 0 auto;
+                            }
+                        }
+                    }
+                }
             }
 
             .secondary-nav-bar{
@@ -39,6 +64,27 @@
         ::ng-deep{
             .simple-container{
                 flex-direction: column;
+
+                .btn-set{
+                    lo-button{
+                        align-items: flex-end;
+                        button{
+                            width: 60px;
+                            height: 35px;
+                            border-radius: 4px;
+                            color: #333;
+                            background-color: #fff;
+                            border: 1px solid #ccc;
+
+                            &:hover, &:active {
+                                border-color: black;
+                                background: #666;
+                                color: white;
+                                cursor: pointer;
+                            }
+                        }
+                    }
+                }
             }
         }
     }

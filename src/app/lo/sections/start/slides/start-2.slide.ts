@@ -16,5 +16,6 @@ export const startSectionSlide2 : Slide = {
                 args: {}
             }]
         }]
-    }]
+    }],
+    classes: ['primary-section']
 };

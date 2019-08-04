@@ -48,7 +48,19 @@ export const LOi18n = {
             name: 'Bibliografía',
             slides: {
                 0: {
-                    name: 'Referencias'
+                    name: 'Referencias',
+                    paragraphs: [{
+                        text: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit (b). ' +
+                        'Etiam ac tortor tincidunt, ultrices eros at (strong), gravida libero. ' +
+                        'Integer consequat a ante eget vulputate. Donec interdum(i) hendrerit egestas. ' +
+                        'Lorem ipsum dolor sit amet, consectetur adipiscing elit (b). Etiam ac tortor tincidunt, ' +
+                        'ultrices eros at (strong), gravida libero. Integer consequat. Donec interdum(i) hendrerit egestas.'
+                    }],
+                    list: [
+                        'Etiam ac tortor tincidunt, ultrices eros at (strong), gravida libero.',
+                        'Etiam ac tortor tincidunt, ultrices eros at (strong), gravida libero.',
+                        'Etiam ac tortor tincidunt, ultrices eros at (strong), gravida libero.'
+                    ]
                 }
             }
         },
@@ -122,7 +134,12 @@ export const LOi18n = {
                 'Información recurso',
                 'Licencia',
                 'Información contactos'
-            ]
+            ],
+            btns: {
+                close: {
+                    tag: "Cerrar"
+                }
+            }
         }
     }
 };

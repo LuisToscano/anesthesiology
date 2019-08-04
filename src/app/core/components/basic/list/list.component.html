@@ -1,8 +1,8 @@
 <div class="lo-list">
-    <ng-container *ngIf="numbered; then numbered else regular"></ng-container>  
+    <ng-container *ngIf="numbered; then numberedList; else regularList;"></ng-container>  
 </div>
 
-<ng-template #numbered>
+<ng-template #numberedList>
     <ul class="numbered">
         <li *ngFor="let el of elements; let i = index"> 
             <div class="idx-number">{{i}}</div>
@@ -11,7 +11,7 @@
     </ul>
 </ng-template>
 
-<ng-template #regular>
+<ng-template #regularList>
     <ul class="regular">
         <li *ngFor="let el of elements">{{el}}</li>
     </ul>

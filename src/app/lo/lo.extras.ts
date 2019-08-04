@@ -14,6 +14,8 @@ import { ParagraphComponent } from "../core/components/basic/paragraph/paragraph
 import { TitleComponent } from "../core/components/basic/title/title.component";
 import { ImgComponent } from "../core/components/basic/img/img.component";
 import { ListComponent } from "../core/components/basic/list/list.component";
+import { ButtonComponent } from "../core/components/basic/button/button.component";
+import { VoidComponent } from "../core/components/basic/void/void.component";
 
 export const LOExtras : LOExtrasContent = {
     menuBars: {
@@ -103,7 +105,8 @@ export const LOExtras : LOExtrasContent = {
                             type: ComponentType.Basic,
                             component: ListComponent,
                             data: {
-                                elements: LOi18n.modals.navigationGuide.list
+                                elements: LOi18n.modals.navigationGuide.list,
+                                numbered: true
                             }
                         }],
                         style: {
@@ -111,6 +114,22 @@ export const LOExtras : LOExtrasContent = {
                             borderBottom: 'solid 1px #D3D3D3'
                         },
                         flex: 2
+                    },
+                    {
+                        cols: [{
+                            type: ComponentType.Basic,
+                            component: ButtonComponent,
+                            actions: [ ElementAction.HideModal ],
+                            data: {
+                                text: LOi18n.modals.navigationGuide.btns.close.tag
+                            },
+                            flex: 1
+                        }],
+                        style: {
+                            padding: '20px 10px 0 0'
+                        },
+                        classes: ['btn-set'],
+                        flex: 1
                     }]
                 }]
             }
