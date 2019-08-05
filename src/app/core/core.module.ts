@@ -35,6 +35,7 @@ import { ModalProvider } from './providers/modal-provider';
 
 //CONTENT ORGANIZERS
 import { SimpleContainerComponent } from "./components/content-organizers/simple-container/simple-container.component";
+import { CharacterDialogComponent } from "./components/content-organizers/character-dialog/character-dialog.component";
 
 //LAYOUT
 import { MainHeaderComponent } from "./components/layout/main-header/main-header.component";
@@ -73,7 +74,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     SecondaryNavBarComponent,
     CopyrightComponent,
     LOModalComponent,
-    SimpleContainerComponent
+    SimpleContainerComponent,
+    CharacterDialogComponent
   ],
   imports: [
     BrowserModule,
@@ -112,7 +114,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     SecondaryNavBarComponent,
     CopyrightComponent,
     LOModalComponent,
-    SimpleContainerComponent
+    SimpleContainerComponent,
+    CharacterDialogComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -129,7 +132,8 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     SecondaryNavBarComponent,
     CopyrightComponent,
     LOModalComponent,
-    SimpleContainerComponent
+    SimpleContainerComponent,
+    CharacterDialogComponent
   ]
 })
 export class CoreModule { }

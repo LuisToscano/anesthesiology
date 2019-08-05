@@ -11,7 +11,7 @@ export class CourseContentComponent implements OnChanges{
 
   constructor() {}
 
-  ngOnChanges(changes) {
+  ngOnChanges() {
     this.rows = this.LOCurrentState.position.section.slide(
       this.LOCurrentState.position.slide
     ).getRows();

@@ -22,6 +22,11 @@ export class ParagraphComponent implements OnInit {
 
   constructor() {}
 
+  ngOnInit() {
+    this.paragraphs = this.attributeData ? this.attributeData : this.data;
+    _.forEach(this.paragraphs, this.processParagraphs.bind(this));
+  }
+
   private processParagraphs(paragraph : ParagraphData) {
     let modifiedText = paragraph.text;
     while(modifiedText.match(this.argRegex) !== null) {
@@ -47,11 +52,6 @@ export class ParagraphComponent implements OnInit {
     };
     return options.hasOwnProperty(injectArgs.type) ?
            options[injectArgs.type](injectArgs.data) : '';
-  }
-
-  ngOnInit() {
-    this.paragraphs = this.attributeData ? this.attributeData : this.data;
-    _.forEach(this.paragraphs, this.processParagraphs.bind(this));
   }
 }
 

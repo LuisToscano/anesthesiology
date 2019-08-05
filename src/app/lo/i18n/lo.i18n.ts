@@ -7,13 +7,20 @@ export const LOi18n = {
             name: 'Inicio',
             slides: {
                 0: {
-                    name: 'Bienvenida'
+                    name: 'Bienvenida',
+                    header: 'Bienvenido a la unidad 0 del curso de Anestesiología',
+                    body: 'Hola. Mi nombre es %(character). Estaré a su lado durante todo el proceso de aprendizaje,' +
+                    'animándolo y brindándole herramientas que le serán muy útiles.',
+                    character: 'Jaime'
                 },
                 1: {
-                    name: 'Instrucción'
+                    name: 'Instrucción',
+                    body: 'Preste mucha atención a todas las instrucciones y léalas atentamente.'
                 },
                 2: {
-                    name: 'Sugerencia de navegación'
+                    name: 'Sugerencia de navegación',
+                    body: 'Por ahora, le sugiero que navegue el curso para que identifique la funcionalidad de cada botón. %(instruction)',
+                    instruction: 'Adelante...'
                 },
                 3: {
                     name: 'Información del curso'

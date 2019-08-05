@@ -1,0 +1,51 @@
+:host{
+    .lo-character-dialog{
+        width: 100%;
+        display: flex;
+
+        .character{
+            display: flex;
+            flex: 1;
+            img {
+                margin: 0 0 0 auto;
+            }
+        }
+
+        .dialog-container{
+            display: flex;
+            align-items: center;
+            flex: 2;
+            .outer-border{
+                width: 80%;
+                background: url('/assets/img/bocadillo.png');
+                background-repeat: no-repeat;
+                background-size: 100% 100%;
+                margin-top: -100px;
+
+                .dialog{
+                    margin-left: 25%;
+                    margin-top: 40px;
+                    padding: 10px 40px 20px 15px;
+
+                    ::ng-deep{
+                        p{
+                            margin-top: 0px;
+                            text-align: center;
+                            font-size: 22px;
+                            color: #333;
+                        }
+
+                        .dialog-header {
+                            font-size: 24px;
+                            color: #262262;
+                        }
+
+                        .dialog-highlight{
+                            color: white;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}

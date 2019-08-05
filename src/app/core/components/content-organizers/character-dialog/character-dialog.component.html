@@ -1,0 +1,12 @@
+<div class="lo-character-dialog">
+    <div class="character">
+        <img [src]="innerCharacterDialogData.character" />
+    </div>
+    <div class="dialog-container">
+        <div class="outer-border">
+            <div class="dialog" #dialog>
+                <paragraph [attributeData]="innerCharacterDialogData.paragraphs"></paragraph>
+            </div>
+        </div>
+    </div>
+</div>
