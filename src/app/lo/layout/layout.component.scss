@@ -43,6 +43,35 @@
                             }
                         }
                     }
+
+                    .subheader{
+                        p{
+                            color: #ad8114;
+                            font-size: 20px;
+                            margin-bottom: 10px;
+                        }
+                    }
+
+                    .subheader-2{
+                        p{
+                            color: #6f917c;
+                            font-size: 20px;
+                            margin-top: 10px;
+                        }
+                    }
+
+                    .author-box{
+                        p{
+                            &:first-of-type{
+                                color: #fbf9df;
+                                font-size: 22px;
+                                margin-top: 10px;
+                            }
+
+                            color: white;
+                            font-size: 15px;
+                        }
+                    }
                 }
             }
 

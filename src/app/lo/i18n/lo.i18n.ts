@@ -83,7 +83,45 @@ export const LOi18n = {
             name: 'Créditos',
             slides: {
                 0: {
-                    name: 'Créditos'
+                    name: 'Créditos',
+                    DNIA: 'Dirección Nacional de Innovación Académica',
+                    production: {
+                        tag: 'Producción, diseño y virtualización',
+                        list: [{
+                            name: 'Edgar Antonio Reyes Montano',
+                            role: 'Director'
+                        },{
+                            name: 'David Moreno Gómez',
+                            role: 'Coordinador de diseño'
+                        },{
+                            name: 'Diana Esperanza López López',
+                            role: 'Coordinadora de pedagogía'
+                        },{
+                            name: 'Victor Eduardo Tenjo',
+                            role: 'Adecuación pedagógica'
+                        },{
+                            name: 'Diana Rozo Rojas',
+                            role: 'Diseño de interfaz'
+                        },{
+                            name: 'Lina Margarita Otálora',
+                            role: 'Diseño gráfico'
+                        },{
+                            name: 'Giselle Pinzon Garzon',
+                            role: 'Diseño de personaje'
+                        },{
+                            name: 'Yenny Agudelo',
+                            role: 'Virtualización'
+                        }]
+                    },
+                    author: {
+                        tag: 'Autor',
+                        name: 'Pedro Herrera',
+                        credentials: 'Médico especialista en Anestesiología, Epidemiología y docencia universitaria. ' +
+                        'Profesor asistente de la Universidad Nacional de Colombia y médico especialista en el Hospital Santa Clara y ' +
+                        'en el Instituto Materno Infantil, instituciones de tercero y cuarto niveles, vinculadas a la formación del recurso humano en salud. ' +
+                        'Ejerce labores docentes con estudiantes de pregrado de Medicina y de postgrado en la especialización de Anestesiología y Reanimación. ' +
+                        'Orienta la ejecución y publicación de trabajos de investigación en el postgrado de Anestesiólogía.'
+                    }
                 }
             }
         }
