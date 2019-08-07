@@ -138,6 +138,36 @@ export const techRequirementsSectionSlide1 : Slide = {
         }],
         classes: ['p-no-padding-container'],
         flex: 0
+    }, {
+        cols: [{
+            type: ComponentType.Basic,
+            component: DownloadComponent,
+            data: {
+                text: tags.browsers.downloadChrome,
+                img: './assets/img/chrome_icon.png',
+                url: 'http://www.google.com/chrome'
+            },
+            style: {
+                flexDirection: 'column',
+                alignItems: 'center'
+            }
+        },{
+            type: ComponentType.Basic,
+            component: DownloadComponent,
+            data: {
+                text: tags.browsers.downloadFirefox,
+                img: './assets/img/firefox_icon.png',
+                url: 'http://www.mozilla.com/es-ES/firefox/'
+            },
+            style: {
+                flexDirection: 'column',
+                alignItems: 'center'
+            }
+        }],
+        style: {
+            padding: '20px 0'
+        },
+        flex: 0
     },
     {
         cols: [{
@@ -282,7 +312,11 @@ export const techRequirementsSectionSlide1 : Slide = {
         cols: [{
             type: ComponentType.Basic,
             component: DownloadComponent,
-            data: {}
+            data: {
+                text: tags.plugins.downloadAdobe,
+                img: './assets/img/adobe_icon.png',
+                url: 'http://get.adobe.com/es/reader/'
+            }
         }],
         style: {
             padding: '20px 0',

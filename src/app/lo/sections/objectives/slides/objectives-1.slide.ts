@@ -15,7 +15,7 @@ export const objectivesSectionSlide1 : Slide = {
                 source: './assets/img/objetivo_general.png',
                 style: {
                     maxWidth: '100%',
-                    marginTop: '4px'
+                    marginTop: '53px'
                 }
             },
             classes: ['center-img']

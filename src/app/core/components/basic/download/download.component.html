@@ -1,6 +1,6 @@
 <div class="lo-download">
-    <img [src]="'./assets/img/adobe_icon.png'" />
-    <a class="btn">
-        Descargar Adobe Reader
+    <img [src]="innerDownloadData.img" />
+    <a [href]="innerDownloadData.url" class="btn">
+        {{innerDownloadData.text}}
     </a>
 </div>

@@ -108,7 +108,9 @@ export const LOi18n = {
                         iexplorer: 'IE9+',
                         firefox: 'Mozilla 32.0',
                         safari: 'Safari 5.1.10',
-                        chrome: 'Chrome 37.0'
+                        chrome: 'Chrome 37.0',
+                        downloadChrome: 'Descargar Google Chrome',
+                        downloadFirefox: 'Descargar Mozilla Firefox'
                     },
                     screenResolution: {
                         tag: 'Resolución de pantalla',
@@ -124,7 +126,8 @@ export const LOi18n = {
                         statement3: '%(adobe) es el estándar mundial para visualizar e imprimir documentos PDF en prácticamente cualquier plataforma.',
                         pluginsUpperCase: 'Plugins',
                         pluginsLowerCase: 'plugins',
-                        adobe: 'Adobe Reader'
+                        adobe: 'Adobe Reader',
+                        downloadAdobe: 'Descargar Adobe Reader'
                     }
                 }
             }
