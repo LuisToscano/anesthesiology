@@ -99,7 +99,10 @@ export const LOExtras : LOExtrasContent = {
                             type: ComponentType.Basic,
                             component: ImgComponent,
                             data: {
-                                source: './assets/img/ayuda.jpg'
+                                source: './assets/img/ayuda.jpg',
+                                style: {
+                                    maxWidth: '100%'
+                                }
                             }
                         }, {
                             type: ComponentType.Basic,

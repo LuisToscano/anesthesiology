@@ -5,6 +5,8 @@ import { ParagraphComponent } from '../../../../core/components/basic/paragraph/
 import { VoidComponent } from '../../../../core/components/basic/void/void.component';
 import { SimpleContainerComponent } from '../../../../core/components/content-organizers/simple-container/simple-container.component';
 import { ImgComponent } from '../../../../core/components/basic/img/img.component';
+import { ParagraphArgumentType } from '../../../../core/components/basic/paragraph/paragraph.enum';
+import { LinkComponent } from '../../../../core/components/basic/link/link.component';
 
 const tags = LOi18n.sections.credits.slides[0];
 
@@ -80,16 +82,78 @@ export const creditsSectionSlide1 : Slide = {
             data: [{
                 text: tags.production.tag,
                 args: {}
-            }],
-            classes: ['subheader-2']
+            }].concat(tags.production.list.map(el => {
+                return {
+                    text: '%(role): ' + el.name,
+                    args: {
+                        role: {
+                            type: ParagraphArgumentType.Class,
+                            data: {
+                                innerText: el.role,
+                                class: 'credits-role'
+                            }
+                        }
+                    }
+                };
+            })),
+            classes: ['credits-list']
         }],
-        flex: 5
+        flex: 6
     },{
         cols: [{
-            type: ComponentType.Basic,
-            component: VoidComponent,
-            data: {}
+            type: ComponentType.ContentOrganizer,
+            component: SimpleContainerComponent,
+            data: [{
+                rows: [{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: ParagraphComponent,
+                        data: [{
+                            text: tags.images.tag,
+                            args: {}
+                        }],
+                        classes: ['subheader-2'],
+                        style: {
+                            paddingLeft: '10px'
+                        }
+                    }],
+                    style: {
+                        borderTop: 'dotted 1px gray'
+                    }
+                },{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: LinkComponent,
+                        data: {
+                            text: 'Freepik.com',
+                            url: 'https://www.freepik.es/vector-gratis/infografia-medios-comunicacion_722128.htm',
+                            img: './assets/img/freepik_icon.png'
+                        },
+                        style: {
+                            paddingLeft: '30px'
+                        }
+                    }]
+                },{
+                    cols: [{
+                        type: ComponentType.Basic,
+                        component: LinkComponent,
+                        data: {
+                            text: 'Depositphotos.com',
+                            url: 'https://sp.depositphotos.com/14157025/stock-photo-anesthesia-mask-holding-by-a.html',
+                            img: './assets/img/deposit_icon.png'
+                        },
+                        style: {
+                            paddingLeft: '30px'
+                        }
+                    }]
+                }]
+            }]
         }],
-        flex: 2
+        flex: 3,
+        style: {
+            padding: '0 15px',
+            marginTop: '20px'
+        }
+        
     }]
 };

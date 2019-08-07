@@ -1,0 +1,23 @@
+.lo-link{
+    .link-img, .link-txt{
+        display: inline-block;
+        vertical-align: middle;
+    }
+
+    .link-img {
+        width: 30px;
+        height: 30px;
+        margin-right: 5px;
+    }
+
+    .link-txt {
+        font-size: 15px;
+        text-decoration: none;
+        color: #ad8114;
+
+        &:hover{
+            color: #577B65;
+            text-decoration: underline;
+        }
+    }
+}

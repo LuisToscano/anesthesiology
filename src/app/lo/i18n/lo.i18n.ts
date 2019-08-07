@@ -75,7 +75,57 @@ export const LOi18n = {
             name: 'Requerimientos técnicos',
             slides: {
                 0: {
-                    name: 'Requerimientos'
+                    name: 'Requerimientos',
+                    statement: 'Para la correcta visualización de este recurso digital educativo son necesarias las siguientes características y requisitos:',
+                    hardware: {
+                        tag: 'Hardware',
+                        operativeSystem: {
+                            tag: 'Sistema operativo',
+                            info: 'Windows Vista+, Mac OS X 10.6+'
+                        },
+                        RAM: {
+                            tag: 'RAM',
+                            content: [
+                                'Windows: 2G de RAM',
+                                'Mac OS X: 1G de RAM',
+                                'Linux y Solaris: 1G de RAM'
+                            ]
+                        }
+                    },
+                    internet: {
+                        tag: 'Conexión a Internet',
+                        bandwidth: {
+                            tag: 'Ancho de banda',
+                            info: '1 Mb/seg +'
+                        }
+                    },
+                    browsers: {
+                        tag: 'Navegadores',
+                        statement: 'El más conocido hoy es Internet Explorer de Microsoft que viene instalado con Windows, pero es posible y recomendable ' +
+                        'disponer de alternativas gratuitas que permiten no solo visualizar más rápido, sino de mejor forma los contenidos del curso. De estas ' +
+                        'alternativas, se sugiere utilizar Google Chrome y Mozilla Firefox.',
+                        statement2: 'Este curso ha sido probado en %(iexplorer) , %(firefox), %(safari) y %(chrome).',
+                        iexplorer: 'IE9+',
+                        firefox: 'Mozilla 32.0',
+                        safari: 'Safari 5.1.10',
+                        chrome: 'Chrome 37.0'
+                    },
+                    screenResolution: {
+                        tag: 'Resolución de pantalla',
+                        statement: 'Para una mejor y más cómoda visualización, se recomienda como resolución mínima %(resolution) píxeles.',
+                        resolution: '1024 X 768'
+                    },
+                    plugins: {
+                        tag: '%(plugins) (Reproductores)',
+                        statement: 'En este curso se pueden encontrar diferentes contenidos como secuencias de video, animaciones interactivas, objetos de aprendizaje o ' +
+                        'textos en formato PDF. Para poder visualizar correctamente estos archivos es necesario tener instalado el reproductor adecuado, provisto gratuitamente ' +
+                        'por el creador del formato o quien lo comercializa. Estos reproductores y %(plugins) tienen un autoinstalador, que al ser asistido, hará muy sencilla su implementación.',
+                        statement2: 'Los siguientes reproductores son necesarios para seguir este curso, y recomendados para la navegación por Internet en general:',
+                        statement3: '%(adobe) es el estándar mundial para visualizar e imprimir documentos PDF en prácticamente cualquier plataforma.',
+                        pluginsUpperCase: 'Plugins',
+                        pluginsLowerCase: 'plugins',
+                        adobe: 'Adobe Reader'
+                    }
                 }
             }
         },
@@ -121,6 +171,9 @@ export const LOi18n = {
                         'en el Instituto Materno Infantil, instituciones de tercero y cuarto niveles, vinculadas a la formación del recurso humano en salud. ' +
                         'Ejerce labores docentes con estudiantes de pregrado de Medicina y de postgrado en la especialización de Anestesiología y Reanimación. ' +
                         'Orienta la ejecución y publicación de trabajos de investigación en el postgrado de Anestesiólogía.'
+                    },
+                    images: {
+                        tag: 'Créditos imágenes'
                     }
                 }
             }

@@ -18,6 +18,8 @@ import { ListComponent } from './components/basic/list/list.component';
 import { ImgComponent } from './components/basic/img/img.component';
 import { ButtonComponent } from './components/basic/button/button.component';
 import { VoidComponent } from './components/basic/void/void.component';
+import { LinkComponent } from "./components/basic/link/link.component";
+import { DownloadComponent } from "./components/basic/download/download.component";
 import { BaseCourseContainerComponent } from './components/layout/base-course-container/base-course-container.component';
 
 //PROVIDERS
@@ -75,7 +77,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     CopyrightComponent,
     LOModalComponent,
     SimpleContainerComponent,
-    CharacterDialogComponent
+    CharacterDialogComponent,
+    LinkComponent,
+    DownloadComponent
   ],
   imports: [
     BrowserModule,
@@ -115,7 +119,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     CopyrightComponent,
     LOModalComponent,
     SimpleContainerComponent,
-    CharacterDialogComponent
+    CharacterDialogComponent,
+    LinkComponent,
+    DownloadComponent
   ],
   entryComponents: [
     ParagraphComponent,
@@ -133,7 +139,9 @@ import { ModalsModule } from './components/layout/modals/modals.module';
     CopyrightComponent,
     LOModalComponent,
     SimpleContainerComponent,
-    CharacterDialogComponent
+    CharacterDialogComponent,
+    LinkComponent,
+    DownloadComponent
   ]
 })
 export class CoreModule { }
